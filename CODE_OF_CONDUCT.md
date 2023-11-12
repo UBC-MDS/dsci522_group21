@@ -36,7 +36,7 @@ Unacceptable behavior will not be tolerated. Those asked to stop any inappropria
 
 ## Reporting Guidelines
 
-If you witness or are subjected to behavior that violates this Code of Conduct, or have any other inquiries, please report this at [zeilygar\@student.ubc.ca](mailto:zeilygar@student.ubc.ca){.email}. The community leaders will review and investigate all complaints and respond in a way that they deem appropriate to the circumstances. All reports will be kept confidential and will not be publicly visible. Visibility will only be granted to group leaders, which currently include:
+If you witness or are subjected to behavior that violates this Code of Conduct, or have any other inquiries, please report this at [zeilygar\@student.ubc.ca](mailto:zeilygar@student.ubc.ca). The community leaders will review and investigate all complaints and respond in a way that they deem appropriate to the circumstances. All reports will be kept confidential and will not be publicly visible. Visibility will only be granted to group leaders, which currently include:
 
 -   Jerry Yu
 
