@@ -7506,10 +7506,10 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="Methods">Methods<a class="anchor-link" href="#Methods">¶</a></h1><h2 id="Data">Data<a class="anchor-link" href="#Data">¶</a></h2><p>The data set utilized in this project was created by Sérgio Moro, P. Cortez, and P. Rita, and is hosted on the UCI Machine Learning Repository (Moro et al., 2014). It can be accessed <a href="https://archive.ics.uci.edu/ml/datasets/bank+marketing">here</a>. The data was sourced from the marketing campaigns of a Portuguese banking institution, focusing on client subscriptions to term deposits. The primary dataset, <code>bank-full.csv</code>, includes 45,211 examples with 17 input features. Each row in the dataset represents information from a client contact during the campaign. This dataset comprehensively covers client demographic information (such as age, job type, marital status, and education level), financial information (including credit default history, average yearly balance, housing and personal loan status), and information about bank marketing (like the type of contact, date of the last contact, call duration, number of contacts in the current campaign, days elapsed since the last contact in a previous campaign, outcome of the previous campaigns, and finally, whether the client will subscribe to a term deposit [variable y], a binary outcome).</p>
-<h2 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">¶</a></h2><p>Logistic regression and decision tree classifiers were employed to develop a model for determining the top 3 factors that aid in predicting if a client will subscribe to a term deposit (variable y). All variables included in the original data set, with the exception of <code>contact</code> and <code>poutcome</code> , which contained too many unknown examples, were used to fit the model. The exploratory data analysis initially focused on understanding variable distributions and their relationship to the target variable. It employed visualizations like bar charts and histograms for categorical and numerical variables. Correlation heatmaps were generated to assess the relationships among numerical features and to detect potential multicollinearity.</p>
-<p>In the preprocessing phase, categorical variables were transformed using one-hot encoding, ordered variables were ordinal encoded, and numerical variables were standardized. The data was then split, assigning 75% to the training set and 25% to the test set. The logistic regression model, implemented using scikit-learn's LogisticRegression, aimed to uncover the relationship between the predictors and the likelihood of a client subscribing to a term deposit. Similarly, the decision tree classifier was employed to identify the decision-making structure that leads to subscriptions based on the features. Both models were thoroughly evaluated using accuracy, precision, and recall.</p>
+<h2 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">¶</a></h2><p>Logistic regression and decision tree classifiers were employed to develop a model for determining the top 3 factors that aid in predicting if a client will subscribe to a term deposit (variable y). All variables included in the original data set, with the exception of <code>contact</code> and <code>poutcome</code> , which contained too many unknown examples, were used to fit the model. The exploratory data analysis focused on understanding variable distributions and relationships between features. It employed visualizations like bar charts and histograms for categorical and numerical variables. Correlation heatmaps were generated to assess the relationships among numerical features and to detect potential multicollinearity.</p>
+<p>In the preprocessing phase, categorical variables were transformed using one-hot encoding, ordered variables were ordinal encoded, and numerical variables were standardized. The data was then split, assigning 75% to the training set and 25% to the test set. The logistic regression model aimed to look into the relationship between the predictors and the likelihood of a client subscribing to a term deposit. Similarly, the decision tree classifier was employed to identify the decision making framework that leads to subscriptions based on the features. Both models were thoroughly evaluated using accuracy, precision, and recall.</p>
 <p>Python Language (Van Rossum &amp; Drake, 2009) and its libraries, including pandas (McKinney, 2010), NumPy (Harris et al., 2020), scikit-learn (Pedregosa et al., 2011), and Altair (VanderPlas, 2018), were essential for the analysis. The complete code and methodology are documented in [<a href="https://github.com/UBC-MDS/dsci522_group21/blob/add-models/term_deposit_analysis.ipynb">https://github.com/UBC-MDS/dsci522_group21/blob/add-models/term_deposit_analysis.ipynb</a>].</p>
-<p>The analysis revealed that logistic regression exhibited slightly better precision than the decision tree classifier, with a smaller gap between training and testing scores, suggesting better generalizability. Upon model fitting and evaluation, the top three features predicting a client's decision to subscribe to a term deposit were identified by sorting feature (coefficient) importance.</p>
+<p>The analysis revealed that Logistic Regression exhibited slightly better precision than the decision tree classifier, with a smaller gap between training and testing scores, suggesting better generalizability. Upon model fitting and evaluation, the top three features predicting a client's decision to subscribe to a term deposit were identified by sorting feature (coefficient) importance.</p>
 </div>
 </div>
 </div>
@@ -7584,7 +7584,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>It was noted that the dataset exhibits an imbalance in class proportions within the target. Additionally, the features <code>job</code>, <code>education</code>, <code>contact</code>, and <code>poutcome</code> include "unknown" entries distinct from null values. Due to insufficient dataset information, proper imputation of these unknown values is not feasible. Specifically, the <code>contact</code> and <code>poutcome</code> columns, containing excessive unknown values, required removal. Eliminating only the unknown values from these columns was deemed impractical as it would significantly reduce data, which is particularly problematic given the dataset's size. On the other hand, the <code>job</code> and <code>education</code> features, despite also containing unknown values, were manageable and were retained by simply removing the unknown entries.</p>
+<p>During our analysis, it was noted that the dataset exhibits an imbalance in class proportions within the target. Additionally, the features <code>job</code>, <code>education</code>, <code>contact</code>, and <code>poutcome</code> include "unknown" entries distinct from null values. Due to insufficient dataset information, proper imputation of these unknown values is not feasible. Specifically, the <code>contact</code> and <code>poutcome</code> columns, containing excessive unknown values, required removal. Eliminating only the unknown values from these columns was deemed impractical as it would significantly reduce the data. On the other hand, the <code>job</code> and <code>education</code> features, despite also containing unknown values, were manageable and were retained by simply removing the unknown entries.</p>
 </div>
 </div>
 </div>
@@ -7724,14 +7724,14 @@ a.anchor-link {
     <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">'previous'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">'quantitative'</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Bin</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">40</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Interactions'</span><span class="p">),</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">'count()'</span>
 <span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">'Figure 2 - Number of Contacts Before this Campaign'</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">'Figure 2 - Number of Contacts Before this Campaign (previous)'</span>
 <span class="p">)</span>
 
 <span class="n">Fig_3</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">train_df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">'pdays'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">'quantitative'</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Bin</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">40</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Days'</span><span class="p">),</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">'count()'</span>
 <span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">'Figure 3 - Days Passed after Last Contact'</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">'Figure 3 - Days Passed after Last Contact (pdays)'</span>
 <span class="p">)</span>
 
 
@@ -7856,10 +7856,9 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># correlation between pdays and previous</span>
-<span class="n">Fig_5</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">train_df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Figure 5 - pdays vs previous"</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s2">"pdays"</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"previous"</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">clamp</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">Fig_5</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">train_df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Figure 5 - Recency (pdays) vs Intensity (previous)"</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"pdays"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Days (pdays)'</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"previous"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Interactions (previous)'</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">clamp</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="p">)</span>
 <span class="n">Fig_5</span>
 </pre></div>
@@ -8023,7 +8022,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>Model Training and Evaluation</strong></p>
-<p>In our analysis, three distinct models were evaluated: a baseline dummy classifier, a decision tree, and logistic regression. Employing a cross-validation with five folds, we assessed these models based on key metrics: accuracy, precision, and recall. This approach enabled a thorough comparison of each model's effectiveness, with a specific focus on recall, given its significance in accurately predicting positive cases of subscription.</p>
+<p>Our analysis evaluated three distinct models: a baseline dummy classifier, a decision tree, and logistic regression. We assessed these models using five-fold cross-validation based on key metrics: accuracy, precision, and recall. These metrics allowed us to assess whether the unbalanced nature of our dataset would contribute to potential type 1 or type 2 errors and enabled a thorough comparison of each model's effectiveness.</p>
 </div>
 </div>
 </div>
@@ -8349,7 +8348,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">lr_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
@@ -8410,7 +8409,7 @@ weighted avg       0.89      0.90      0.89     11303
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">categorical_cols</span> <span class="o">=</span> <span class="n">lr_pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">'columntransformer'</span><span class="p">]</span><span class="o">.</span><span class="n">named_transformers_</span><span class="p">[</span><span class="s1">'onehotencoder'</span><span class="p">]</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
@@ -8437,12 +8436,12 @@ weighted avg       0.89      0.90      0.89     11303
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">feature_importance</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'coef'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
@@ -8578,7 +8577,7 @@ weighted avg       0.89      0.90      0.89     11303
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Our Logistic Regression model showed promising results in predicting client subscriptions to term deposits. Future improvements could involve exploring more complex models like Random Forests and adjusting the threshold to enhance precision. Understanding the reasons behind the potential seasonality trend and incorporating additional data could also yield more insightful observations.</p>
+<p>Our Logistic Regression model showed promising results in predicting client subscriptions to term deposits. Future improvements could involve exploring more complex models like Random Forests and adjusting the threshold to enhance precision. Understanding the reasons behind the potential seasonality trend and incorporating additional data could also yield more insightful observations. Moreover, given that during model comparison the difference in scores where minimal, the top three features selected by the Decision Tree Classifier are worth looking into.</p>
 </div>
 </div>
 </div>
@@ -8593,7 +8592,7 @@ weighted avg       0.89      0.90      0.89     11303
 <li>Harris, C.R. et al., 2020. Array programming with NumPy. Nature, 585, pp.357–362.</li>
 <li>Moro,S., Rita,P., and Cortez,P., 2012. Bank Marketing. UCI Machine Learning Repository. <a href="https://doi.org/10.24432/C5K306">https://doi.org/10.24432/C5K306</a>.</li>
 <li>Pedregosa, F. et al., 2011. Scikit-learn: Machine learning in Python. Journal of machine learning research, 12(Oct), pp.2825–2830.</li>
-<li>Timbers,T. , Ostblom,J., and Lee,M. , 2023. Breast Cancer Predictor Report. GitHub repository, <a href="https://github.com/ttimbers/breast_cancer_predictor_py/blob/0.0.1/src/breast_cancer_predictor_report.ipynb">https://github.com/ttimbers/breast_cancer_predictor_py/blob/0.0.1/src/breast_cancer_predictor_report.ipynb</a></li>
+<li>Timbers,T. , Ostblom,J., and Lee,M., 2023. Breast Cancer Predictor Report. GitHub repository, <a href="https://github.com/ttimbers/breast_cancer_predictor_py/blob/0.0.1/src/breast_cancer_predictor_report.ipynb">https://github.com/ttimbers/breast_cancer_predictor_py/blob/0.0.1/src/breast_cancer_predictor_report.ipynb</a></li>
 <li>Van Rossum, Guido, and Fred L. Drake. 2009. Python 3 Reference Manual. Scotts Valley, CA: CreateSpace.</li>
 <li>VanderPlas, J. et al., 2018. Altair: Interactive statistical visualizations for python. Journal of open source software, 3(32), p.1057.</li>
 </ul>
