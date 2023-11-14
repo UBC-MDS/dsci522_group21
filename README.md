@@ -1,19 +1,25 @@
-# Bank Marketing Campaign on Term Deposit Analysis
+# Identifying the Top Three Predictors of Term Deposit Subscriptions Analysis
 
   - Authors: Jerry Yu, John Shiu, Sophia Zhao, Zeily Garcia
   - Contributors: 
 
-An analysis project investigating the effectiveness of direct marketing campaigns on term deposit of a Portuguese banking institution.
+This repository contains the code and analysis for the project "Identifying the Top Three Predictors of Term Deposit Subscriptions". Our team has explored a dataset from a Portuguese bank's marketing campaigns to understand what factors contribute to clients' decisions to subscribe to term deposits.
 
 ## About
 
-This project analyzes the success rate of bank marketing campaigns in selling term deposits. Using a dataset from the UCI repository with 45,211 instances and 16 features, we aim to predict whether a client will subscribe to a term deposit. Our predictive models, using `altair` visualizations, aim to improve targeting efficiency and ultimately the success rate of the campaigns.
+This repository documents our analysis on the determinants of term deposit subscriptions within a Portuguese bank, harnessing a dataset that tracks 45,211 client interactions across 17 distinct input features. We have implemented logistic regression and decision tree classifiers to unearth the principal three factors that predict a client's propensity to subscribe to a term deposit. The data preprocessing phase was meticulous, involving the rectification of missing entries, encoding of categorical variables, and normalization of numerical variables to prepare for robust analysis.
 
-The dataset includes demographic information, contact details, and campaign outcomes. It is fully detailed, with categorical and integer types, and is used for classification tasks.
+The crux of our exploratory data analysis was the strategic use of visualizations to unravel the nuances in feature distributions and inter-feature correlations. Our model evaluation was meticulously tailored to emphasize precision and recall, a decision dictated by the inherent class imbalance present within the dataset. In this rigorous analytical process, logistic regression emerged as a marginally more precise model compared to the decision tree classifier.
+
+Significantly, the analysis culminated in pinpointing the outcome of prior marketing campaigns, the timing of client contact within the year, and the duration of the calls as pivotal indicators of subscription likelihood. These insights not only shed light on the client's decision-making dynamics but also carve out potential avenues for further scholarly inquiry and practical application in marketing strategies for banking products.
+
+## Insights and Future Directions
+
+The report's findings are instrumental for banking institutions to comprehend and predict customer behavior concerning term deposit subscriptions. This predictive understanding is essential for refining marketing approaches and enhancing the efficiency of future campaigns. We believe that these insights can serve as a cornerstone for further research, potentially exploring more sophisticated analytical models and integrating additional datasets to delve into the observed seasonal patterns and other underlying phenomena influencing client decisions.
 
 ## Report
 
-The complete report can be found [here]([Link to the report]).
+The complete report can be found [here](https://github.com/UBC-MDS/dsci522_group21/tree/report/src).
 
 ## Usage
 
@@ -48,11 +54,11 @@ To replicate the analysis:
 
 1. Datasets: `bank-full.csv`, `bank-names.csv`, `bank.csv`, `bank-additional-full.csv`, `bank-additional-names.csv`, `bank-additional.csv`
 2. Scripts: `term_deposit_analysis.ipynb`
-3. Report: `term_deposit_analysis.pdf`
+3. Report: `term_deposit_analysis.html`
 
 ## License
 
-This analysis is licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) license. Please provide proper attribution when using or modifying the analysis.  
+This project is licensed under the MIT License - see the LICENSE.md file for details.  
 
 # References
 
