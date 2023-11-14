@@ -62,40 +62,9 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 # References
 
-<div id="refs" class="references hanging-indent">
-
-<div id="ref-Moro">
-
-Moro,S., Rita,P., and Cortez,P.. (2012). Bank Marketing. UCI Machine Learning Repository. <https://doi.org/10.24432/C5K306>.
-
-</div>
-
-<div id="ref-Suman">
-
-Bera, Suman Kalyan et al. “Fair Algorithms for Clustering.” Neural Information Processing Systems (2019). <https://www.semanticscholar.org/paper/Fair-Algorithms-for-Clustering-Bera-Chakrabarty/34a46c62cb3a7809db4ed7d0c1a651f538b9fe87#citing-papers>.
-
-</div>
-
-<div id="ref-Ziko">
-
-Ziko, Imtiaz Masud et al. “Clustering with Fairness Constraints: A Flexible and Scalable Approach.” ArXiv abs/1906.08207 (2019): n. pag. <https://www.semanticscholar.org/paper/Clustering-with-Fairness-Constraints%3A-A-Flexible-Ziko-Granger/d56841fe68f2a913583a40edf541efeaed0a7e5b>.
-
-</div>
-
-<div id="ref-Lamy">
-
-Lamy, Alexandre Louis et al. “Noise-tolerant fair classification.” ArXiv abs/1901.10837 (2019): n. pag. <https://www.semanticscholar.org/paper/Noise-tolerant-fair-classification-Lamy-Zhong/c4ac496bf57410638260196a25d8ae3366ea03c7>.
-
-</div>
-
-<div id="ref-Iosifidis">
-
-Iosifidis, Vasileios and Eirini Ntoutsi. “AdaFair: Cumulative Fairness Adaptive Boosting.” Proceedings of the 28th ACM International Conference on Information and Knowledge Management (2019): n. pag.<https://www.semanticscholar.org/paper/AdaFair%3A-Cumulative-Fairness-Adaptive-Boosting-Iosifidis-Ntoutsi/18fe4800f3c85f315d79063d6b0fe38c7610ad45>.
-
-</div>
-
-<div id="ref-Lamy">
-
-Vaz, Afonso Fernandes et al. “Quantification under prior probability shift: the ratio estimator and its extensions.” ArXiv abs/1807.03929 (2018): n. pag.<https://www.semanticscholar.org/paper/Quantification-under-prior-probability-shift%3A-the-Vaz-Izbicki/50adf7b8fd1274149a195ef4a7b4ab9f84b3dd13>.
-
-</div>
+- Harris, C.R. et al., 2020. Array programming with NumPy. Nature, 585, pp.357–362.\n",
+- Moro,S., Rita,P., and Cortez,P., 2012. Bank Marketing. UCI Machine Learning Repository. https://doi.org/10.24432/C5K306.\n",
+- Pedregosa, F. et al., 2011. Scikit-learn: Machine learning in Python. Journal of machine learning research, 12(Oct), pp.2825–2830.\n",
+- Timbers,T. , Ostblom,J., and Lee,M., 2023. Breast Cancer Predictor Report. GitHub repository, https://github.com/ttimbers/breast_cancer_predictor_py/blob/0.0.1/src/breast_cancer_predictor_report.ipynb\n",
+- Van Rossum, Guido, and Fred L. Drake. 2009. Python 3 Reference Manual. Scotts Valley, CA: CreateSpace.\n",
+- VanderPlas, J. et al., 2018. Altair: Interactive statistical visualizations for python. Journal of open source software, 3(32), p.1057."
