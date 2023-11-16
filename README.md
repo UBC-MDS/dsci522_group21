@@ -19,7 +19,7 @@ The report's findings are instrumental for banking institutions to comprehend an
 
 ## Report
 
-The complete report can be found [here](url).
+The complete report can be found [here](https://htmlpreview.github.io/?https://github.com/UBC-MDS/dsci522_group21/blob/main/src/term_deposit_report.html).
 
 ## Usage
 
