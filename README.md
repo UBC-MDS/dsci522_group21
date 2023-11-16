@@ -19,7 +19,7 @@ The report's findings are instrumental for banking institutions to comprehend an
 
 ## Report
 
-The complete report can be found [here](https://github.com/UBC-MDS/dsci522_group21/tree/report/src).
+The complete report can be found [here](url).
 
 ## Usage
 
@@ -54,7 +54,7 @@ To replicate the analysis:
 
 1. Datasets: `bank-full.csv`, `bank-names.csv`, `bank.csv`, `bank-additional-full.csv`, `bank-additional-names.csv`, `bank-additional.csv`
 2. Scripts: `term_deposit_analysis.ipynb`
-3. Report: `term_deposit_analysis.html`
+3. Report: `term_deposit_analysis.html`, `term_deposit_analysis.pdf`
 
 ## License
 
