@@ -1,4 +1,4 @@
-# Contributing to the Bank Marketing Campaign Analysis Project
+# Contributing to Identifying the Top Three Predictors of Term Deposit Subscriptions Analysis Project
 
 This document outlines how to contribute to the Bank Marketing Campaign Analysis project.
 
