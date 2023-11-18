@@ -53,8 +53,8 @@ To replicate the analysis:
 ## File Consumption Order
 
 1. Datasets: `bank-full.csv`, `bank-names.csv`, `bank.csv`, `bank-additional-full.csv`, `bank-additional-names.csv`, `bank-additional.csv`
-2. Scripts: `term_deposit_analysis.ipynb`
-3. Report: `term_deposit_analysis.html`, `term_deposit_analysis.pdf`
+2. Scripts: `term_deposit_report.ipynb`, `term_deposit_full_analysis.ipynb`
+3. Report: `term_deposit_report.html`
 
 ## License
 
