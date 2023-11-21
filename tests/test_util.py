@@ -83,3 +83,28 @@ def test_eda_mark():
     assert num_chart_2.to_dict()["spec"]["mark"]["type"] == "bar", "Wrong mark type."
     assert "bin" in num_chart_2.to_dict()["spec"]["encoding"]["x"].keys(), "Should be a histogram."
     assert cate_chart_2.to_dict()["spec"]["mark"]["type"] == "bar", "Wrong mark type."
+
+def test_eda_data_type():
+    np.random.seed(123)
+    test_data = pd.DataFrame({
+        "cate1": ["a", "a", "b", "b", "b", "c", "a", "b", "a", "c"],
+        "cate2": ["c", "c", "b", "b", "b", "a", "c", "b", "c", "a"],
+        "num1": np.random.normal(size=10),
+        "num2": np.random.normal(size=10)
+    })
+
+    num_chart_1, cate_chart_1 = eda_plots(test_data, numerical_cols=["num1"], categorical_cols=["cate1"])
+    num_chart_2, cate_chart_2 = eda_plots(test_data, numerical_cols=["num1", "num2"], categorical_cols=["cate1", "cate2"])
+
+    assert num_chart_1.to_dict()["spec"]["encoding"]["x"]["type"] == "quantitative", "Wrong data type for x in numerical chart."
+    assert num_chart_1.to_dict()["spec"]["encoding"]["y"]["aggregate"] == "count", "Wrong data type for y in numerical chart."
+    assert num_chart_1.to_dict()["spec"]["encoding"]["y"]["type"] == "quantitative", "Wrong data type for y in numerical chart."
+    assert cate_chart_1.to_dict()["spec"]["encoding"]["x"]["aggregate"] == "count", "Wrong data type for x in categorical chart."
+    assert cate_chart_1.to_dict()["spec"]["encoding"]["x"]["type"] == "quantitative", "Wrong data type for x in categorical chart."
+    assert cate_chart_1.to_dict()["spec"]["encoding"]["y"]["type"] == "nominal", "Wrong data type for y in categorical chart."
+    assert num_chart_2.to_dict()["spec"]["encoding"]["x"]["type"] == "quantitative", "Wrong data type for x in numerical chart."
+    assert num_chart_2.to_dict()["spec"]["encoding"]["y"]["aggregate"] == "count", "Wrong data type for y in numerical chart."
+    assert num_chart_2.to_dict()["spec"]["encoding"]["y"]["type"] == "quantitative", "Wrong data type for y in numerical chart."
+    assert cate_chart_2.to_dict()["spec"]["encoding"]["x"]["aggregate"] == "count", "Wrong data type for x in categorical chart."
+    assert cate_chart_2.to_dict()["spec"]["encoding"]["x"]["type"] == "quantitative", "Wrong data type for x in categorical chart."
+    assert cate_chart_2.to_dict()["spec"]["encoding"]["y"]["type"] == "nominal", "Wrong data type for y in categorical chart."
