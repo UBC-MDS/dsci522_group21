@@ -60,8 +60,26 @@ def test_eda_repeat():
     num_chart_1, cate_chart_1 = eda_plots(test_data, numerical_cols=["num1"], categorical_cols=["cate1"])
     num_chart_2, cate_chart_2 = eda_plots(test_data, numerical_cols=["num1", "num2"], categorical_cols=["cate1", "cate2"])
 
-    print(num_chart_1.to_dict()["repeat"])
     assert num_chart_1.to_dict()["repeat"] == ["num1"], "Wrong columns were being repeated for num_chart_1."
     assert cate_chart_1.to_dict()["repeat"] == ["cate1"], "Wrong columns were being repeated for cate_chart_1."
     assert num_chart_2.to_dict()["repeat"] == ["num1", "num2"], "Wrong columns were being repeated for num_chart_2."
     assert cate_chart_2.to_dict()["repeat"] == ["cate1", "cate2"], "Wrong columns were being repeated for cate_chart_2."
+
+def test_eda_mark():
+    np.random.seed(123)
+    test_data = pd.DataFrame({
+        "cate1": ["a", "a", "b", "b", "b", "c", "a", "b", "a", "c"],
+        "cate2": ["c", "c", "b", "b", "b", "a", "c", "b", "c", "a"],
+        "num1": np.random.normal(size=10),
+        "num2": np.random.normal(size=10)
+    })
+
+    num_chart_1, cate_chart_1 = eda_plots(test_data, numerical_cols=["num1"], categorical_cols=["cate1"])
+    num_chart_2, cate_chart_2 = eda_plots(test_data, numerical_cols=["num1", "num2"], categorical_cols=["cate1", "cate2"])
+
+    assert num_chart_1.to_dict()["spec"]["mark"]["type"] == "bar", "Wrong mark type."
+    assert "bin" in num_chart_1.to_dict()["spec"]["encoding"]["x"].keys(), "Should be a histogram."
+    assert cate_chart_1.to_dict()["spec"]["mark"]["type"] == "bar", "Wrong mark type."
+    assert num_chart_2.to_dict()["spec"]["mark"]["type"] == "bar", "Wrong mark type."
+    assert "bin" in num_chart_2.to_dict()["spec"]["encoding"]["x"].keys(), "Should be a histogram."
+    assert cate_chart_2.to_dict()["spec"]["mark"]["type"] == "bar", "Wrong mark type."
