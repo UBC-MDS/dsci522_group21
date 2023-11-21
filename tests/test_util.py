@@ -108,3 +108,20 @@ def test_eda_data_type():
     assert cate_chart_2.to_dict()["spec"]["encoding"]["x"]["aggregate"] == "count", "Wrong data type for x in categorical chart."
     assert cate_chart_2.to_dict()["spec"]["encoding"]["x"]["type"] == "quantitative", "Wrong data type for x in categorical chart."
     assert cate_chart_2.to_dict()["spec"]["encoding"]["y"]["type"] == "nominal", "Wrong data type for y in categorical chart."
+
+def test_eda_dataset():
+    np.random.seed(123)
+    test_data = pd.DataFrame({
+        "cate1": ["a", "a", "b", "b", "b", "c", "a", "b", "a", "c"],
+        "cate2": ["c", "c", "b", "b", "b", "a", "c", "b", "c", "a"],
+        "num1": np.random.normal(size=10),
+        "num2": np.random.normal(size=10)
+    })
+
+    num_chart_1, cate_chart_1 = eda_plots(test_data, numerical_cols=["num1"], categorical_cols=["cate1"])
+    num_chart_2, cate_chart_2 = eda_plots(test_data, numerical_cols=["num1", "num2"], categorical_cols=["cate1", "cate2"])
+
+    assert test_data.equals(pd.DataFrame(list(num_chart_1.to_dict()["datasets"].values())[0])), "Chart is not using the right data."
+    assert test_data.equals(pd.DataFrame(list(cate_chart_1.to_dict()["datasets"].values())[0])), "Chart is not using the right data."
+    assert test_data.equals(pd.DataFrame(list(num_chart_2.to_dict()["datasets"].values())[0])), "Chart is not using the right data."
+    assert test_data.equals(pd.DataFrame(list(cate_chart_2.to_dict()["datasets"].values())[0])), "Chart is not using the right data."
