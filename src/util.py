@@ -1,7 +1,7 @@
 import pandas as pd
 import altair as alt
 
-def correlation_heatmap(data, method='pearson'):
+def plot_correlation_heatmap(data, method='pearson'):
     """
     Returns a correlation heatmap for the numerical columns of the DataFrame provided.
 
@@ -16,7 +16,7 @@ def correlation_heatmap(data, method='pearson'):
     Returns:
     ----------
     alt.LayerChart
-        A Altair LayerChart object displaying a correlation heatmap in addition to correlation values.
+        An Altair LayerChart object displaying a correlation heatmap in addition to correlation values.
 
     Raises:
     ----------
