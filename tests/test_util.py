@@ -3,7 +3,8 @@ import numpy as np
 import pandas as pd
 import altair as alt
 import sys
-sys.path.append("../")
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from src.util import *
 
