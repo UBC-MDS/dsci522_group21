@@ -13,10 +13,12 @@ simple_numeric_df = pd.DataFrame({
     "A": [1, 2, 3],
     "B": [4, 5, 6],
     "C": [7, 8, 9]})
+
 categorical_df = pd.DataFrame({
     'A': ['x', 'y', 'z'],
     'B': ['p', 'q', 'r'],
     'C': ['l', 'm', 'n']})
+
 empty_df = pd.DataFrame()
 
 # Test for correct return type
@@ -24,7 +26,7 @@ def test_output_type():
     heatmap = correlation_heatmap(simple_numeric_df)
     assert isinstance(heatmap, alt.LayerChart), "Output should be an alt.LayerChart object."
 
-# Test for invalid method
+# Test for raising of error if method is invalid
 def test_invalid_method():
     try:
         heatmap = correlation_heatmap(simple_numeric_df, method='invalid')
@@ -61,6 +63,5 @@ def test_heatmap_labels():
     x_labels = set(heatmap.data['num_variable_0'].unique())
     y_labels = set(heatmap.data['num_variable_1'].unique())
     expected_labels = {'A', 'B', 'C'}
-    
     assert x_labels == expected_labels, "X axis should match DataFrame columns."
     assert y_labels == expected_labels, "y axis should match DataFrame columns."
