@@ -2,7 +2,7 @@ import pandas as pd
 import altair as alt
 
 
-def eda_plots(data: pd.DataFrame, numerical_cols: list = [], categorical_cols: list = []):
+def plot_eda(data: pd.DataFrame, numerical_cols: list = [], categorical_cols: list = []):
     """
     Returns two EDA plots, one for numerical columns and another for categorical columns.
 
