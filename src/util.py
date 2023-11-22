@@ -2,23 +2,29 @@ import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.linear_model import LogisticRegression
 
-def plot_logistic_regression_feature_importance(fitted_lr_pipe, head=None, precision=3, cmap="PiYG", vmin=None, vmax=None, caption=None):
+def plot_logistic_regression_feature_importance(fitted_lr_pipe, head=None, precision=3, cmap="PiYG", vmin=None, vmax=None):
     """
-    Returns two EDA plots, one for numerical columns and another for categorical columns.
+    Plots the feature importance for a fitted logistic regression model.
 
     Parameters:
     ----------
-    data : pd.DataFrame
-        input data that is used for plotting
-    numerical_cols : list
-        list of numerical columns that are to be plotted
-    categorical_cols : list
-        list of categorical columns that are to be plotted
+    fitted_lr_pipe : sklearn.pipeline.Pipeline
+        Fitted pipeline containing a ColumnTransformer and LogisticRegression as its components.
+    head : int, default=None
+        Number of top features to display in the plot. If None, all features are displayed.
+    precision : int, default=3
+        Number of decimal places to round the coefficients.
+    cmap : str, default="PiYG"
+        Colormap for the background gradient in the plot.
+    vmin : float, default=None
+        Minimum value for the colormap scale.
+    vmax : float, default=None
+        Maximum value for the colormap scale.
 
     Returns:
     ----------
-    (alt.Chart, alt.Chart)
-        two EDA plots, one for numerical columns and another for categorical columns
+    pandas.io.formats.style.Styler
+        Styled data frame containing the sorted feature importance with columns: 'feature' and 'coef'.
     """
 
     if len(fitted_lr_pipe.named_steps) != 2:
