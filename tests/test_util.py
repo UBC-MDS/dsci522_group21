@@ -6,13 +6,13 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 import numpy as np
 import pandas as pd
 import altair as alt
-from sklearn.compose import make_column_transformer
+from sklearn.compose import make_column_transformer, ColumnTransformer
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, StandardScaler
-from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LogisticRegression, Ridge
 
 # Import ...?
-sys.path.append(os.path.join(os.path.dirnmam(__file__), "..")) # to run pytest at the root of the project
+sys.path.append(os.path.join(os.path.dirname(__file__), "..")) # to run pytest at the root of the project
 from src.util import plot_logistic_regression_feature_importance
 
 # Test data
@@ -34,15 +34,6 @@ test_head = 8
 
 n_features = sum([len(enc.get_feature_names_out().tolist()) for enc in test_lr_pipe.steps[0][1].named_transformers_.values()])
 
-# # test
-# 1) check the output is styler
-# 2) check the col number == 2
-# 3) check the row number == feature number
-# 4) check first column is object
-# 5) check second column are number
-# 6) check whether the absolute values are sorted descreasingly
-# 7) test head
-# 7) check errors
 
 # Test for correct return type of `plot_logistic_regression_feature_importance`
 def test_fi_return_type():
@@ -72,20 +63,21 @@ def test_fi_errors():
         )
     assert str(excinfo.value) == "`fitted_lr_pipe` is expected to have exactly two components: ColumnTransformer and LogisticRegression" 
 
-    
-    # if len(fitted_lr_pipe.named_steps) != 2:
-    #     raise TypeError("`fitted_lr_pipe` is expected to have exactly two components: ColumnTransformer and LogisticRegression")
-    
-    # if not isinstance(ct, ColumnTransformer):
-    #     raise TypeError("1st component in the `fitted_lr_pipe` is expected to be a ColumnTransformer")
-    # if not isinstance(lr, LogisticRegression):
-    #     raise TypeError("2nd component in the `fitted_lr_pipe` is expected to be a LogisticRegression")
-    # if len(ct.named_transformers_) == 0:
-    #     raise TypeError("ColumnTransformer has no Encoder")
-    # try:
-    #     coef = lr.coef_[0]
-    # except AttributeError as e:
-    #     raise TypeError("LogisticRegression is not fitted (`fitted_lr_pipe.fit(X_train, y_train))")
-        
-    # if len(features) != len(coef):
-    #     raise ValueError("The number of features does not match the number of coefficients")
+    with pytest.raises(TypeError) as excinfo:  
+        plot_logistic_regression_feature_importance(
+            make_pipeline(OneHotEncoder(), LogisticRegression())
+        )
+    assert str(excinfo.value) == "1st component in the `fitted_lr_pipe` is expected to be a ColumnTransformer"
+
+    with pytest.raises(TypeError) as excinfo:  
+        plot_logistic_regression_feature_importance(
+            make_pipeline(test_preprocessor, Ridge())
+        )
+    assert str(excinfo.value) == "2nd component in the `fitted_lr_pipe` is expected to be a LogisticRegression"
+
+    with pytest.raises(TypeError) as excinfo:  
+        plot_logistic_regression_feature_importance(
+            make_pipeline(test_preprocessor, LogisticRegression())
+        )
+    assert str(excinfo.value) == "LogisticRegression is not fitted (`fitted_lr_pipe.fit(X_train, y_train))"
+\
