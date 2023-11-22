@@ -11,7 +11,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, StandardScaler
 from sklearn.linear_model import LogisticRegression, Ridge
 
-# Import ...?
+# Import functions from src/util.py
 sys.path.append(os.path.join(os.path.dirname(__file__), "..")) # to run pytest at the root of the project
 from src.util import plot_logistic_regression_feature_importance
 

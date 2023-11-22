@@ -72,23 +72,3 @@ def plot_logistic_regression_feature_importance(fitted_lr_pipe, head=None, preci
     )
 
     return feature_importance
-
-"""
-# handling (assumed fitted estimator, i.e. have only CT and model)
-
-1) len(named_steps) must be == 2
-2) 1st must be column transformer 
-2.1) the column transformer len must be > 0
-3) 2nd must be logistic regression model
-4) check coef_ exist in lr_pipe 
-5) coef_ len = feature len
-
-# test
-1) check the output is styler
-2) check the col number == 2
-3) check the row number == feature number
-4) check first column is object
-5) check second column are number
-6) check whether the absolute values are sorted descreasingly
-7) check errors
-"""
