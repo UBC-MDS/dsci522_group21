@@ -25,9 +25,10 @@ def plot_logistic_regression_feature_importance(fitted_lr_pipe, head=None, preci
         raise TypeError("`fitted_lr_pipe` is expected to have exactly two components: ColumnTransformer and LogisticRegression")
     
     ct, lr = fitted_lr_pipe.named_steps.values()
+    
     if not isinstance(ct, ColumnTransformer):
         raise TypeError("1st component in the `fitted_lr_pipe` is expected to be a ColumnTransformer")
-    if not isinstance(ct, LogisticRegression):
+    if not isinstance(lr, LogisticRegression):
         raise TypeError("2nd component in the `fitted_lr_pipe` is expected to be a LogisticRegression")
     if len(ct.named_transformers_) == 0:
         raise TypeError("ColumnTransformer has no Encoder")
@@ -39,18 +40,20 @@ def plot_logistic_regression_feature_importance(fitted_lr_pipe, head=None, preci
     features = []
     for enc in ct.named_transformers_.values():
         features += enc.get_feature_names_out().tolist()
+        
     if len(features) != len(coef):
         raise ValueError("The number of features does not match the number of coefficients")
     
     feature_importance = pd.DataFrame({
         'feature': features,
         'coef': coef.tolist(),
-        'coef_abs': abs(coef).tolist())
+        'coef_abs': abs(coef).tolist()
     })
 
     feature_importance = (
         feature_importance
         .sort_values('coef_abs', ascending=False)
+        .reset_index(drop=True)
         .drop(columns=["coef_abs"])
         .head(head)
         .style.format(
