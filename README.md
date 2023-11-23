@@ -27,51 +27,52 @@ There are two ways of using this repository: by creating our conda environment, 
 
 ### Conda Environment
 
-First, git clone this repository into your local computer. Then, in the root folder of the repository, run the following command to create the conda environment for this report:
-
-> conda env create -f environment.yml
-
-Then, activate the environment with the following command:
-
-> conda activate 522
-
-One can now run the analysis in the conda environment.
 
 ### Docker
 
-To run the analysis in Docker, a Docker image is needed. One can obtain the image in one of two ways:
+There are two ways to run the analysis in a Docker container. However, one always needs to first clone the repo:
+
+```
+git clone git@github.com:UBC-MDS/dsci522_group21.git
+```
+
+In the first method, one needs to obtain our Docker image in one of two ways:
 
 1. In the root folder of the repository, run `docker build --tag <your_image_name> .`
 2. In the command line, run `docker pull johnshiu/dsci522_group21:main`. You should now have the image, and it is called `johnshiu/dsci522_group21`.
 
-Alternatively, one can run `docker-compose up` to create and run the container. The command will create an image if it does not already exist. After the user is finished with the analysis, press `Ctrl + C` on the keyboard on the command window, and then run `docker-compose down` to shut down the container. Note: please use the port `8889` to open jupyter lab.
+To run use the image, run:
 
-To replicate the analysis:
+```
+docker run --rm -p 8888:8888 -v $(pwd):/home/jovyan/work <your_image_name>
+```
 
-1. Clone this repository.
-2. Install the required dependencies.
-3. Follow the instructions in the File Consumption Order section.
+One can then open jupyter lab using the link given by the command line output.
+
+In the second method, to create and run the container, one can run:
+
+```
+docker-compose up
+```
+
+This command will create an image if it does not already exist. To open jupyter lab, make sure to use the port `8889`. After the user is finished with the analysis, press `Ctrl + C` on the keyboard on the command window, and then run `docker-compose down` to shut down the container.
+
 
 ## Dependencies
 
-- python
-    - ipython
-    - ipykernel
-    - matplotlib>=3.8.0
-    - pandas>=2.1.1
-    - scikit-learn>=1.3.1    
-    - graphviz
-    - python-graphviz
-    - altair=5.1.2
-    - vl-convert-python  # For saving altair charts as static images
-    - vegafusion  # For working with charts > 5,000 graphical objects
-    - vegafusion-python-embed  # Same as the previous one
-    - vegafusion-jupyter  # For working with charts > 100,000 graphical objects
-    - vega_datasets  # Example data 
-    - pip>=23.2.1    
-    - pip:
-        - mglearn
-        - psutil>=5.7.2
+```
+- python=3.11.6
+- ipython=8.17.2
+- ipykernel=6.26.0
+- matplotlib=3.8.2
+- pandas=2.1.3
+- scikit-learn=1.3.2
+- altair=5.1.2
+- vl-convert-python=1.1.0
+- vegafusion=1.4.5
+- vegafusion-jupyter=1.4.5
+- pytest=7.4.3
+```
 
 ## File Consumption Order
 
