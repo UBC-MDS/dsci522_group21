@@ -1,6 +1,46 @@
 import pandas as pd
+import altair as alt
 from sklearn.compose import ColumnTransformer
 from sklearn.linear_model import LogisticRegression
+
+def plot_eda(data, numerical_cols=[], categorical_cols=[]):
+    """
+    Returns two EDA plots, one for numerical columns and another for categorical columns.
+
+    Parameters:
+    ----------
+    data : pd.DataFrame
+        Input data that is used for plotting
+    numerical_cols : list
+        List of numerical columns that are to be plotted
+    categorical_cols : list
+        List of categorical columns that are to be plotted
+
+    Returns:
+    ----------
+    (alt.Chart, alt.Chart)
+        Two EDA plots, one for numerical columns and another for categorical columns
+    """
+    numerical_plot = None
+    categorical_plot = None
+
+    if len(categorical_cols) != 0:
+        categorical_plot = alt.Chart(data).mark_bar().encode(
+            x="count()",
+            y=alt.Y(alt.repeat()).type("nominal")
+        ).repeat(
+            categorical_cols, columns=3
+        )
+
+    if len(numerical_cols) != 0:
+        numerical_plot = alt.Chart(data).mark_bar().encode(
+            x=alt.X(alt.repeat()).type("quantitative").bin(maxbins=40),
+            y="count()"
+        ).repeat(
+            numerical_cols, columns=3
+        )
+
+    return numerical_plot, categorical_plot
 
 def plot_logistic_regression_feature_importance(fitted_lr_pipe, head=None, precision=3, cmap="PiYG", vmin=None, vmax=None):
     """
@@ -88,14 +128,9 @@ def plot_logistic_regression_feature_importance(fitted_lr_pipe, head=None, preci
 def plot_correlation_heatmap(data, method='pearson'):
     """
     Returns a correlation heatmap for the numerical columns of the DataFrame provided.
-
-    Parameters:
-    ----------
-    data : pd.DataFrame
-        input data that for which the correlation heatmap is to be generated.
-    method : str, Optional
-        method of correlation to be used. Options are 'pearson' or 'spearman'. 
-        Default is 'pearson'.
+        Input data that for which the correlation heatmap is to be generated.
+    method : str, Default='pearson'
+        Method of correlation to be used. Options are 'pearson' or 'spearman'. 
 
     Returns:
     ----------
@@ -133,3 +168,4 @@ def plot_correlation_heatmap(data, method='pearson'):
         text=alt.Text("correlation:Q", format=".2f")
     )
     return corr_heatmap + text
+
