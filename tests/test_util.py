@@ -13,9 +13,19 @@ from sklearn.linear_model import LogisticRegression, Ridge
 
 # Import functions from src/util.py
 sys.path.append(os.path.join(os.path.dirname(__file__), "..")) # to run pytest at the root of the project
-from src.util import plot_logistic_regression_feature_importance, plot_correlation_heatmap
+from src.util import plot_eda, plot_logistic_regression_feature_importance, plot_correlation_heatmap
+
 
 # Test data
+# for EDA plot
+test_data_eda = pd.DataFrame({
+    "cate1": ["a", "a", "b", "b", "b", "c", "a", "b", "a", "c"],
+    "cate2": ["c", "c", "b", "b", "b", "a", "c", "b", "c", "a"],
+    "num1": [-1.08 ,  0.997,  0.283, -1.51, -0.58, 1.65, -2.43, -0.43,  1.27, -0.87],
+    "num2": [-0.68, -0.09,  1.49, -0.64, -0.44, -0.43,  2.21,  2.19,  1., 0.39]
+})
+
+# for correlation and feature importance
 empty_df = pd.DataFrame()
 
 test_X = pd.DataFrame({
@@ -36,6 +46,83 @@ test_head = 8
 
 n_features = sum([len(enc.get_feature_names_out().tolist()) for enc in test_lr_pipe.steps[0][1].named_transformers_.values()])
 
+
+# Tests for cases when plot_eda should return None for at least one of the graphs
+def test_eda_none():
+    num_chart_1, cate_chart_1 = plot_eda(test_data_eda, categorical_cols=["cate1"])
+    num_chart_2, cate_chart_2 = plot_eda(test_data_eda, numerical_cols=["num1"])
+    num_chart_3, cate_chart_3 = plot_eda(test_data_eda)
+
+    assert num_chart_1 is None, "Numerical chart should be None without input for numerical columns."
+    assert cate_chart_1 is not None, "Categorical chart should not be None."
+    assert num_chart_2 is not None, "Numerical chart should not be None."
+    assert cate_chart_2 is None, "Categorical chart should be None without input for numerical columns."
+    assert num_chart_3 is None, "Numerical chart should be None without input for numerical columns."
+    assert cate_chart_3 is None, "Categorical chart should be None without input for numerical columns."
+
+# Tests for ensuring that the type of the charts is alt.RepeatChart
+def test_eda_chart_type():
+    num_chart_1, cate_chart_1 = plot_eda(test_data_eda, categorical_cols=["cate1"])
+    num_chart_2, cate_chart_2 = plot_eda(test_data_eda, numerical_cols=["num1"])
+    num_chart_3, cate_chart_3 = plot_eda(test_data_eda, numerical_cols=["num1"], categorical_cols=["cate1"])
+    num_chart_4, cate_chart_4 = plot_eda(test_data_eda, numerical_cols=["num1", "num2"], categorical_cols=["cate1", "cate2"])
+
+    assert isinstance(cate_chart_1, alt.RepeatChart), "Incorrect data type for categorical chart."
+    assert isinstance(num_chart_2, alt.RepeatChart), "Incorrect data type for numerical chart."
+    assert isinstance(num_chart_3, alt.RepeatChart), "Incorrect data type for numerical chart."
+    assert isinstance(cate_chart_3, alt.RepeatChart), "Incorrect data type for categorical chart."
+    assert isinstance(num_chart_4, alt.RepeatChart), "Incorrect data type for numerical chart."
+    assert isinstance(cate_chart_4, alt.RepeatChart), "Incorrect data type for categorical chart."
+
+# Tests for ensuring that the correct columns are being repeated in the chart
+def test_eda_repeat():
+    num_chart_1, cate_chart_1 = plot_eda(test_data_eda, numerical_cols=["num1"], categorical_cols=["cate1"])
+    num_chart_2, cate_chart_2 = plot_eda(test_data_eda, numerical_cols=["num1", "num2"], categorical_cols=["cate1", "cate2"])
+
+    assert num_chart_1.to_dict()["repeat"] == ["num1"], "Wrong columns were being repeated for num_chart_1."
+    assert cate_chart_1.to_dict()["repeat"] == ["cate1"], "Wrong columns were being repeated for cate_chart_1."
+    assert num_chart_2.to_dict()["repeat"] == ["num1", "num2"], "Wrong columns were being repeated for num_chart_2."
+    assert cate_chart_2.to_dict()["repeat"] == ["cate1", "cate2"], "Wrong columns were being repeated for cate_chart_2."
+
+# Tests for the correct mark type in the charts
+def test_eda_mark():
+    num_chart_1, cate_chart_1 = plot_eda(test_data_eda, numerical_cols=["num1"], categorical_cols=["cate1"])
+    num_chart_2, cate_chart_2 = plot_eda(test_data_eda, numerical_cols=["num1", "num2"], categorical_cols=["cate1", "cate2"])
+
+    assert num_chart_1.to_dict()["spec"]["mark"]["type"] == "bar", "Wrong mark type."
+    assert "bin" in num_chart_1.to_dict()["spec"]["encoding"]["x"].keys(), "Should be a histogram."
+    assert cate_chart_1.to_dict()["spec"]["mark"]["type"] == "bar", "Wrong mark type."
+    assert num_chart_2.to_dict()["spec"]["mark"]["type"] == "bar", "Wrong mark type."
+    assert "bin" in num_chart_2.to_dict()["spec"]["encoding"]["x"].keys(), "Should be a histogram."
+    assert cate_chart_2.to_dict()["spec"]["mark"]["type"] == "bar", "Wrong mark type."
+
+# Tests for the correct data type of x-axis and y-axis
+def test_eda_data_type():
+    num_chart_1, cate_chart_1 = plot_eda(test_data_eda, numerical_cols=["num1"], categorical_cols=["cate1"])
+    num_chart_2, cate_chart_2 = plot_eda(test_data_eda, numerical_cols=["num1", "num2"], categorical_cols=["cate1", "cate2"])
+
+    assert num_chart_1.to_dict()["spec"]["encoding"]["x"]["type"] == "quantitative", "Wrong data type for x in numerical chart."
+    assert num_chart_1.to_dict()["spec"]["encoding"]["y"]["aggregate"] == "count", "Wrong data type for y in numerical chart."
+    assert num_chart_1.to_dict()["spec"]["encoding"]["y"]["type"] == "quantitative", "Wrong data type for y in numerical chart."
+    assert cate_chart_1.to_dict()["spec"]["encoding"]["x"]["aggregate"] == "count", "Wrong data type for x in categorical chart."
+    assert cate_chart_1.to_dict()["spec"]["encoding"]["x"]["type"] == "quantitative", "Wrong data type for x in categorical chart."
+    assert cate_chart_1.to_dict()["spec"]["encoding"]["y"]["type"] == "nominal", "Wrong data type for y in categorical chart."
+    assert num_chart_2.to_dict()["spec"]["encoding"]["x"]["type"] == "quantitative", "Wrong data type for x in numerical chart."
+    assert num_chart_2.to_dict()["spec"]["encoding"]["y"]["aggregate"] == "count", "Wrong data type for y in numerical chart."
+    assert num_chart_2.to_dict()["spec"]["encoding"]["y"]["type"] == "quantitative", "Wrong data type for y in numerical chart."
+    assert cate_chart_2.to_dict()["spec"]["encoding"]["x"]["aggregate"] == "count", "Wrong data type for x in categorical chart."
+    assert cate_chart_2.to_dict()["spec"]["encoding"]["x"]["type"] == "quantitative", "Wrong data type for x in categorical chart."
+    assert cate_chart_2.to_dict()["spec"]["encoding"]["y"]["type"] == "nominal", "Wrong data type for y in categorical chart."
+
+# Tests for ensuring that the graph is using the correct dataset
+def test_eda_dataset():
+    num_chart_1, cate_chart_1 = plot_eda(test_data_eda, numerical_cols=["num1"], categorical_cols=["cate1"])
+    num_chart_2, cate_chart_2 = plot_eda(test_data_eda, numerical_cols=["num1", "num2"], categorical_cols=["cate1", "cate2"])
+
+    assert test_data_eda.equals(pd.DataFrame(list(num_chart_1.to_dict()["datasets"].values())[0])), "Chart is not using the right data."
+    assert test_data_eda.equals(pd.DataFrame(list(cate_chart_1.to_dict()["datasets"].values())[0])), "Chart is not using the right data."
+    assert test_data_eda.equals(pd.DataFrame(list(num_chart_2.to_dict()["datasets"].values())[0])), "Chart is not using the right data."
+    assert test_data_eda.equals(pd.DataFrame(list(cate_chart_2.to_dict()["datasets"].values())[0])), "Chart is not using the right data."
 
 # Test for correct return type of `plot_logistic_regression_feature_importance`
 def test_fi_return_type():
@@ -127,3 +214,4 @@ def test_heatmap_labels():
     expected_labels = {'num', 'ord'}
     assert x_labels == expected_labels, "X axis should match DataFrame columns."
     assert y_labels == expected_labels, "y axis should match DataFrame columns."
+>>>>>>> main
