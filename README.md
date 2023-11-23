@@ -27,6 +27,24 @@ There are two ways of using this repository: by creating our conda environment, 
 
 ### Conda Environment
 
+To replicate the analysis:
+
+1. Clone this repository.
+   ```bash
+   git clone https://github.com/UBC-MDS/dsci522_group21.git
+   ```
+2. Install the required dependencies. When running for the first time, please create conda environment by running this command:
+   ```bash
+   conda env create -f environment.yml
+   ```
+3. Run the following command to activate the installed environment:
+   ```bash
+   conda activate 522
+   ```
+4. Launch Jupyter Lab by running `jupyter lab` and navigate to the `src/term_deposit_report.ipynb` notebook. Then, from the "Kernel" menu, select "Restart Kernel and Run All Cells...".
+   ```bash
+   Jupyter Labb
+   ```
 
 ### Docker
 
@@ -56,6 +74,8 @@ docker-compose up
 ```
 
 This command will create an image if it does not already exist. To open jupyter lab, make sure to use the port `8889`. After the user is finished with the analysis, press `Ctrl + C` on the keyboard on the command window, and then run `docker-compose down` to shut down the container.
+
+=======
 
 
 ## Dependencies
