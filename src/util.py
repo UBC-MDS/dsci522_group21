@@ -25,6 +25,18 @@ def plot_logistic_regression_feature_importance(fitted_lr_pipe, head=None, preci
     ----------
     pandas.io.formats.style.Styler
         Styled data frame containing the sorted feature importance with columns: 'feature' and 'coef'.
+
+    Raises:
+    ----------
+    TypeError
+        If `fitted_lr_pipe` does not have exactly 2 components: ColumnTransformer and LogisticRegression.
+        If the 1st component in `fitted_lr_pipe` is not a ColumnTransformer.
+        If the 2nd component in `fitted_lr_pipe` is not a LogisticRegression.
+        If ColumnTransformer has no Encoder.
+        If LogisticRegression is not fitted.
+
+    ValueError
+        If the number of features does not match the number of coefficients.
     """
 
     if len(fitted_lr_pipe.named_steps) != 2:
