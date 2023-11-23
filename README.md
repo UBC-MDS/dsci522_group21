@@ -38,7 +38,7 @@ git clone git@github.com:UBC-MDS/dsci522_group21.git
 
 In the first method, one needs to obtain our Docker image in one of two ways:
 
-1. In the root folder of the repository, run `docker build --tag <your_image_name> .`
+1. In the root folder of the repository, run `docker build --tag <your_image_name> .`.
 2. In the command line, run `docker pull johnshiu/dsci522_group21:main`. You should now have the image, and it is called `johnshiu/dsci522_group21`.
 
 To run use the image, run:
