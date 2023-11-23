@@ -7,4 +7,4 @@ RUN conda install -y \
     altair=5.1.2 \
     pytest=7.4.3 
 
-RUN pip install vegafusion[embed]>=1.4.0
+RUN pip install "vegafusion[embed]>=1.4.0"
