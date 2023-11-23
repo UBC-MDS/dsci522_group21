@@ -23,6 +23,29 @@ The complete report can be found [here](https://htmlpreview.github.io/?https://g
 
 ## Usage
 
+There are two ways of using this repository: by creating our conda environment, or by using Docker.
+
+### Conda Environment
+
+First, git clone this repository into your local computer. Then, in the root folder of the repository, run the following command to create the conda environment for this report:
+
+> conda env create -f environment.yml
+
+Then, activate the environment with the following command:
+
+> conda activate 522
+
+One can now run the analysis in the conda environment.
+
+### Docker
+
+To run the analysis in Docker, a Docker image is needed. One can obtain the image in one of two ways:
+
+1. In the root folder of the repository, run `docker build --tag <your_image_name> .`
+2. In the command line, run `docker pull johnshiu/dsci522_group21:main`. You should now have the image, and it is called `johnshiu/dsci522_group21`.
+
+Alternatively, one can run `docker-compose up` to create and run the container. The command will create an image if it does not already exist. After the user is finished with the analysis, press `Ctrl + C` on the keyboard on the command window, and then run `docker-compose down` to shut down the container. Note: please use the port `8889` to open jupyter lab.
+
 To replicate the analysis:
 
 1. Clone this repository.
