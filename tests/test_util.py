@@ -6,15 +6,14 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
-from src.util import *
+from src.util import plot_eda
 
 # Test data for EDA plot
-np.random.seed(123)
 test_data_eda = pd.DataFrame({
     "cate1": ["a", "a", "b", "b", "b", "c", "a", "b", "a", "c"],
     "cate2": ["c", "c", "b", "b", "b", "a", "c", "b", "c", "a"],
-    "num1": np.random.normal(size=10),
-    "num2": np.random.normal(size=10)
+    "num1": [-1.08 ,  0.997,  0.283, -1.51, -0.58, 1.65, -2.43, -0.43,  1.27, -0.87],
+    "num2": [-0.68, -0.09,  1.49, -0.64, -0.44, -0.43,  2.21,  2.19,  1., 0.39]
 })
 
 # Tests for cases when plot_eda should return None for at least one of the graphs

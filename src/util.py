@@ -2,23 +2,23 @@ import pandas as pd
 import altair as alt
 
 
-def plot_eda(data: pd.DataFrame, numerical_cols: list = [], categorical_cols: list = []):
+def plot_eda(data, numerical_cols=[], categorical_cols=[]):
     """
     Returns two EDA plots, one for numerical columns and another for categorical columns.
 
     Parameters:
     ----------
     data : pd.DataFrame
-        input data that is used for plotting
+        Input data that is used for plotting
     numerical_cols : list
-        list of numerical columns that are to be plotted
+        List of numerical columns that are to be plotted
     categorical_cols : list
-        list of categorical columns that are to be plotted
+        List of categorical columns that are to be plotted
 
     Returns:
     ----------
     (alt.Chart, alt.Chart)
-        two EDA plots, one for numerical columns and another for categorical columns
+        Two EDA plots, one for numerical columns and another for categorical columns
     """
     numerical_plot = None
     categorical_plot = None
