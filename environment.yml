@@ -1,9 +1,9 @@
-name: base
+name: 522
 channels:
     - conda-forge
     - defaults
 dependencies:
-    - python=3.12.0
+    - python=3.11.6
     - ipython=8.17.2
     - ipykernel=6.26.0
     - matplotlib=3.8.2
@@ -13,3 +13,4 @@ dependencies:
     - vl-convert-python=1.1.0
     - vegafusion=1.4.5
     - vegafusion-jupyter=1.4.5
+    - pytest=7.4.3
