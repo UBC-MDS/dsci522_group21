@@ -28,6 +28,8 @@ excel_file_path = 'data/sample_data.xlsx'
 df.to_excel(excel_file_path, index=False)
 
 import pytest
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
 from load_data_and_split import load_data_and_split
 
 # Test to ensure the split ratio is correct for csv file
