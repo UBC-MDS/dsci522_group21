@@ -23,11 +23,20 @@ The complete report can be found [here](https://htmlpreview.github.io/?https://g
 
 ## Usage
 
+### Conda Environment
+
 To replicate the analysis:
 
 1. Clone this repository.
-2. Install the required dependencies.
-3. Follow the instructions in the File Consumption Order section.
+   ```bash
+   git clone https://github.com/UBC-MDS/dsci522_group21.git
+2. Install the required dependencies. When running for the first time, please create conda environment by running this command:
+   ```bash
+   conda env create -f environment.yml
+3. Run the following command to activate the installed environment:
+   ```bash
+   conda activate 522
+4. Launch Jupyter Lab by running `jupyter lab` and navigate to the `src/term_deposit_report.ipynb` notebook. Then, from the "Kernel" menu, select "Restart Kernel and Run All Cells...".
 
 ## Dependencies
 
