@@ -7,7 +7,7 @@ This repository contains the code and analysis for the project "Identifying the 
 
 ## About
 
-This repository documents our analysis on the determinants of term deposit subscriptions within a Portuguese bank, harnessing a dataset that tracks 45,211 client interactions across 17 distinct variables. We have considered logistic regression and decision tree classifier to unearth the principal three factors that predict a client's propensity to subscribe to a term deposit. The data preprocessing involves handling of missing entries, encoding of categorical variables, and standardization of numerical variables to prepare for robust analysis.
+This repository documents our analysis on the determinants of term deposit subscriptions within a Portuguese bank, harnessing a dataset that tracks 45,211 client interactions across 17 distinct variables. We have considered logistic regression and decision tree classifier to unearth the top three principal factors that predict a client's propensity to subscribe to a term deposit. The data preprocessing involves handling of missing entries, encoding of categorical variables, and standardization of numerical variables to prepare for robust analysis.
 
 The crux of our exploratory data analysis was the strategic use of visualizations to unravel the nuances in feature distributions and inter-feature correlations. Our model evaluation was meticulously tailored to emphasize precision, a decision dictated by the inherent class imbalance present within the dataset as well as minimizing the false positive rate. In this rigorous analytical process, logistic regression emerged as a marginally more precise model compared to the decision tree classifier.
 
@@ -32,7 +32,7 @@ There are two ways of using this repository: by creating our conda environment, 
 
 There are two ways to run the analysis in a Docker container. However, one always needs to first clone the repo:
 
-```
+```bash
 git clone git@github.com:UBC-MDS/dsci522_group21.git
 ```
 
@@ -43,7 +43,7 @@ In the first method, one needs to obtain our Docker image in one of two ways:
 
 To run use the image, run:
 
-```
+```bash
 docker run --rm -p 8888:8888 -v $(pwd):/home/jovyan/work <your_image_name>
 ```
 
@@ -51,7 +51,7 @@ One can then open jupyter lab using the link given by the command line output.
 
 In the second method, to create and run the container, one can run:
 
-```
+```bash
 docker-compose up
 ```
 
@@ -60,7 +60,7 @@ This command will create an image if it does not already exist. To open jupyter 
 
 ## Dependencies
 
-```
+```raw
 - python=3.11.6
 - ipython=8.17.2
 - ipykernel=6.26.0
