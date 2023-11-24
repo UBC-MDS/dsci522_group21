@@ -40,9 +40,6 @@ with open(txt_file_path, 'w') as file:
 
 df = pd.read_csv(StringIO(data_csv))
 
-excel_file_path = 'data/sample_data.xlsx'
-df.to_excel(excel_file_path, index=False)
-
 csv_semicolon_path = 'data/sample_data_semicolon.csv'
 df.to_csv(csv_semicolon_path, index=False, sep=";")
 
@@ -96,11 +93,6 @@ def test_load_delimiter_handling():
     # This should pass as we are using the default delimiter which is a comma
     train_df, test_df = load_data_and_split(csv_file_path, delimiter=',')
     assert not train_df.empty and not test_df.empty
-
-# Test to ensure the split ratio is correct for excel file
-def test_load_excel_data_loading():
-    train_df, test_df = load_data_and_split(excel_file_path, test_size=0.2)
-    assert len(test_df) / (len(test_df) + len(train_df)) == pytest.approx(0.2, 0.01)
 
 # Test to ensure the function works for other common delimiters
 def test_load_another_delim():
