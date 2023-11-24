@@ -83,9 +83,10 @@ This command will create an image if it does not already exist. After the user i
 ## Dependencies
 
 ```raw
-- python=3.11.6
+- python=3.11
 - ipython=8.17.2
 - ipykernel=6.26.0
+- jupyterlab=4.0.9
 - matplotlib=3.8.2
 - pandas=2.1.3
 - scikit-learn=1.3.2
@@ -94,6 +95,7 @@ This command will create an image if it does not already exist. After the user i
 - vegafusion=1.4.5
 - vegafusion-jupyter=1.4.5
 - pytest=7.4.3
+
 ```
 
 ## File Consumption Order
