@@ -10,11 +10,11 @@ def load_data_and_split(file_path, test_size=0.2, random_state=42, delimiter=Non
     """
     Load data from a specified file and split it into training and testing datasets.
 
-    This function is designed to work with a variety of file formats including CSV, TXT, Excel (XLS/XLSX), and JSON.
+    This function is designed to work with a variety of file formats including CSV, TXT, and JSON.
     It reads the data into a pandas DataFrame and splits it into two separate DataFrames for training and testing purposes.
     
     The function assumes that the input file is structured with features and an optional target variable. If a delimiter
-    is not specified for CSV/TXT files, the function defaults to using a comma (','). For Excel and JSON files, the delimiter
+    is not specified for CSV/TXT files, the function defaults to using a comma (','). For JSON files, the delimiter
     parameter is ignored.
 
     Parameters:
@@ -42,7 +42,7 @@ def load_data_and_split(file_path, test_size=0.2, random_state=42, delimiter=Non
     Raises:
     ------
     ValueError
-        If the file type is not supported (not in CSV, TXT, Excel, or JSON formats).
+        If the file type is not supported (not in CSV, TXT, or JSON formats).
 
     Examples:
     --------
@@ -65,8 +65,6 @@ def load_data_and_split(file_path, test_size=0.2, random_state=42, delimiter=Non
     # Load the data according to the file type
     if file_extension in ['.csv', '.txt']:
         data = pd.read_csv(file_path, delimiter=delimiter)
-    elif file_extension in ['.xls', '.xlsx']:
-        data = pd.read_excel(file_path)
     elif file_extension == '.json':
         data = pd.read_json(file_path)
     else:
