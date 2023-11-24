@@ -1,13 +1,13 @@
 version: '3.8'
 
 services:
-  analysis:
+  jupyter-lab:
     image: group21:0.0.2
     build:
       context: ./
       dockerfile: Dockerfile
     ports:
-        - "8889:8888"
+        - "8888:8888"
     volumes:
       - '.:/home/jovyan'
 
