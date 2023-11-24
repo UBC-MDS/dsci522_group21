@@ -63,7 +63,7 @@ In the first method, one needs to obtain our Docker image in one of two ways:
 To run use the image, run:
 
 ```bash
-docker run --rm -p 8888:8888 -v $(pwd):/home/jovyan/work <your_image_name>
+docker run --rm -p 8888:8888 -v $(pwd):/home/jovyan <your_image_name>
 ```
 
 One can then open jupyter lab using the link given by the command line output.
@@ -77,7 +77,13 @@ docker-compose up
 
 This command will create an image if it does not already exist. After the user is finished with the analysis, press `Ctrl + C` on the keyboard on the command window, and then run `docker-compose down` to shut down the container.
 
-=======
+### Run Unit Tests
+
+In the root folder of the repository,
+
+```bash
+pytest 
+```
 
 
 ## Dependencies
