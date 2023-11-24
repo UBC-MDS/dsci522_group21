@@ -85,7 +85,7 @@ To run the analysis, navigate to the `src/term_deposit_report.ipynb` notebook. T
 
 ### Run Unit Tests
 
-In the root folder of the repository,
+In the root folder of the repository, run:
 
 ```bash
 pytest 
