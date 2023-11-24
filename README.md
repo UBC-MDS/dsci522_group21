@@ -78,8 +78,8 @@ docker-compose up
 This command will create an image if it does not already exist. After the user is finished with the analysis, press `Ctrl + C` on the keyboard on the command window, and then run `docker-compose down` to shut down the container.
 
 #### run analysis
-After running one of the above methods in the terminal, copy the URL that starts with http://127.0.0.1:8888/lab?token= (for example, see the highlighted text in the terminal below), and paste it into your browser.
-<img src="img/docker_jupyter_lab_url.png" width=400>
+After running one of the above methods in the terminal, copy the URL that starts with `http://127.0.0.1:8888/lab?token=` (for example, see the highlighted text in the terminal below), and paste it into your browser.
+<img src="img/docker_jupyter_lab_url.png">
 
 To run the analysis, navigate to the `src/term_deposit_report.ipynb` notebook. Then, from the "Kernel" menu, select "Restart Kernel and Run All Cells...". 
 
