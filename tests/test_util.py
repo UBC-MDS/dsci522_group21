@@ -40,9 +40,6 @@ with open(txt_file_path, 'w') as file:
 
 df = pd.read_csv(StringIO(data_csv))
 
-excel_file_path = 'data/sample_data.xlsx'
-df.to_excel(excel_file_path, index=False)
-
 csv_semicolon_path = 'data/sample_data_semicolon.csv'
 df.to_csv(csv_semicolon_path, index=False, sep=";")
 

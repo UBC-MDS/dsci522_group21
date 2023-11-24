@@ -7,7 +7,7 @@ This repository contains the code and analysis for the project "Identifying the 
 
 ## About
 
-This repository documents our analysis on the determinants of term deposit subscriptions within a Portuguese bank, harnessing a dataset that tracks 45,211 client interactions across 17 distinct variables. We have considered logistic regression and decision tree classifier to unearth the principal three factors that predict a client's propensity to subscribe to a term deposit. The data preprocessing involves handling of missing entries, encoding of categorical variables, and standardization of numerical variables to prepare for robust analysis.
+This repository documents our analysis on the determinants of term deposit subscriptions within a Portuguese bank, harnessing a dataset that tracks 45,211 client interactions across 17 distinct variables. We have considered logistic regression and decision tree classifier to unearth the top three principal factors that predict a client's propensity to subscribe to a term deposit. The data preprocessing involves handling of missing entries, encoding of categorical variables, and standardization of numerical variables to prepare for robust analysis.
 
 The crux of our exploratory data analysis was the strategic use of visualizations to unravel the nuances in feature distributions and inter-feature correlations. Our model evaluation was meticulously tailored to emphasize precision, a decision dictated by the inherent class imbalance present within the dataset as well as minimizing the false positive rate. In this rigorous analytical process, logistic regression emerged as a marginally more precise model compared to the decision tree classifier.
 
@@ -23,32 +23,80 @@ The complete report can be found [here](https://htmlpreview.github.io/?https://g
 
 ## Usage
 
+There are two ways of using this repository: by creating our conda environment, or by using Docker.
+
+### Conda Environment
+
 To replicate the analysis:
 
 1. Clone this repository.
-2. Install the required dependencies.
-3. Follow the instructions in the File Consumption Order section.
+   ```bash
+   git clone https://github.com/UBC-MDS/dsci522_group21.git
+   ```
+2. Install the required dependencies. When running for the first time, please create conda environment by running this command:
+   ```bash
+   conda env create -f environment.yml
+   ```
+3. Run the following command to activate the installed environment:
+   ```bash
+   conda activate 522
+   ```
+4. Launch Jupyter Lab by running `jupyter lab` and navigate to the `src/term_deposit_report.ipynb` notebook. Then, from the "Kernel" menu, select "Restart Kernel and Run All Cells...".
+   ```bash
+   Jupyter Lab
+   ```
+
+### Docker
+
+There are two ways to run the analysis in a Docker container. However, one always needs to first clone the repo:
+
+```bash
+git clone git@github.com:UBC-MDS/dsci522_group21.git
+```
+
+#### build/pull image and run
+In the first method, one needs to obtain our Docker image in one of two ways:
+
+1. In the root folder of the repository, run `docker build --tag <your_image_name> .`, or,
+2. In the command line, run `docker pull johnshiu/dsci522_group21:main`. You should now have the image, and it is called `johnshiu/dsci522_group21`.
+
+To run use the image, run:
+
+```bash
+docker run --rm -p 8888:8888 -v $(pwd):/home/jovyan/work <your_image_name>
+```
+
+One can then open jupyter lab using the link given by the command line output.
+
+#### docker-compose
+In the second method, to create and run the container, one can run:
+
+```bash
+docker-compose up
+```
+
+This command will create an image if it does not already exist. After the user is finished with the analysis, press `Ctrl + C` on the keyboard on the command window, and then run `docker-compose down` to shut down the container.
+
+=======
+
 
 ## Dependencies
 
-- python
-    - ipython
-    - ipykernel
-    - matplotlib>=3.8.0
-    - pandas>=2.1.1
-    - scikit-learn>=1.3.1    
-    - graphviz
-    - python-graphviz
-    - altair=5.1.2
-    - vl-convert-python  # For saving altair charts as static images
-    - vegafusion  # For working with charts > 5,000 graphical objects
-    - vegafusion-python-embed  # Same as the previous one
-    - vegafusion-jupyter  # For working with charts > 100,000 graphical objects
-    - vega_datasets  # Example data 
-    - pip>=23.2.1    
-    - pip:
-        - mglearn
-        - psutil>=5.7.2
+```raw
+- python=3.11
+- ipython=8.17.2
+- ipykernel=6.26.0
+- jupyterlab=4.0.9
+- matplotlib=3.8.2
+- pandas=2.1.3
+- scikit-learn=1.3.2
+- altair=5.1.2
+- vl-convert-python=1.1.0
+- vegafusion=1.4.5
+- vegafusion-jupyter=1.4.5
+- pytest=7.4.3
+
+```
 
 ## File Consumption Order
 
