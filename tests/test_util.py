@@ -81,54 +81,6 @@ test_head = 8
 
 n_features = sum([len(enc.get_feature_names_out().tolist()) for enc in test_lr_pipe.steps[0][1].named_transformers_.values()])
 
-# Test to ensure the split ratio is correct for csv file
-def test_load_split_ratio_csv():
-    train_df, test_df = load_data_and_split(csv_file_path, test_size=0.2)
-    assert len(test_df) / (len(test_df) + len(train_df)) == pytest.approx(0.2, 0.01), "The split ratio for the test set should be approximately 0.2."
-
-# Test to ensure the function raises a ValueError for unsupported file types
-def test_load_unsupported_file_type():
-    with pytest.raises(ValueError):
-        _, _ = load_data_and_split('/path/to/data.unsupported'), "A ValueError should be raised for unsupported file types."
-
-# Test to ensure the function correctly uses the delimiter
-def test_load_delimiter_handling():
-    # This should pass as we are using the default delimiter which is a comma
-    train_df, test_df = load_data_and_split(csv_file_path, delimiter=',')
-    assert not train_df.empty and not test_df.empty, "DataFrames should not be empty when the correct delimiter is used."
-
-# Test to ensure the split ratio is correct for excel file
-def test_load_excel_data_loading():
-    train_df, test_df = load_data_and_split(excel_file_path, test_size=0.2)
-    assert len(test_df) / (len(test_df) + len(train_df)) == pytest.approx(0.2, 0.01), "The split ratio for the test set should be approximately 0.2 for an Excel file."
-
-# Test to ensure the function works for other common delimiters
-def test_load_another_delim():
-    train_df, test_df = load_data_and_split(csv_semicolon_path, delimiter=';')
-    train_df_2, test_df_2 = load_data_and_split(csv_tab_path, delimiter='\t')
-    assert not train_df.empty and not test_df.empty, "DataFrames should not be empty when the semicolon delimiter is used."
-    assert len(test_df) / (len(test_df) + len(train_df)) == pytest.approx(0.2, 0.01), "The split ratio should be correct for semicolon delimiter."
-    assert not train_df_2.empty and not test_df_2.empty, "DataFrames should not be empty when the tab delimiter is used."
-    assert len(test_df_2) / (len(test_df_2) + len(train_df_2)) == pytest.approx(0.2, 0.01), "The split ratio should be correct for tab delimiter."
-
-# Test to ensure the function works for text files
-def test_load_txt():
-    train_df, test_df = load_data_and_split(txt_file_path)
-    assert not train_df.empty and not test_df.empty, "DataFrames should not be empty when loading from text files."
-    assert len(test_df) / (len(test_df) + len(train_df)) == pytest.approx(0.2, 0.01), "The split ratio for the test set should be approximately 0.2 for text files."
-
-# Test to ensure the function works for json files
-def test_load_json():
-    train_df, test_df = load_data_and_split(json_path)
-    assert not train_df.empty and not test_df.empty, "DataFrames should not be empty when loading from JSON files."
-    assert len(test_df) / (len(test_df) + len(train_df)) == pytest.approx(0.2, 0.01), "The split ratio for the test set should be approximately 0.2 for JSON files."
-
-# Test to ensure the function works with default and non-default split size
-def test_load_split_ratio():
-    train_df, test_df = load_data_and_split(csv_file_path)
-    train_df_2, test_df_2 = load_data_and_split(csv_file_path, test_size=0.3)
-    assert len(test_df) / (len(test_df) + len(train_df)) == pytest.approx(0.2, 0.01), "The default split ratio for the test set should be approximately 0.2."
-    assert len(test_df_2) / (len(test_df_2) + len(train_df_2)) == pytest.approx(0.3, 0.01), "The non-default split ratio for the test set should be approximately 0.3."
 
 # Tests for cases when plot_eda should return None for at least one of the graphs
 def test_eda_none():
@@ -297,3 +249,53 @@ def test_heatmap_labels():
     expected_labels = {'num', 'ord'}
     assert x_labels == expected_labels, "X axis should match DataFrame columns."
     assert y_labels == expected_labels, "y axis should match DataFrame columns."
+
+# Test to ensure the split ratio is correct for csv file
+def test_load_split_ratio_csv():
+    train_df, test_df = load_data_and_split(csv_file_path, test_size=0.2)
+    assert len(test_df) / (len(test_df) + len(train_df)) == pytest.approx(0.2, 0.01), "The split ratio for the test set should be approximately 0.2."
+
+# Test to ensure the function raises a ValueError for unsupported file types
+def test_load_unsupported_file_type():
+    with pytest.raises(ValueError):
+        _, _ = load_data_and_split('/path/to/data.unsupported') 
+    assert str(excinfo.value) == "Unsupported file type!", "A ValueError should be raised for unsupported file types."
+
+# Test to ensure the function correctly uses the delimiter
+def test_load_delimiter_handling():
+    # This should pass as we are using the default delimiter which is a comma
+    train_df, test_df = load_data_and_split(csv_file_path, delimiter=',')
+    assert not train_df.empty and not test_df.empty, "DataFrames should not be empty when the correct delimiter is used."
+
+# Test to ensure the split ratio is correct for excel file
+def test_load_excel_data_loading():
+    train_df, test_df = load_data_and_split(excel_file_path, test_size=0.2)
+    assert len(test_df) / (len(test_df) + len(train_df)) == pytest.approx(0.2, 0.01), "The split ratio for the test set should be approximately 0.2 for an Excel file."
+
+# Test to ensure the function works for other common delimiters
+def test_load_another_delim():
+    train_df, test_df = load_data_and_split(csv_semicolon_path, delimiter=';')
+    train_df_2, test_df_2 = load_data_and_split(csv_tab_path, delimiter='\t')
+    assert not train_df.empty and not test_df.empty, "DataFrames should not be empty when the semicolon delimiter is used."
+    assert len(test_df) / (len(test_df) + len(train_df)) == pytest.approx(0.2, 0.01), "The split ratio should be correct for semicolon delimiter."
+    assert not train_df_2.empty and not test_df_2.empty, "DataFrames should not be empty when the tab delimiter is used."
+    assert len(test_df_2) / (len(test_df_2) + len(train_df_2)) == pytest.approx(0.2, 0.01), "The split ratio should be correct for tab delimiter."
+
+# Test to ensure the function works for text files
+def test_load_txt():
+    train_df, test_df = load_data_and_split(txt_file_path)
+    assert not train_df.empty and not test_df.empty, "DataFrames should not be empty when loading from text files."
+    assert len(test_df) / (len(test_df) + len(train_df)) == pytest.approx(0.2, 0.01), "The split ratio for the test set should be approximately 0.2 for text files."
+
+# Test to ensure the function works for json files
+def test_load_json():
+    train_df, test_df = load_data_and_split(json_path)
+    assert not train_df.empty and not test_df.empty, "DataFrames should not be empty when loading from JSON files."
+    assert len(test_df) / (len(test_df) + len(train_df)) == pytest.approx(0.2, 0.01), "The split ratio for the test set should be approximately 0.2 for JSON files."
+
+# Test to ensure the function works with default and non-default split size
+def test_load_split_ratio():
+    train_df, test_df = load_data_and_split(csv_file_path)
+    train_df_2, test_df_2 = load_data_and_split(csv_file_path, test_size=0.3)
+    assert len(test_df) / (len(test_df) + len(train_df)) == pytest.approx(0.2, 0.01), "The default split ratio for the test set should be approximately 0.2."
+    assert len(test_df_2) / (len(test_df_2) + len(train_df_2)) == pytest.approx(0.3, 0.01), "The non-default split ratio for the test set should be approximately 0.3."
