@@ -54,7 +54,7 @@ There are two ways to run the analysis in a Docker container. However, one alway
 git clone git@github.com:UBC-MDS/dsci522_group21.git
 ```
 
-#### build/pull image and run
+#### (method 1) build/pull image and run
 In the first method, one needs to obtain our Docker image in one of two ways:
 
 1. In the root folder of the repository, run `docker build --tag <your_image_name> .`, or,
@@ -68,7 +68,7 @@ docker run --rm -p 8888:8888 -v $(pwd):/home/jovyan <your_image_name>
 
 One can then open jupyter lab using the link given by the command line output.
 
-#### docker-compose
+#### (method 2) docker-compose
 In the second method, to create and run the container, one can run:
 
 ```bash
@@ -76,6 +76,12 @@ docker-compose up
 ```
 
 This command will create an image if it does not already exist. After the user is finished with the analysis, press `Ctrl + C` on the keyboard on the command window, and then run `docker-compose down` to shut down the container.
+
+#### run analysis
+After running one of the above methods in the terminal, copy the URL that starts with http://127.0.0.1:8888/lab?token= (for example, see the highlighted text in the terminal below), and paste it into your browser.
+<img src="img/docker_jupyter_lab_url.png" width=400>
+
+To run the analysis, navigate to the `src/term_deposit_report.ipynb` notebook. Then, from the "Kernel" menu, select "Restart Kernel and Run All Cells...". 
 
 ### Run Unit Tests
 
