@@ -43,7 +43,7 @@ To replicate the analysis:
    ```
 4. Launch Jupyter Lab by running `jupyter lab` and navigate to the `src/term_deposit_report.ipynb` notebook. Then, from the "Kernel" menu, select "Restart Kernel and Run All Cells...".
    ```bash
-   Jupyter Labb
+   Jupyter Lab
    ```
 
 ### Docker
@@ -54,9 +54,10 @@ There are two ways to run the analysis in a Docker container. However, one alway
 git clone git@github.com:UBC-MDS/dsci522_group21.git
 ```
 
+#### build/pull image and run
 In the first method, one needs to obtain our Docker image in one of two ways:
 
-1. In the root folder of the repository, run `docker build --tag <your_image_name> .`.
+1. In the root folder of the repository, run `docker build --tag <your_image_name> .`, or,
 2. In the command line, run `docker pull johnshiu/dsci522_group21:main`. You should now have the image, and it is called `johnshiu/dsci522_group21`.
 
 To run use the image, run:
@@ -67,13 +68,14 @@ docker run --rm -p 8888:8888 -v $(pwd):/home/jovyan/work <your_image_name>
 
 One can then open jupyter lab using the link given by the command line output.
 
+#### docker-compose
 In the second method, to create and run the container, one can run:
 
 ```bash
 docker-compose up
 ```
 
-This command will create an image if it does not already exist. To open jupyter lab, make sure to use the port `8889`. After the user is finished with the analysis, press `Ctrl + C` on the keyboard on the command window, and then run `docker-compose down` to shut down the container.
+This command will create an image if it does not already exist. After the user is finished with the analysis, press `Ctrl + C` on the keyboard on the command window, and then run `docker-compose down` to shut down the container.
 
 =======
 
