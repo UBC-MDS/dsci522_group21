@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   jupyter-lab:
-    image: dsci522_group21:0.0.2
+    image: dsci522_group21:1.0.0
     build:
       context: ./
       dockerfile: Dockerfile
