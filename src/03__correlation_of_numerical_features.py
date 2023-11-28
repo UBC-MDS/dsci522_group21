@@ -41,7 +41,7 @@ def main(train_path):
     Fig_5_with_title.save("img/fig5_with_title.png")
     
     all_figures = alt.hconcat(Fig_4_with_title, Fig_5_with_title).resolve_legend(color='independent')
-    all_figures.save("img/fig4_and_fig5.png")
+    all_figures.save("img/fig4_and_fig5_with_title.png")
 
 if __name__ == "__main__":
     main()
