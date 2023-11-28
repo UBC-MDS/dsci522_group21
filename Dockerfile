@@ -5,6 +5,9 @@ RUN conda install -y \
     pandas=2.1.3 \
     scikit-learn=1.3.2 \
     altair=5.1.2 \
-    pytest=7.4.3 
+    pytest=7.4.3 \
+    dataframe_image=0.1.1 \
+    click=8.1.7 \ 
+    lxml=4.9.3
 
-RUN pip install "vegafusion[embed]>=1.4.0"
+RUN pip install "vegafusion[embed]>=1.4.0" 
