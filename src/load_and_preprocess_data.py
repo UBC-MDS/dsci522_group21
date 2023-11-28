@@ -28,6 +28,8 @@ def main(input_data,
          print_train_df_head_into_png,
          print_X_train_head_into_png,
          print_y_train_dist_into_png):
+    """ Load and split the input data into training and testing sets. 
+    Save the resulting DataFrames and optionally print them into PNG images. """
 
     # load data and split into train and test set for X and target y
     train_df, test_df = load_data_and_split(input_data, delimiter=";")
@@ -50,3 +52,6 @@ def main(input_data,
             X_train.head().dfi.export(os.path.join(output_img_dir, 'X_train_head.png'))
         if print_y_train_dist_into_png:
             pd.DataFrame(y_train.value_counts(normalize=True)).dfi.export(os.path.join(output_img_dir, 'y_train_dist.png'))
+
+if __name__ == '__main__':
+    main()
