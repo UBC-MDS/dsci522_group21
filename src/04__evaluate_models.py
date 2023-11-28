@@ -19,9 +19,9 @@ from sklearn.metrics import precision_score
 @click.option('--input-y-train', help='Path to the CSV file containing the target training (y_train) data.')
 @click.option('--output-cv-results', default=None, help='Path to save cross-validation results as a CSV file. If None, results will not be saved. (Default: None)') 
 @click.option('--output-model-pipes', default=None, help='Path to save model pipelines as a PKL file. If None, pipelines will not be saved. (Default: None)') 
-def main(input_x_train, 
-         input_y_train, 
-         output_cv_results, 
+def main(input_x_train,
+         input_y_train,
+         output_cv_results,
          output_model_pipes):
     """ Preprocess features, and evaluate machine learning models using 5-fold cross-validation. """
     X_train = pd.read_csv(input_x_train, index_col=0)
