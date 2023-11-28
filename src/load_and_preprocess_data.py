@@ -15,10 +15,19 @@ import click
 import dataframe_image as dfi
 from util import load_data_and_split
 
-def main(input_data, output_data_dir, output_img_dir=None,
-         print_train_df_head_into_png=False,
-         print_X_train_head_into_png=False,
-         print_y_train_dist_into_png=False)
+@click.command()
+@click.option('--input-data', prompt='Path to input data file', help='Path to the input data CSV file.')
+@click.option('--output-data-dir', prompt='Directory to save preprocessed data', help='Directory where preprocessed CSV data will be saved.')
+@click.option('--output-img-dir', default=None, help='Directory to save output images.')
+@click.option('--print_train_df_head_into_png', default=False, help='Print the head of the training DataFrame into a PNG image.')
+@click.option('--print_X_train_head_into_png', default=False, help='Print the head of the features (X_train) into a PNG image.')
+@click.option('--print_y_train_dist_into_png', default=False, help='Print the distribution of the target (y_train) into a PNG image.')
+def main(input_data,
+         output_data_dir,
+         output_img_dir,
+         print_train_df_head_into_png,
+         print_X_train_head_into_png,
+         print_y_train_dist_into_png):
 
     # load data and split into train and test set for X and target y
     train_df, test_df = load_data_and_split(input_data, delimiter=";")
