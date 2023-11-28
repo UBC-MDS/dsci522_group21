@@ -18,13 +18,11 @@ def main(model_path, x_test_path, y_test_path):
     df_report = pd.DataFrame(classification_report(y_test, model.predict(X_test), output_dict=True)).T
     df_report[["precision", "recall", "f1-score"]] = df_report[["precision", "recall", "f1-score"]].round(2)
     df_report["support"] = df_report["support"].astype(int)
-    df_report = df_report.style.set_caption("Figure 7 - Classification Report for Logistic Regression Model")
 
     Fig_8 = plot_logistic_regression_feature_importance(model, head=5, precision=3, cmap="PiYG", vmin=None, vmax=None)
-    Fig_8 = Fig_8.set_caption("Figure 8 - Feature Importance")
 
-    df_report.dfi.export("img/figure_7_classification_report.png", table_conversion="matplotlib")
-    Fig_8.dfi.export("img/figure_8_feature_importance.png", table_conversion="matplotlib")
+    df_report.to_csv("data/processed/classification_report.csv")
+    Fig_8.data.to_csv("data/processed/feature_importance.csv")
 
 if __name__ == "__main__":
     main()
