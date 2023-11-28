@@ -8,9 +8,10 @@ import click
 @click.command()
 @click.option("--train_path", help="path to the training data")
 
-#Explores the correlation between numeric variables in the specified training data and plots pair-wise scatter plot for the highly correlated variables.
+
 
 def main(train_path):
+    """Explores the correlation between numeric variables in the specified training data and plots pair-wise scatter plot for the highly correlated variables."""
     train_df = pd.read_csv(train_path)
     alt.data_transformers.enable("vegafusion")
 
