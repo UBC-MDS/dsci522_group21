@@ -36,11 +36,11 @@ def main(input_data,
     # print data frames into png
     if output_img_dir:
         if print_train_df_head_into_png:
-            train_df.head().dfi.export(os.path.join(output_img_dir, 'train_df_head.png'))
+            train_df.head().dfi.export(os.path.join(output_img_dir, 'train_df_head.png'), table_conversion='matplotlib')
         if print_x_train_head_into_png:
-            X_train.head().dfi.export(os.path.join(output_img_dir, 'X_train_head.png'))
+            X_train.head().dfi.export(os.path.join(output_img_dir, 'X_train_head.png'), table_conversion='matplotlib')
         if print_y_train_dist_into_png:
-            pd.DataFrame(y_train.value_counts(normalize=True)).dfi.export(os.path.join(output_img_dir, 'y_train_dist.png'))
+            pd.DataFrame(y_train.value_counts(normalize=True)).dfi.export(os.path.join(output_img_dir, 'y_train_dist.png'), table_conversion='matplotlib')
 
 if __name__ == '__main__':
     main()
