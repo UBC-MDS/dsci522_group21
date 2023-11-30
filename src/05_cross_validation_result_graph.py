@@ -1,4 +1,3 @@
-# +
 import click
 import pandas as pd
 
@@ -24,4 +23,3 @@ def main(file_path, output_path, args):
 
 if __name__ == "__main__":
     main()
-# -
