@@ -10,3 +10,5 @@ python src/04__evaluate_models.py --x-train data/processed/X_train.csv --y-train
 
 
 python src/06__fit_model.py --x-train data/processed/X_train.csv --y-train data/processed/y_train.csv --model-pipes data/processed/model_pipes.pkl --model-to-fit LogisticRegression --output-model-pipe data/processed/logistic_regression.pkl
+
+python src/07__evaluate_model_and_feature_importance.py --model data/processed/logistic_regression.pkl --x-test data/processed/X_test.csv --y-test data/processed/y_test.csv
