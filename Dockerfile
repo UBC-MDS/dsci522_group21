@@ -8,7 +8,5 @@ RUN conda install -y \
     pytest=7.4.3 \ 
     click=8.1.7 \
     jupyter-book=0.15.1
-    dataframe_image=0.1.1 \
-    lxml=4.9.3
 
 RUN pip install "vegafusion[embed]>=1.4.0" 
