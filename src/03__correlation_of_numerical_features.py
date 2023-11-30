@@ -42,12 +42,12 @@ def main(train):
     Fig_5_with_title = alt.vconcat(title_fig_5, Fig_5).resolve_scale(color='independent')
 
     # Save the individual figures
-    Fig_4_with_title.save("img/fig4_with_title.png")
-    Fig_5_with_title.save("img/fig5_with_title.png")
+    Fig_4_with_title.save("img/correlation_heatmap.png")
+    Fig_5_with_title.save("img/pdays_vs_previous_scatter.png")
 
-    # Combine figures and save
-    all_figures = alt.hconcat(Fig_4_with_title, Fig_5_with_title).resolve_legend(color='independent')
-    all_figures.save("img/fig4_and_fig5_with_title.png")
+#    # Combine figures and save
+#    all_figures = alt.hconcat(Fig_4_with_title, Fig_5_with_title).resolve_legend(color='independent')
+#    all_figures.save("img/fig4_and_fig5_with_title.png")
 
 if __name__ == "__main__":
     main()

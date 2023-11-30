@@ -52,8 +52,8 @@ def main(train):
     Fig_2_3_with_title = alt.vconcat(titles, Fig_2_3)
 
     # Save the generated plots with titles
-    Fig1_with_title.save("img/fig1_with_title.png")
-    Fig_2_3_with_title.save("img/fig_2_3_with_title.png")
+    Fig1_with_title.save("img/job_types.png")
+    Fig_2_3_with_title.save("img/previous_and_pdays.png")
 
 if __name__ == "__main__":
     main()
