@@ -6,12 +6,7 @@ from util import load_data_and_split
 @click.command()
 @click.option('--input-data', prompt='Path to input data file', help='Path to the input data CSV file.')
 @click.option('--output-data-dir', prompt='Directory to save preprocessed data', help='Directory where preprocessed CSV data will be saved.')
-def main(input_data,
-         output_data_dir,
-         output_img_dir,
-         print_train_df_head_into_png,
-         print_x_train_head_into_png,
-         print_y_train_dist_into_png):
+def main(input_data, output_data_dir):
     """ Load and split the input data into training and testing sets, save the resulting data frames. """
 
     # load data and split into train and test set for X and target y
