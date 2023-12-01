@@ -22,6 +22,7 @@ def main(input_data, output_data_dir):
     X_test.to_csv(os.path.join(output_data_dir, "X_test.csv"))
     y_test.to_csv(os.path.join(output_data_dir, "y_test.csv"))
 
+    train_df["y"].value_counts(normalize=True).to_csv(os.path.join(output_data_dir, 'y_train_distribution.csv'))
 
 if __name__ == '__main__':
     main()
