@@ -5,8 +5,10 @@ from util import plot_eda
 
 @click.command()
 @click.option("--train", help="Path to the training data CSV file.")
+@click.option("--output-categorical", help="Path to save the categorical plot.")
+@click.option("--output-numerical", help="Path to save the numerical plot.")
 
-def main(train):
+def main(train, output_categorical, output_numerical):
     """ Generate and save exploratory data analysis (EDA) plots for the training data. """
 
     # Read the training data
@@ -20,8 +22,8 @@ def main(train):
     numerical_plot,_ = plot_eda(train_df, numerical_cols=['previous', 'pdays'])
 
     # Save the generated plots
-    categorical_plot.save("img/job_types.png")
-    numerical_plot.save("img/previous_and_pdays.png")
+    categorical_plot.save(output_categorical)
+    numerical_plot.save(output_numerical)
 
 if __name__ == "__main__":
     main()

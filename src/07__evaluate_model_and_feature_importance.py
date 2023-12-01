@@ -8,7 +8,9 @@ from util import plot_logistic_regression_feature_importance
 @click.option("--model", help="Path to the fitted Logistic Regression model pipeline PKL file.")
 @click.option("--x-test", help="Path to the CSV file containing the features testing (X_test) data.")
 @click.option("--y-test", help="Path to the CSV file containing the target testing (y_test) data.")
-def main(model, x_test, y_test):
+@click.option("--output-eval-report", help="Path to save the classification report.")
+@click.option("--output-feat-importance", help="Path to save feature importance dataframe.")
+def main(model, x_test, y_test, output_eval_report, output_feat_importance):
     """ Evaluate classification report on a fitted Logistic Regression model on the test data, and output the feature importance. """
  
     # Read the test data
@@ -22,11 +24,11 @@ def main(model, x_test, y_test):
     df_report = pd.DataFrame(classification_report(y_test, model.predict(X_test), output_dict=True)).T
     df_report[["precision", "recall", "f1-score"]] = df_report[["precision", "recall", "f1-score"]].round(2)
     df_report["support"] = df_report["support"].astype(int)
-    df_report.to_csv("data/processed/classification_report.csv")
+    df_report.to_csv(output_eval_report)
 
     # Generate and save the feature importance plot
     Fig_8 = plot_logistic_regression_feature_importance(model, head=5, precision=3, cmap="PiYG", vmin=None, vmax=None)
-    Fig_8.data.to_csv("data/processed/feature_importance.csv")
+    Fig_8.data.to_csv(output_feat_importance)
 
 if __name__ == "__main__":
     main()

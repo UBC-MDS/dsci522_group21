@@ -5,8 +5,10 @@ from util import plot_correlation_heatmap
 
 @click.command()
 @click.option("--train", help="Path to the training data CSV file.")
+@click.option("--output-heatmap", help="Path to output the correlation heatmap.")
+@click.option("--output-scatterplot", help="Path to output the scatterplot.")
 
-def main(train):
+def main(train, output_heatmap, output_scatterplot):
     """Explores the correlation between numeric variables in the specified training data and plots pair-wise scatter plot for the highly correlated variables."""
 
     # Read the training data
@@ -24,8 +26,8 @@ def main(train):
         y=alt.Y("previous", title='Interactions (previous)').scale(domain=(0, 50), clamp=True))
 
     # Save the individual figures
-    heatmap.save("img/correlation_heatmap.png")
-    scatter.save("img/pdays_vs_previous_scatter.png")
+    heatmap.save(output_heatmap)
+    scatter.save(output_scatterplot)
 
 
 if __name__ == "__main__":
