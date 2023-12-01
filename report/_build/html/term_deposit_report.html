@@ -746,25 +746,59 @@ document.write(`
 </figcaption>
 </figure>
 <p><strong>Exploratory Data Analysis</strong></p>
-<figure class="align-default" id="ypropdist">
-<a class="reference internal image-reference" href="_images/y_train_dist.png"><img alt="_images/y_train_dist.png" src="_images/y_train_dist.png" style="height: 300px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Target Distribution on Training Dataset</span><a class="headerlink" href="#ypropdist" title="Permalink to this image">#</a></p>
+<figure class="align-default" id="id18">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>y</th>
+      <th>proportion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>no</td>
+      <td>0.883931</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>yes</td>
+      <td>0.116069</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Target Distribution on Training Dataset</span><a class="headerlink" href="#id18" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>During our analysis, <a class="reference internal" href="#ypropdist"><span class="std std-numref">Figure 2</span></a> noted that the dataset exhibits an imbalance in class proportions within the target (88.2358% ‘no’ subscription rate versus 11.7642% ‘yes’ rate).</p>
+<p>During our analysis, <code class="xref std std-numref docutils literal notranslate"><span class="pre">Figure</span> <span class="pre">{number}</span></code> noted that the dataset exhibits an imbalance in class proportions within the target (88.2358% ‘no’ subscription rate versus 11.7642% ‘yes’ rate).</p>
 <p>On the other hand, the features <code class="docutils literal notranslate"><span class="pre">job</span></code>, <code class="docutils literal notranslate"><span class="pre">education</span></code>, <code class="docutils literal notranslate"><span class="pre">contact</span></code>, and <code class="docutils literal notranslate"><span class="pre">poutcome</span></code> include “unknown” entries distinct from null values. Due to insufficient dataset information, proper imputation of these unknown values is not feasible. Eliminating only the unknown values from these columns was deemed impractical as it would significantly reduce the data.</p>
 <p>Additionally, the variable <code class="docutils literal notranslate"><span class="pre">poutcome</span></code> represents the result of the previous marketing campaign. The prevalence of “unknown” values in this field largely corresponds to cases where <code class="docutils literal notranslate"><span class="pre">previous</span></code> equals 0, indicating that the individual had not been previously contacted for marketing purposes. In such scenarios, labeling <code class="docutils literal notranslate"><span class="pre">poutcome</span></code> as “unknown” is logical, as there is no prior marketing engagement to reference. However, for individuals who have been contacted before, the <code class="docutils literal notranslate"><span class="pre">poutcome</span></code> data could be insightful.</p>
 <p>The features <code class="docutils literal notranslate"><span class="pre">job</span></code> and <code class="docutils literal notranslate"><span class="pre">education</span></code>, and <code class="docutils literal notranslate"><span class="pre">contact</span></code> are also worth retaining in the analysis. Although they contain “unknown” values, their proportion is not significantly high. Furthermore, our objective is to unveil the relevance of each feature. Keeping these variables allows for a comprehensive analysis, even though we might anticipate the outcome to suggest that some of these features might not be of high importance.</p>
 <p>Overall, we opted to maintain all columns and rows, considering the scope of our analysis. For a comprehensive evaluation of each feature’s significance, it’s crucial to consider the entire dataset.</p>
 <figure class="align-default" id="jobtypes">
-<a class="reference internal image-reference" href="_images/fig1_with_title.png"><img alt="_images/fig1_with_title.png" src="_images/fig1_with_title.png" style="height: 300px;" /></a>
+<a class="reference internal image-reference" href="_images/job_types.png"><img alt="_images/job_types.png" src="_images/job_types.png" style="height: 300px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 3 </span><span class="caption-text">Distribution of Job Types</span><a class="headerlink" href="#jobtypes" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="previouspdays">
-<a class="reference internal image-reference" href="_images/fig_2_3_with_title.png"><img alt="_images/fig_2_3_with_title.png" src="_images/fig_2_3_with_title.png" style="height: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/previous_and_pdays.png"><img alt="_images/previous_and_pdays.png" src="_images/previous_and_pdays.png" style="height: 400px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 4 </span><span class="caption-text">Left: Number of Contacts Before this Campaign (previous), Right: Days Passed after Last Contact (pdays)</span><a class="headerlink" href="#previouspdays" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -772,13 +806,13 @@ document.write(`
 <p>Bar charts, similar to <a class="reference internal" href="#jobtypes"><span class="std std-numref">Figure 3</span></a>,  were created for categorical variables, and histograms were created for numerical variables for illustration. <a class="reference internal" href="#previouspdays"><span class="std std-numref">Figure 4</span></a> revealed that the distributions of the <code class="docutils literal notranslate"><span class="pre">pdays</span></code> and <code class="docutils literal notranslate"><span class="pre">previous</span></code> variables in the dataset are significantly skewed.</p>
 <p>A heatmap illustrating the Pearson correlation (<a class="reference internal" href="#heatmap"><span class="std std-numref">Figure 5</span></a>) was created to explore the relationships among numerical variables. The Pearson heatmap was included given that it evaluates linear correlation, an essential factor in determining potential multicollinearity.</p>
 <figure class="align-default" id="heatmap">
-<a class="reference internal image-reference" href="_images/fig4_with_title.png"><img alt="_images/fig4_with_title.png" src="_images/fig4_with_title.png" style="height: 300px;" /></a>
+<a class="reference internal image-reference" href="_images/correlation_heatmap.png"><img alt="_images/correlation_heatmap.png" src="_images/correlation_heatmap.png" style="height: 300px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 5 </span><span class="caption-text">Pearson Correlation Heatmap</span><a class="headerlink" href="#heatmap" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="pdaysscatterplot">
-<a class="reference internal image-reference" href="_images/fig5_with_title.png"><img alt="_images/fig5_with_title.png" src="_images/fig5_with_title.png" style="height: 300px;" /></a>
+<a class="reference internal image-reference" href="_images/pdays_vs_previous_scatter.png"><img alt="_images/pdays_vs_previous_scatter.png" src="_images/pdays_vs_previous_scatter.png" style="height: 300px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 6 </span><span class="caption-text">Scatterplot for Recency (pdays) vs Intensity (previous)</span><a class="headerlink" href="#pdaysscatterplot" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -788,7 +822,7 @@ document.write(`
 <p>We identified categorical, ordinal, and numerical features and applied appropriate transformations, including one-hot encoding for categorical features, ordinal encoding for education levels, and standardization for numerical features.</p>
 <p><strong>Model Training and Evaluation</strong></p>
 <p>Our analysis evaluated three distinct models: a baseline dummy classifier, a decision tree, and logistic regression. We assessed these models using five-fold cross-validation based on key metrics: accuracy, precision, and recall. This approach was particularly vital in examining the impact of our dataset’s unbalanced nature on the likelihood of errors. Our analysis places a higher emphasis on precision. This is because our objective is to identify true positives with minimal false positives, in the context of examining client subscriptions to term deposits at the Portuguese banking institution. By centering our analysis on precision, we aim to ensure that the features under consideration are truly indicative of successful term deposit subscriptions, thus providing more reliable insights into client behavior.</p>
-<figure class="align-default" id="id18">
+<figure class="align-default" id="id19">
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -910,13 +944,13 @@ document.write(`
   </tbody>
 </table>
 </div></div><figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Model Comparison - Cross Validation Scores</span><a class="headerlink" href="#id18" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Model Comparison - Cross Validation Scores</span><a class="headerlink" href="#id19" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><code class="xref std std-numref docutils literal notranslate"><span class="pre">Figure</span> <span class="pre">{number}</span></code> reveals that the Logistic Regression slightly outperforms the Decision Tree Classifier in terms of test precision, whilst both models perform the same in regards to test recall. Additionally, the Logistic Regression model demonstrates a narrower disparity between training and testing scores, suggesting a higher potential of effective generalization. Despite these findings, there remains potential for precision improvement. In future efforts to predict subscription outcomes, increasing the threshold could improve precision. Overall, the Logistic Regression model’s performance indicated better generalizability.</p>
 <p><strong>Analysis of Model Performance</strong></p>
 <p>Upon further analysis, we observed that the Logistic Regression model, when applied on the test data, achieved a precision of 0.66 for predicting positive outcomes (clients subscribing to a term deposit).</p>
-<figure class="align-default" id="id19">
+<figure class="align-default" id="id20">
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -986,14 +1020,14 @@ document.write(`
   </tbody>
 </table>
 </div></div><figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Classification Report for Logistic Regression Model</span><a class="headerlink" href="#id19" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Classification Report for Logistic Regression Model</span><a class="headerlink" href="#id20" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The precision test score (0.66) is similar to the precision validation score (0.65) as well as the precision train score (0.66). Therefore, we would believe that the feature importance conclusion drawn from this model is generalizable.</p>
 <p><strong>Feature Importance</strong></p>
 <p>To obtain the top 3 driving factors behind the predictions, we looked into the feature importance derived from the Logistic Regression model.</p>
 <p>The analysis reveals that <code class="docutils literal notranslate"><span class="pre">poutcome</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, and <code class="docutils literal notranslate"><span class="pre">duration</span></code> are the three most significant features influencing a client’s likelihood to subscribe to a term deposit. Clients with a previous successful <code class="docutils literal notranslate"><span class="pre">poutcome</span></code> tend to be more inclined to subscribe, likely due to their positive experiences with the bank’s services. Interestingly, <code class="docutils literal notranslate"><span class="pre">month</span></code> contains a pattern where in March (“mar”) there is a higher subscription rate and in January (“jan”) the rate is lower. This finding could suggest a seasonal factor, possibly linked to financial periods, though its exact cause remains unclear and would require further external research. Longer <code class="docutils literal notranslate"><span class="pre">duration</span></code> of calls is linked with increased subscription rates, potentially implying greater client interest and giving salespersons more time for effective pitching might add to the likelihood of subscription.</p>
-<figure class="align-default" id="id20">
+<figure class="align-default" id="id21">
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1051,7 +1085,7 @@ document.write(`
   </tbody>
 </table>
 </div></div><figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Feature Importance</span><a class="headerlink" href="#id20" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Feature Importance</span><a class="headerlink" href="#id21" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Final Insights</strong></p>
