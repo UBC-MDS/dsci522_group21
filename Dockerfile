@@ -10,5 +10,3 @@ RUN conda install -y \
     jupyter-book=0.15.1
 
 RUN pip install "vegafusion[embed]>=1.4.0" 
-
-RUN python -m ipykernel install --user --name conda-env-522-py
