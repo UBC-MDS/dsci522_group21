@@ -82,6 +82,47 @@ After running one of the above methods, in the terminal, copy the URL that start
 <img src="img/docker_jupyter_lab_url.png">
 
 To run the analysis, navigate to the `src/term_deposit_report.ipynb` notebook. Then, from the "Kernel" menu, select "Restart Kernel and Run All Cells...". 
+To run in the terminal from the project root:
+```bash
+# Load, preprocess, and split data into training and testing sets.
+python src/01__load_and_preprocess_data.py \
+   --input-data data/raw/bank-full.csv \
+   --output-data-dir data/processed
+
+# Generate and save exploratory data analysis (EDA) plots for training data.
+python src/02__eda_images_output.py \
+   --train data/processed/train_df.csv
+
+# Explore correlation between numeric variables in training data and generate plots.
+python src/03__correlation_of_numerical_features.py \
+   --train data/processed/train_df.csv
+
+# Evaluate machine learning models using cross-validation and save the results and model pipelines.
+python src/04__evaluate_models.py \
+   --x-train data/processed/X_train.csv \
+   --y-train data/processed/y_train.csv \
+   --output-cv-results data/processed/cv_results.csv \
+   --output-model-pipes data/processed/model_pipes.pkl
+
+# Process cross-validation results and save the mean values.
+python scripts/05_cross_validation_result_graph.py \
+   --cv-results data/processed/cv_results.csv \
+   --output-cv-means data/processed/cv_means.csv
+
+# Fit a specified Logistic Regression model and save the fitted model pipeline.
+python src/06__fit_model.py \
+   --x-train data/processed/X_train.csv \
+   --y-train data/processed/y_train.csv \
+   --model-pipes data/processed/model_pipes.pkl \
+   --model-to-fit LogisticRegression \
+   --output-model-pipe data/processed/logistic_regression.pkl
+
+# Evaluate a fitted Logistic Regression model on test data and generate feature importance information.
+python src/07__evaluate_model_and_feature_importance.py \
+   --model data/processed/logistic_regression.pkl \
+   --x-test data/processed/X_test.csv \
+   --y-test data/processed/y_test.csv
+```
 
 ### Run Unit Tests
 
@@ -116,146 +157,6 @@ pytest
 2. Scripts: `term_deposit_report.ipynb`, `term_deposit_full_analysis.ipynb`
 3. Report: `term_deposit_report.html`
 
-## Script Usage
-
-### `01_load_and_preprocess_data.py`
-
-This script is designed to load, preprocess, and split your input data into training and testing sets. It also provides options to save these sets into CSV files and, optionally, to export certain data visualizations as PNG images.
-
-#### Arguments
-
-- **`--input-data <path>`**: Path to the input data CSV file. This is a required parameter.
-- **`--output-data-dir <directory>`**: Directory where preprocessed CSV data will be saved. This is a required parameter.
-- **`--output-img-dir <directory>`**: Optional. Directory to save output images. If not specified, no images will be saved.
-- **`--print-train-df-head-into-png`**: Optional. If set, the script will print the head of the training DataFrame into a PNG image.
-- **`--print-x-train-head-into-png`**: Optional. If set, the script will print the head of the features (X_train) into a PNG image.
-- **`--print-y-train-dist-into-png`**: Optional. If set, the script will print the distribution of the target (y_train) into a PNG image.
-
-#### Usage 
-
-To run the script with the minimum required parameters:
-
-```bash
-python 01_load_and_preprocess_data.py --input-data "path/to/input.csv" --output-data-dir "path/to/output/dir"
-```
-
-To export data visualizations as PNG images:
-```bash
-python 01_load_and_preprocess_data.py --input-data "path/to/input.csv" --output-data-dir "path/to/output/dir" --output-img-dir "path/to/img/dir" --print-train-df-head-into-png --print-x-train-head-into-png --print-y-train-dist-into-png
-```
-
-### `02_eda_images_output.py`
-
-This script is specifically designed for generating and saving exploratory data analysis (EDA) plots for training data. It reads the training data from a specified CSV file, creates visualizations to understand the data better, and saves these visualizations as images.
-
-#### Arguments
-
-- **`--train <path>`**: This argument specifies the path to the training data CSV file. It is mandatory to provide this path for the script to function.
-
-#### Usage 
-
-Run the script:
-
-```bash
-python 02_eda_images_output.py --train "path/to/training_data.csv"
-```
-
-### `03_correlation_of_numerical_features.py`
-
-This script explores the correlation between numeric variables in the specified training data. It generates a correlation heatmap and a pair-wise scatter plot for highly correlated variables, providing insights into the relationships between numerical features in your dataset.
-
-#### Arguments
-
-- **`--train <path>`**: Path to the training data CSV file. This is a required parameter.
-
-#### Usage 
-
-To run the script:
-
-```bash
-python 03_correlation_of_numerical_features.py --train "path/to/training_data.csv"
-```
-
-### `04_evaluate_models.py`
-
-This script is designed for preprocessing features and evaluating multiple machine learning models using 5-fold cross-validation. It reads training data, applies appropriate feature transformations, and assesses different models based on accuracy, precision, and recall.
-
-#### Arguments
-
-- **`--x-train <path>`**: Path to the CSV file containing the features training (X_train) data. This is a required parameter.
-- **`--y-train <path>`**: Path to the CSV file containing the target training (y_train) data. This is a required parameter.
-- **`--output-cv-results <path>`**: Optional. Path to save cross-validation results as a CSV file. If not specified, results will not be saved.
-- **`--output-model-pipes <path>`**: Optional. Path to save model pipelines as a PKL file. If not specified, pipelines will not be saved.
-
-#### Usage 
-
-To run the script with the required arguments:
-```bash
-python 04_evaluate_models.py --x-train "path/to/X_train.csv" --y-train "path/to/y_train.csv"
-```
-
-To save cross-validation results and model pipelines:
-```bash
-python 04_evaluate_models.py --x-train "path/to/X_train.csv" --y-train "path/to/y_train.csv" --output-cv-results "path/to/cv_results.csv" --output-model-pipes "path/to/model_pipelines.pkl"
-```
-
-### `05_cross_validation_result_graph.py`
-
-This script processes the cross-validation results from a CSV file and extracts key metrics to be saved in a separate file. It's primarily designed to facilitate the analysis and visualization of model performance metrics.
-
-#### Arguments
-
-- **`--file-path <path>`**: Optional. Path to the `cv_results.csv` file. Defaults to `../data/processed/cv_results.csv` if not specified.
-- **`--output-path <path>`**: Optional. Path for saving the processed results as a CSV file. Defaults to `../data/processed/Fig_6.csv` if not specified.
-
-#### Usage 
-
-To run the script with default file paths:
-```bash
-python 05_cross_validation_result_graph.py
-```
-
-To specify custom paths for the input and output files:
-```bash
-python 05_cross_validation_result_graph.py --file-path "path/to/cv_results.csv" --output-path "path/to/output/Fig_6.csv"
-```
-
-### `06_fit_model.py`
-
-This script is tailored for fitting a specified machine learning model pipeline using training data. It reads the training data and a pre-saved model pipeline, fits the chosen model, and then saves the fitted model for future use or deployment.
-
-#### Arguments
-
-- **`--x-train <path>`**: Path to the CSV file containing the features training (X_train) data. This is a required parameter.
-- **`--y-train <path>`**: Path to the CSV file containing the target training (y_train) data. This is a required parameter.
-- **`--model-pipes <path>`**: Path to the PKL file containing the saved model pipelines. This is a required parameter.
-- **`--model-to-fit <model_name>`**: Optional. Name of the model to fit. Choose from `["Baseline", "DecisionTree", "LogisticRegression"]`. Defaults to `LogisticRegression` if not specified.
-- **`--output-model-pipe <path>`**: Path to save the fitted model pipeline as a PKL file. This is a required parameter.
-
-#### Usage 
-
-To fit a specific model and save the fitted pipeline:
-
-```bash
-python 06_fit_model.py --x-train "path/to/X_train.csv" --y-train "path/to/y_train.csv" --model-pipes "path/to/model_pipelines.pkl" --model-to-fit "DecisionTree" --output-model-pipe "path/to/fitted_model.pkl"
-```
-### `07_evaluate_model_and_feature_importance.py`
-
-This script is designed for evaluating a fitted Logistic Regression model on test data. It generates a classification report and outputs a visualization of feature importance based on the model's coefficients.
-
-#### Arguments
-
-- **`--model <path>`**: Path to the fitted Logistic Regression model pipeline PKL file. This is a required parameter.
-- **`--x-test <path>`**: Path to the CSV file containing the features testing (X_test) data. This is a required parameter.
-- **`--y-test <path>`**: Path to the CSV file containing the target testing (y_test) data. This is a required parameter.
-
-#### Usage Example
-
-To evaluate the model and generate feature importance information:
-
-```bash
-python 07_evaluate_model_and_feature_importance.py --model "path/to/fitted_model.pkl" --x-test "path/to/X_test.csv" --y-test "path/to/y_test.csv"
-```
 
 ## License
 
