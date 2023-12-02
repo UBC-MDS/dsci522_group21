@@ -19,7 +19,7 @@ The report's findings are instrumental for banking institutions to comprehend an
 
 ## Report
 
-The complete report can be found [here](https://ubc-mds.github.io/dsci522_group21/term_deposit_report.html).
+The complete report can be found [here](https://ubc-mds.github.io/group21_top-three-predictors-of-term-deposit-subscriptions/term_deposit_report.html).
 
 ## Usage
 
@@ -31,7 +31,7 @@ To replicate the analysis:
 
 1. Clone this repository.
    ```bash
-   git clone https://github.com/UBC-MDS/dsci522_group21.git
+   git@github.com:UBC-MDS/group21_top-three-predictors-of-term-deposit-subscriptions.git
    ```
 2. Install the required dependencies. When running for the first time, please create conda environment by running this command:
    ```bash
@@ -51,7 +51,7 @@ To replicate the analysis:
 There are two ways to run the analysis in a Docker container. However, one always needs to first clone the repo:
 
 ```bash
-git clone git@github.com:UBC-MDS/dsci522_group21.git
+git clone git@github.com:UBC-MDS/group21_top-three-predictors-of-term-deposit-subscriptions.git
 ```
 
 #### (method 1) build/pull image and run
@@ -155,6 +155,8 @@ pytest
 - vegafusion=1.4.5
 - vegafusion-jupyter=1.4.5
 - pytest=7.4.3
+- click=8.1.7
+- jupyter-book=0.15.1
 
 ```
 
@@ -172,9 +174,9 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 # References
 
 - Harris, C.R. et al., 2020. Array programming with NumPy. Nature, 585, pp.357–362.
-- Moro,S., Rita,P., and Cortez,P., 2012. Bank Marketing. UCI Machine Learning Repository. https://doi.org/10.24432/C5K306.
-- Ostblom,J., 2023. environment.yaml. DSCI_573_feat-model-select_students Repository. https://github.ubc.ca/MDS-2023-24/DSCI_573_feat-model-select_students/blob/fc08e3246ff07f0425942d1b97429d5d0ebce933/environment.yaml.
-- Pedregosa, F. et al., 2011. Scikit-learn: Machine learning in Python. Journal of machine learning research, 12(Oct), pp.2825–2830.
-- Timbers,T. , Ostblom,J., and Lee,M., 2023. Breast Cancer Predictor Report. GitHub repository, https://github.com/ttimbers/breast_cancer_predictor_py/blob/0.0.1/src/breast_cancer_predictor_report.ipynb.
-- Van Rossum, Guido, and Fred L. Drake. 2009. Python 3 Reference Manual. Scotts Valley, CA: CreateSpace.
-- VanderPlas, J. et al., 2018. Altair: Interactive statistical visualizations for python. Journal of open source software, 3(32), p.1057.
+- Varada Kolhatkar and Joel Ostblom. Dsci_573_feat-model-select_students repository. 2023. URL: https://github.ubc.ca/MDS-2023-24/DSCI_573_feat-model-select_students/blob/fc08e3246ff07f0425942d1b97429d5d0ebce933/environment.yaml.
+- S. Moro, P. Rita, and P. Cortez. Bank Marketing. UCI Machine Learning Repository, 2012. DOI: https://doi.org/10.24432/C5K306.
+- F. Pedregosa and others. Scikit-learn: machine learning in python. Journal of machine learning research, 12:2825–2830, 2011.
+- Guido Van Rossum and Fred L. Drake. Python 3 Reference Manual. CreateSpace, Scotts Valley, CA, 2009. ISBN 1441412697.
+- Jacob VanderPlas, Brian E. Granger, Jeffrey Heer, Dominik Moritz, Kanit Wongsuphasawat, Arvind Satyanarayan, Eitan Lees, Ilia Timofeev, Ben Welsh, and Scott Sievert. Altair: interactive statistical visualizations for python. Journal of Open Source Software, 3(32):1057, 2018. URL: https://doi.org/10.21105/joss.01057, doi:10.21105/joss.01057.
+- Wes McKinney. Data Structures for Statistical Computing in Python. In Stéfan van der Walt and Jarrod Millman, editors, Proceedings of the 9th Python in Science Conference, 56 – 61. 2010. doi:10.25080/Majora-92bf1922-00a.
