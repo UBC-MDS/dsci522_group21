@@ -1,0 +1,10 @@
+title: "Identifying the Top Three Predictors of Term Deposit Subscriptions"
+author: "Jerry Yu, John Shiu, Sophia Zhao, Zeily Garcia"
+date: "2023-11-29"
+sphinx:
+  config:
+    bibtex_reference_style: author_year
+execute:
+  execute_notebooks: force 
+bibtex_bibfiles:
+    - references.bib

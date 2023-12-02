@@ -1,0 +1,1246 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Identifying the Top Three Predictors of Term Deposit Subscriptions &#8212; Identifying the Top Three Predictors of Term Deposit Subscriptions</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'term_deposit_report';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Identifying the Top Three Predictors of Term Deposit Subscriptions</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Identifying the Top Three Predictors of Term Deposit Subscriptions
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/term_deposit_report.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Identifying the Top Three Predictors of Term Deposit Subscriptions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Identifying the Top Three Predictors of Term Deposit Subscriptions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-description">Variable Description</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#results-discussion">Results &amp; Discussion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="identifying-the-top-three-predictors-of-term-deposit-subscriptions">
+<h1>Identifying the Top Three Predictors of Term Deposit Subscriptions<a class="headerlink" href="#identifying-the-top-three-predictors-of-term-deposit-subscriptions" title="Permalink to this heading">#</a></h1>
+<p>by Jerry Yu, John Shiu, Sophia Zhao, &amp; Zeily Garcia
+2023/11/19</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
+<p>This report presents an analysis of the factors influencing client subscriptions to term deposits at a Portuguese banking institution. Utilizing a dataset comprising 45,211 client interactions with a target variable and 16 input features, we apply logistic regression and decision tree classifiers to identify the top three predictors of term deposit subscriptions. The data preprocessing involves handling missing values, encoding categorical variables, and standardizing numerical variables. Our exploratory data analysis leverages visualizations to understand feature distributions and correlations, while model evaluation focuses on precision and recall due to the dataset’s imbalance. Logistic regression is likely to prove slightly superior in precision to the decision tree classifier. The analysis identifies the outcome of previous campaigns, the month of contact, and the call duration as the most significant predictors. These findings offer valuable insights into the decision-making process of clients regarding term deposit subscriptions and suggest areas for future research.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
+<p>In the evolving world of banking and finance, the ability to understand and predict customer behavior is key to developing successful marketing strategies. Term deposits, a core financial product, serve a dual purpose: they provide a safe investment option for customers and a reliable source of funding for banks. For financial institutions looking to grow their customer base and ensure financial stability, it’s crucial to understand what drives customers to invest in these term deposits.</p>
+<p>Our study focuses on uncovering the factors that influence a customer’s decision to subscribe to a term deposit at a Portuguese banking institution. We pose a critical question: What are the top three factors that determine whether a client will invest in a term deposit at this bank? To explore this, we analyze a dataset that contains over 45,000 individual client records, including demographic data and details of interactions from the bank’s term deposit marketing campaigns. With consideration of a logistic regression model and decision tree classifier, renowned for their efficacy in handling both numeric and categorical variables, we aim to detect significant patterns from this dataset. Our objective is to provide insights that could lead to an improvement to the effectiveness of marketing strategies that boost term deposit subscriptions at the institution.</p>
+<p>The importance of this research lies in its potential to transform marketing strategies for the banking institution. By accurately understanding and predicting customer behavior, our findings can guide the Portuguese financial institution in crafting more effective and tailored marketing approaches. This not only aids in customer acquisition and retention but also ensures that customers are presented with options that align with their financial goals and needs. In an era where personalized services are becoming the norm, such insights are invaluable for banks seeking to remain competitive and foster long-term customer relationships.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="methods">
+<h1>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h1>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
+<p>The data set utilized in this project was created by Sérgio Moro, P. Cortez, and P. Rita, and is hosted on the UCI Machine Learning Repository <span id="id1">[<a class="reference internal" href="#id9" title="S. Moro, P. Rita, and P. Cortez. Bank Marketing. UCI Machine Learning Repository, 2012. DOI: https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>. It can be accessed <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/bank+marketing">here</a>. The data was sourced from the marketing campaigns of a Portuguese banking institution, focusing on client subscriptions to term deposits. The primary dataset, <code class="docutils literal notranslate"><span class="pre">bank-full.csv</span></code>, includes 45,211 examples with 17 variables. Each row in the dataset represents information from a client contact during the campaign.</p>
+<p>This dataset comprehensively covers client demographic information (such as age, job type, marital status, and education level), financial information (including credit default history, average yearly balance, housing and personal loan status), and information about bank marketing (like the type of contact, date of the last contact, call duration, number of contacts in the current campaign, days elapsed since the last contact in a previous campaign, outcome of the previous campaigns, and finally, whether the client will subscribe to a term deposit).</p>
+<section id="variable-description">
+<h3>Variable Description<a class="headerlink" href="#variable-description" title="Permalink to this heading">#</a></h3>
+<p>Below shows the data description of each variable in the primary dataset, <code class="docutils literal notranslate"><span class="pre">bank-full.csv</span></code>,</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-left head"><p>Variable</p></th>
+<th class="text-center head"><p>feature/target?</p></th>
+<th class="text-left head"><p>Description</p></th>
+<th class="text-left head"><p>Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">age</span></code></p></td>
+<td class="text-center"><p>feature</p></td>
+<td class="text-left"><p>client age</p></td>
+<td class="text-left"><p>numeric</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">job</span></code></p></td>
+<td class="text-center"><p>feature</p></td>
+<td class="text-left"><p>type of job</p></td>
+<td class="text-left"><p>categorical</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">marital</span></code></p></td>
+<td class="text-center"><p>feature</p></td>
+<td class="text-left"><p>marital status</p></td>
+<td class="text-left"><p>categorical</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">education</span></code></p></td>
+<td class="text-center"><p>feature</p></td>
+<td class="text-left"><p>education</p></td>
+<td class="text-left"><p>categorical (ordered)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">default</span></code></p></td>
+<td class="text-center"><p>feature</p></td>
+<td class="text-left"><p>does this client have credit in default?</p></td>
+<td class="text-left"><p>binary</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">balance</span></code></p></td>
+<td class="text-center"><p>feature</p></td>
+<td class="text-left"><p>average yearly balance (in Euros)</p></td>
+<td class="text-left"><p>numeric</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">housing</span></code></p></td>
+<td class="text-center"><p>feature</p></td>
+<td class="text-left"><p>does this client have housing loan?</p></td>
+<td class="text-left"><p>binary</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">loan</span></code></p></td>
+<td class="text-center"><p>feature</p></td>
+<td class="text-left"><p>does this client have personal loan?</p></td>
+<td class="text-left"><p>binary</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">contact</span></code></p></td>
+<td class="text-center"><p>feature</p></td>
+<td class="text-left"><p>contact communication type</p></td>
+<td class="text-left"><p>categorical</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">day</span></code></p></td>
+<td class="text-center"><p>feature</p></td>
+<td class="text-left"><p>last contact day of the month</p></td>
+<td class="text-left"><p>categorical</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">month</span></code></p></td>
+<td class="text-center"><p>feature</p></td>
+<td class="text-left"><p>last contact month of year</p></td>
+<td class="text-left"><p>categorical</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">duration</span></code></p></td>
+<td class="text-center"><p>feature</p></td>
+<td class="text-left"><p>last contact duration (in seconds)</p></td>
+<td class="text-left"><p>numeric</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">campaign</span></code></p></td>
+<td class="text-center"><p>feature</p></td>
+<td class="text-left"><p>number of contacts performed during this campaign and for this client</p></td>
+<td class="text-left"><p>numeric</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">pdays</span></code></p></td>
+<td class="text-center"><p>feature</p></td>
+<td class="text-left"><p>number of days that passed by after this client was last contacted from a previous campaign</p></td>
+<td class="text-left"><p>numeric</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">previous</span></code></p></td>
+<td class="text-center"><p>feature</p></td>
+<td class="text-left"><p>number of contacts performed before this campaign and for this client</p></td>
+<td class="text-left"><p>numeric</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">poutcome</span></code></p></td>
+<td class="text-center"><p>feature</p></td>
+<td class="text-left"><p>outcome of the previous marketing campaign</p></td>
+<td class="text-left"><p>categorical</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
+<td class="text-center"><p>target</p></td>
+<td class="text-left"><p>has this client subscribed a term deposit?</p></td>
+<td class="text-left"><p>binary</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="analysis">
+<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h2>
+<p>Logistic regression and decision tree classifier were considered to develop a model for determining the top 3 factors that aid in predicting if a client will subscribe to a term deposit. To be able to explore the significance of each attribute, all variables included in the original data set were used to fit the model. The exploratory section of our data analysis explored the distribution of categorical and numerical variables, and correlation between the numerical variables.</p>
+<p>In the preprocessing phase, categorical or binary variables were transformed using one-hot encoding, ordered categorical variable was ordinal encoded, and numerical variables were standardized. The data was then split, assigning 75% to the training set and 25% to the test set. The evaluation of both logistic regression and decision tree classifier was conducted with a detailed focus on accuracy, precision, and recall metrics, prioritizing precision in particular. This emphasis on precision is crucial for our study, which aims to minimize Type 1 errors.</p>
+<p>Python Language <span id="id2">[<a class="reference internal" href="#id15" title="Guido Van Rossum and Fred L. Drake. Python 3 Reference Manual. CreateSpace, Scotts Valley, CA, 2009. ISBN 1441412697.">Van Rossum and Drake, 2009</a>]</span> and its libraries, including pandas <span id="id3">[<a class="reference internal" href="#id12" title="Wes McKinney. Data Structures for Statistical Computing in Python. In Stéfan van der Walt and Jarrod Millman, editors, Proceedings of the 9th Python in Science Conference, 56 - 61. 2010. doi:10.25080/Majora-92bf1922-00a.">Wes McKinney, 2010</a>]</span>, NumPy <span id="id4">[<a class="reference internal" href="#id10" title="C.R. Harris and others. Array programming with numpy. Nature, 585:357–362, 2020.">Harris and others, 2020</a>]</span>, scikit-learn <span id="id5">[<a class="reference internal" href="#id13" title="F. Pedregosa and others. Scikit-learn: machine learning in python. Journal of machine learning research, 12:2825–2830, 2011.">Pedregosa and others, 2011</a>]</span>, and Altair <span id="id6">[<a class="reference internal" href="#id16" title="Jacob VanderPlas, Brian E. Granger, Jeffrey Heer, Dominik Moritz, Kanit Wongsuphasawat, Arvind Satyanarayan, Eitan Lees, Ilia Timofeev, Ben Welsh, and Scott Sievert. Altair: interactive statistical visualizations for python. Journal of Open Source Software, 3(32):1057, 2018. URL: https://doi.org/10.21105/joss.01057, doi:10.21105/joss.01057.">VanderPlas <em>et al.</em>, 2018</a>]</span>, were essential for the analysis. The environment file used to run the analysis was adapted from the University of British Columbia DSCI 573 Feature and Model Selection course repository <span id="id7">[<a class="reference internal" href="#id11" title="Varada Kolhatkar and Joel Ostblom. Dsci_573_feat-model-select_students repository. 2023. URL: https://github.ubc.ca/MDS-2023-24/DSCI_573_feat-model-select_students/blob/fc08e3246ff07f0425942d1b97429d5d0ebce933/environment.yaml.">Kolhatkar and Ostblom, 2023</a>]</span>.</p>
+<p>The analysis revealed that logistic regression exhibited slightly better precision than the decision tree classifier, with a smaller gap between training and testing scores, suggesting better generalizability. Logistic regression was also highly regarded as the model for assessing feature importance, given its strong interpretability. Upon model fitting and evaluation, the top three features predicting a client’s decision to subscribe to a term deposit were identified by sorting feature importance in terms of absolute coefficient.</p>
+<p>The full coding process and methods are thoroughly recorded in <a class="reference external" href="https://github.com/UBC-MDS/dsci522_group21/blob/main/src/term_deposit_full_analysis.ipynb">term_deposit_full_analysis.ipynb</a>.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="results-discussion">
+<h1>Results &amp; Discussion<a class="headerlink" href="#results-discussion" title="Permalink to this heading">#</a></h1>
+<p><strong>Data Preprocessing</strong></p>
+<p>The dataset was divided into training and testing sets with a 75-25 split, ensuring a representative sample in both sets.</p>
+<figure class="align-default" id="id17">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>age</th>
+      <th>job</th>
+      <th>marital</th>
+      <th>education</th>
+      <th>default</th>
+      <th>balance</th>
+      <th>housing</th>
+      <th>loan</th>
+      <th>contact</th>
+      <th>day</th>
+      <th>month</th>
+      <th>duration</th>
+      <th>campaign</th>
+      <th>pdays</th>
+      <th>previous</th>
+      <th>poutcome</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3344</td>
+      <td>41</td>
+      <td>blue-collar</td>
+      <td>married</td>
+      <td>primary</td>
+      <td>no</td>
+      <td>849</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>15</td>
+      <td>may</td>
+      <td>72</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>17965</td>
+      <td>49</td>
+      <td>technician</td>
+      <td>married</td>
+      <td>primary</td>
+      <td>no</td>
+      <td>1415</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>30</td>
+      <td>jul</td>
+      <td>269</td>
+      <td>2</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18299</td>
+      <td>42</td>
+      <td>admin.</td>
+      <td>married</td>
+      <td>secondary</td>
+      <td>no</td>
+      <td>3842</td>
+      <td>no</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>31</td>
+      <td>jul</td>
+      <td>130</td>
+      <td>4</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10221</td>
+      <td>37</td>
+      <td>management</td>
+      <td>single</td>
+      <td>tertiary</td>
+      <td>no</td>
+      <td>-119</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>11</td>
+      <td>jun</td>
+      <td>375</td>
+      <td>11</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>32192</td>
+      <td>56</td>
+      <td>blue-collar</td>
+      <td>married</td>
+      <td>primary</td>
+      <td>no</td>
+      <td>3498</td>
+      <td>no</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>15</td>
+      <td>apr</td>
+      <td>264</td>
+      <td>2</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>36163</th>
+      <td>11284</td>
+      <td>44</td>
+      <td>housemaid</td>
+      <td>single</td>
+      <td>primary</td>
+      <td>no</td>
+      <td>1059</td>
+      <td>no</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>18</td>
+      <td>jun</td>
+      <td>2093</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <th>36164</th>
+      <td>44732</td>
+      <td>23</td>
+      <td>student</td>
+      <td>single</td>
+      <td>tertiary</td>
+      <td>no</td>
+      <td>508</td>
+      <td>no</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>8</td>
+      <td>sep</td>
+      <td>210</td>
+      <td>1</td>
+      <td>92</td>
+      <td>1</td>
+      <td>failure</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>36165</th>
+      <td>38158</td>
+      <td>34</td>
+      <td>technician</td>
+      <td>divorced</td>
+      <td>tertiary</td>
+      <td>no</td>
+      <td>1317</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>15</td>
+      <td>may</td>
+      <td>239</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>36166</th>
+      <td>860</td>
+      <td>33</td>
+      <td>retired</td>
+      <td>married</td>
+      <td>secondary</td>
+      <td>no</td>
+      <td>165</td>
+      <td>no</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>7</td>
+      <td>may</td>
+      <td>111</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>36167</th>
+      <td>15795</td>
+      <td>38</td>
+      <td>blue-collar</td>
+      <td>married</td>
+      <td>primary</td>
+      <td>no</td>
+      <td>-41</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>21</td>
+      <td>jul</td>
+      <td>68</td>
+      <td>10</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+  </tbody>
+</table>
+<p>36168 rows × 18 columns</p>
+</div></div><figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Training data set</span><a class="headerlink" href="#id17" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Exploratory Data Analysis</strong></p>
+<figure class="align-default" id="y-train-distribution" style="width: 300px">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>y</th>
+      <th>proportion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>no</td>
+      <td>0.883931</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>yes</td>
+      <td>0.116069</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Target Distribution on Training Dataset</span><a class="headerlink" href="#y-train-distribution" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>During our analysis, <a class="reference internal" href="#y-train-distribution"><span class="std std-numref">Figure 2</span></a> noted that the dataset exhibits an imbalance in class proportions within the target (88.2358% ‘no’ subscription rate versus 11.7642% ‘yes’ rate).</p>
+<p>On the other hand, the features <code class="docutils literal notranslate"><span class="pre">job</span></code>, <code class="docutils literal notranslate"><span class="pre">education</span></code>, <code class="docutils literal notranslate"><span class="pre">contact</span></code>, and <code class="docutils literal notranslate"><span class="pre">poutcome</span></code> include “unknown” entries distinct from null values. Due to insufficient dataset information, proper imputation of these unknown values is not feasible. Eliminating only the unknown values from these columns was deemed impractical as it would significantly reduce the data.</p>
+<p>Additionally, the variable <code class="docutils literal notranslate"><span class="pre">poutcome</span></code> represents the result of the previous marketing campaign. The prevalence of “unknown” values in this field largely corresponds to cases where <code class="docutils literal notranslate"><span class="pre">previous</span></code> equals 0, indicating that the individual had not been previously contacted for marketing purposes. In such scenarios, labeling <code class="docutils literal notranslate"><span class="pre">poutcome</span></code> as “unknown” is logical, as there is no prior marketing engagement to reference. However, for individuals who have been contacted before, the <code class="docutils literal notranslate"><span class="pre">poutcome</span></code> data could be insightful.</p>
+<p>The features <code class="docutils literal notranslate"><span class="pre">job</span></code> and <code class="docutils literal notranslate"><span class="pre">education</span></code>, and <code class="docutils literal notranslate"><span class="pre">contact</span></code> are also worth retaining in the analysis. Although they contain “unknown” values, their proportion is not significantly high. Furthermore, our objective is to unveil the relevance of each feature. Keeping these variables allows for a comprehensive analysis, even though we might anticipate the outcome to suggest that some of these features might not be of high importance.</p>
+<p>Overall, we opted to maintain all columns and rows, considering the scope of our analysis. For a comprehensive evaluation of each feature’s significance, it’s crucial to consider the entire dataset.</p>
+<figure class="align-default" id="jobtypes">
+<a class="reference internal image-reference" href="_images/job_types.png"><img alt="_images/job_types.png" src="_images/job_types.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Distribution of Job Types</span><a class="headerlink" href="#jobtypes" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="previouspdays">
+<a class="reference internal image-reference" href="_images/previous_and_pdays.png"><img alt="_images/previous_and_pdays.png" src="_images/previous_and_pdays.png" style="height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Left: Number of Contacts Before this Campaign (previous), Right: Days Passed after Last Contact (pdays)</span><a class="headerlink" href="#previouspdays" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Bar charts, similar to <a class="reference internal" href="#jobtypes"><span class="std std-numref">Figure 3</span></a>,  were created for categorical variables, and histograms were created for numerical variables for illustration. <a class="reference internal" href="#previouspdays"><span class="std std-numref">Figure 4</span></a> revealed that the distributions of the <code class="docutils literal notranslate"><span class="pre">pdays</span></code> and <code class="docutils literal notranslate"><span class="pre">previous</span></code> variables in the dataset are significantly skewed.</p>
+<p>A heatmap illustrating the Pearson correlation (<a class="reference internal" href="#heatmap"><span class="std std-numref">Figure 5</span></a>) was created to explore the relationships among numerical variables. The Pearson heatmap was included given that it evaluates linear correlation, an essential factor in determining potential multicollinearity.</p>
+<figure class="align-default" id="heatmap">
+<a class="reference internal image-reference" href="_images/correlation_heatmap.png"><img alt="_images/correlation_heatmap.png" src="_images/correlation_heatmap.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Pearson Correlation Heatmap</span><a class="headerlink" href="#heatmap" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="pdaysscatterplot">
+<a class="reference internal image-reference" href="_images/pdays_vs_previous_scatter.png"><img alt="_images/pdays_vs_previous_scatter.png" src="_images/pdays_vs_previous_scatter.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Scatterplot for Recency (pdays) vs Intensity (previous)</span><a class="headerlink" href="#pdaysscatterplot" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Moreover, displayed in <a class="reference internal" href="#heatmap"><span class="std std-numref">Figure 5</span></a>, <code class="docutils literal notranslate"><span class="pre">pdays</span></code> and <code class="docutils literal notranslate"><span class="pre">previous</span></code> variables exhibit a moderate Pearson correlation score of 0.44. The Pearson correlation coefficient suggests potential multicollinearity between the recency of client engagement (<code class="docutils literal notranslate"><span class="pre">pdays</span></code>) and the intensity of past efforts to connect with clients (<code class="docutils literal notranslate"><span class="pre">previous</span></code>). However, a visual inspection of <a class="reference internal" href="#pdaysscatterplot"><span class="std std-numref">Figure 6</span></a> suggests that the correlation between <code class="docutils literal notranslate"><span class="pre">pdays</span></code> and <code class="docutils literal notranslate"><span class="pre">previous</span></code> is not strong enough to warrant concern. Thus, we retained both variables as features in the dataset.</p>
+<p><strong>Data Preprocessing Cont.</strong></p>
+<p>We identified categorical, ordinal, and numerical features and applied appropriate transformations, including one-hot encoding for categorical features, ordinal encoding for education levels, and standardization for numerical features.</p>
+<p><strong>Model Training and Evaluation</strong></p>
+<p>Our analysis evaluated three distinct models: a baseline dummy classifier, a decision tree, and logistic regression. We assessed these models using five-fold cross-validation based on key metrics: accuracy, precision, and recall. This approach was particularly vital in examining the impact of our dataset’s unbalanced nature on the likelihood of errors. Our analysis places a higher emphasis on precision. This is because our objective is to identify true positives with minimal false positives, in the context of examining client subscriptions to term deposits at the Portuguese banking institution. By centering our analysis on precision, we aim to ensure that the features under consideration are truly indicative of successful term deposit subscriptions, thus providing more reliable insights into client behavior.</p>
+<figure class="align-default" id="cv-results" style="width: 300px">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Baseline</th>
+      <th>Baseline.1</th>
+      <th>DecisionTree</th>
+      <th>DecisionTree.1</th>
+      <th>LogisticRegression</th>
+      <th>LogisticRegression.1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>mean</td>
+      <td>std</td>
+      <td>mean</td>
+      <td>std</td>
+      <td>mean</td>
+      <td>std</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>fit_time</td>
+      <td>0.003</td>
+      <td>0.0</td>
+      <td>0.105</td>
+      <td>0.002</td>
+      <td>0.289</td>
+      <td>0.014</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>score_time</td>
+      <td>0.003</td>
+      <td>0.0</td>
+      <td>0.015</td>
+      <td>0.0</td>
+      <td>0.015</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>test_accuracy</td>
+      <td>0.884</td>
+      <td>0.0</td>
+      <td>0.903</td>
+      <td>0.002</td>
+      <td>0.903</td>
+      <td>0.002</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>train_accuracy</td>
+      <td>0.884</td>
+      <td>0.0</td>
+      <td>0.906</td>
+      <td>0.001</td>
+      <td>0.904</td>
+      <td>0.001</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>test_precision</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.643</td>
+      <td>0.018</td>
+      <td>0.653</td>
+      <td>0.021</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>train_precision</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.668</td>
+      <td>0.016</td>
+      <td>0.658</td>
+      <td>0.006</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>test_recall</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.363</td>
+      <td>0.029</td>
+      <td>0.352</td>
+      <td>0.015</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>train_recall</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.377</td>
+      <td>0.015</td>
+      <td>0.354</td>
+      <td>0.005</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Model Comparison - Cross Validation Scores</span><a class="headerlink" href="#cv-results" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="#cv-results"><span class="std std-numref">Figure 7</span></a> reveals that the Logistic Regression slightly outperforms the Decision Tree Classifier in terms of test precision, whilst both models perform the same in regards to test recall. Additionally, the Logistic Regression model demonstrates a narrower disparity between training and testing scores, suggesting a higher potential of effective generalization. Despite these findings, there remains potential for precision improvement. In future efforts to predict subscription outcomes, increasing the threshold could improve precision. Overall, the Logistic Regression model’s performance indicated better generalizability.</p>
+<p><strong>Analysis of Model Performance</strong></p>
+<p>Upon further analysis, we observed that the Logistic Regression model, when applied on the test data, achieved a precision of 0.66 for predicting positive outcomes (clients subscribing to a term deposit).</p>
+<figure class="align-default" id="classification-report" style="width: 300px">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>f1-score</th>
+      <th>support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>no</td>
+      <td>0.92</td>
+      <td>0.97</td>
+      <td>0.95</td>
+      <td>7952</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>yes</td>
+      <td>0.66</td>
+      <td>0.36</td>
+      <td>0.47</td>
+      <td>1091</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>accuracy</td>
+      <td>0.90</td>
+      <td>0.90</td>
+      <td>0.90</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>macro avg</td>
+      <td>0.79</td>
+      <td>0.67</td>
+      <td>0.71</td>
+      <td>9043</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>weighted avg</td>
+      <td>0.89</td>
+      <td>0.90</td>
+      <td>0.89</td>
+      <td>9043</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Classification Report for Logistic Regression Model</span><a class="headerlink" href="#classification-report" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The precision test score (0.66) is similar to the precision validation score (0.65) as well as the precision train score (0.66). Therefore, we would believe that the feature importance conclusion drawn from this model is generalizable.</p>
+<p><strong>Feature Importance</strong></p>
+<p>To obtain the top 3 driving factors behind the predictions, we looked into the feature importance derived from the Logistic Regression model.</p>
+<p>The analysis reveals that <code class="docutils literal notranslate"><span class="pre">poutcome</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, and <code class="docutils literal notranslate"><span class="pre">duration</span></code> are the three most significant features influencing a client’s likelihood to subscribe to a term deposit. Clients with a previous successful <code class="docutils literal notranslate"><span class="pre">poutcome</span></code> tend to be more inclined to subscribe, likely due to their positive experiences with the bank’s services. Interestingly, <code class="docutils literal notranslate"><span class="pre">month</span></code> contains a pattern where in March (“mar”) there is a higher subscription rate and in January (“jan”) the rate is lower. This finding could suggest a seasonal factor, possibly linked to financial periods, though its exact cause remains unclear and would require further external research. Longer <code class="docutils literal notranslate"><span class="pre">duration</span></code> of calls is linked with increased subscription rates, potentially implying greater client interest and giving salespersons more time for effective pitching might add to the likelihood of subscription.</p>
+<figure class="align-default" id="feature-importance" style="width: 300px">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>feature</th>
+      <th>coef</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>poutcome_success</td>
+      <td>1.598581</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>month_mar</td>
+      <td>1.476227</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>month_jan</td>
+      <td>-1.220294</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>duration</td>
+      <td>1.089302</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>contact_unknown</td>
+      <td>-1.018287</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Feature Importance</span><a class="headerlink" href="#feature-importance" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Final Insights</strong></p>
+<ul class="simple">
+<li><p><strong>Past Outcome:</strong> A successful outcome in past campaigns increases the likelihood of subscription in future ones.</p></li>
+<li><p><strong>Month of Contact:</strong> The subscription patterns in March and January require further exploration to understand their underlying causes.</p></li>
+<li><p><strong>Call Duration:</strong> There is a positive relationship between longer call durations and higher subscription rates, indicating that extended interactions reflect and possibly enhance client interest.</p></li>
+</ul>
+<p>Our Logistic Regression model displayed some predictive performance for client subscriptions to term deposits, as shown by consistent precision test, validation, and train scores. Nonetheless, it’s important to consider these results while acknowledging our limitations.</p>
+<p><strong>Limitations</strong></p>
+<p>Our first limitation refers to our dataset displaying a significant imbalance in the target distribution (88.2358% ‘no’ subscription rate versus 11.7642% ‘yes’ rate). Despite our efforts to compensate for the imbalance by including the use of precision and recall metrics, the imbalance could still impact the overall generalizability of our findings.</p>
+<p>Another limitation stems from our interpretation of the potential seasonal trend, sourced from the significance of January and March months in subscription rates. We initially linked these insights to the potential fiscal calendar of the Portuguese banking institutions, thinking financial tax or bonus periods could influence client receptiveness. This idea came from our team’s knowledge that not all countries follow the same financial quarters. However, this theory was no longer considered after we discovered that the financial year for Portugal ends in December. This points to the possibility of other unknown external factors influencing the <code class="docutils literal notranslate"><span class="pre">month</span></code> feature, which are beyond the scope of our dataset. Understanding the reasons behind the potential seasonality trend and incorporating additional data could generate more insightful observations.</p>
+<p>Additionally, our decision to opt for the Logistic Regression model over the Decision Tree Classifier was justified by a very minimal difference in test precision (1%). This decision was guided by the ease in interpretability of feature importance that Logistic Regression models offer, which might have led us to overlook the potential insights Decision Tree models offer. Thus, the top three features the Decision Tree Classifier selected are worth looking into too.</p>
+<p>Time constraints also impacted our analysis. This limitation might have restricted the depth of our analysis, potentially overlooking more sophisticated modeling approaches that could further improve our understanding of client subscriptions to term deposits at the Portuguese banking institution. Future improvements could involve exploring more complex models like Random Forests and adjusting the threshold to enhance precision.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="references">
+<h1>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h1>
+<div class="docutils container" id="id8">
+<dl class="citation">
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id4">H+20</a></span></dt>
+<dd><p>C.R. Harris and others. Array programming with numpy. <em>Nature</em>, 585:357–362, 2020.</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id7">KO23</a></span></dt>
+<dd><p>Varada Kolhatkar and Joel Ostblom. Dsci_573_feat-model-select_students repository. 2023. URL: <a class="reference external" href="https://github.ubc.ca/MDS-2023-24/DSCI_573_feat-model-select_students/blob/fc08e3246ff07f0425942d1b97429d5d0ebce933/environment.yaml">https://github.ubc.ca/MDS-2023-24/DSCI_573_feat-model-select_students/blob/fc08e3246ff07f0425942d1b97429d5d0ebce933/environment.yaml</a>.</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id1">MRC12</a></span></dt>
+<dd><p>S. Moro, P. Rita, and P. Cortez. Bank Marketing. UCI Machine Learning Repository, 2012. DOI: https://doi.org/10.24432/C5K306.</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id5">P+11</a></span></dt>
+<dd><p>F. Pedregosa and others. Scikit-learn: machine learning in python. <em>Journal of machine learning research</em>, 12:2825–2830, 2011.</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id2">VRD09</a></span></dt>
+<dd><p>Guido Van Rossum and Fred L. Drake. <em>Python 3 Reference Manual</em>. CreateSpace, Scotts Valley, CA, 2009. ISBN 1441412697.</p>
+</dd>
+<dt class="label" id="id16"><span class="brackets"><a class="fn-backref" href="#id6">VGH+18</a></span></dt>
+<dd><p>Jacob VanderPlas, Brian E. Granger, Jeffrey Heer, Dominik Moritz, Kanit Wongsuphasawat, Arvind Satyanarayan, Eitan Lees, Ilia Timofeev, Ben Welsh, and Scott Sievert. Altair: interactive statistical visualizations for python. <em>Journal of Open Source Software</em>, 3(32):1057, 2018. URL: <a class="reference external" href="https://doi.org/10.21105/joss.01057">https://doi.org/10.21105/joss.01057</a>, <a class="reference external" href="https://doi.org/10.21105/joss.01057">doi:10.21105/joss.01057</a>.</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id3">WesMcKinney10</a></span></dt>
+<dd><p>Wes McKinney. Data Structures for Statistical Computing in Python. In Stéfan van der Walt and Jarrod Millman, editors, <em>Proceedings of the 9th Python in Science Conference</em>, 56 – 61. 2010. <a class="reference external" href="https://doi.org/10.25080/Majora-92bf1922-00a">doi:10.25080/Majora-92bf1922-00a</a>.</p>
+</dd>
+</dl>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Identifying the Top Three Predictors of Term Deposit Subscriptions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-description">Variable Description</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#results-discussion">Results &amp; Discussion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jerry Yu, John Shiu, Sophia Zhao, Zeily Garcia
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
