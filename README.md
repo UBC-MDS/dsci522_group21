@@ -81,47 +81,54 @@ This command will create an image if it does not already exist. After the user i
 After running one of the above methods, in the terminal, copy the URL that starts with `http://127.0.0.1:8888/lab?token=` (for example, see the highlighted text in the terminal below), and paste it into your browser.
 <img src="img/docker_jupyter_lab_url.png">
 
-To run the analysis, navigate to the `src/term_deposit_report.ipynb` notebook. Then, from the "Kernel" menu, select "Restart Kernel and Run All Cells...". 
-To run in the terminal from the project root:
+To run the analysis in jupter notebook, navigate to the `src/term_deposit_report.ipynb` notebook. Then, from the "Kernel" menu, select "Restart Kernel and Run All Cells...".  
+
+Alternatively, to run in the terminal, execute the following commands from the project root:
 ```bash
 # Load, preprocess, and split data into training and testing sets.
 python src/01__load_and_preprocess_data.py \
-   --input-data data/raw/bank-full.csv \
-   --output-data-dir data/processed
+    --input-data data/raw/bank-full.csv \
+    --output-data-dir data/processed
 
 # Generate and save exploratory data analysis (EDA) plots for training data.
 python src/02__eda_images_output.py \
-   --train data/processed/train_df.csv
+    --train data/processed/train_df.csv \
+    --output-categorical img/job_types.png \
+    --output-numerical img/previous_and_pdays.png 
 
 # Explore correlation between numeric variables in training data and generate plots.
 python src/03__correlation_of_numerical_features.py \
-   --train data/processed/train_df.csv
+    --train data/processed/train_df.csv
+    --output-heatmap img/correlation_heatmap.png
+    --output-scatterplot img/pdays_vs_previous_scatter.png
 
 # Evaluate machine learning models using cross-validation and save the results and model pipelines.
 python src/04__evaluate_models.py \
-   --x-train data/processed/X_train.csv \
-   --y-train data/processed/y_train.csv \
-   --output-cv-results data/processed/cv_results.csv \
-   --output-model-pipes data/processed/model_pipes.pkl
+    --x-train data/processed/X_train.csv \
+    --y-train data/processed/y_train.csv \
+    --output-cv-results data/processed/cv_results.csv \
+    --output-model-pipes data/processed/model_pipes.pkl
 
 # Process cross-validation results and save the mean values.
 python scripts/05_cross_validation_result_graph.py \
-   --cv-results data/processed/cv_results.csv \
-   --output-cv-means data/processed/cv_means.csv
+    --cv-results data/processed/cv_results.csv \
+    --output-cv-means data/processed/cv_means.csv
 
 # Fit a specified Logistic Regression model and save the fitted model pipeline.
 python src/06__fit_model.py \
-   --x-train data/processed/X_train.csv \
-   --y-train data/processed/y_train.csv \
-   --model-pipes data/processed/model_pipes.pkl \
-   --model-to-fit LogisticRegression \
-   --output-model-pipe data/processed/logistic_regression.pkl
+    --x-train data/processed/X_train.csv \
+    --y-train data/processed/y_train.csv \
+    --model-pipes data/processed/model_pipes.pkl \
+    --model-to-fit LogisticRegression \
+    --output-model-pipe data/processed/logistic_regression.pkl
 
 # Evaluate a fitted Logistic Regression model on test data and generate feature importance information.
 python src/07__evaluate_model_and_feature_importance.py \
-   --model data/processed/logistic_regression.pkl \
-   --x-test data/processed/X_test.csv \
-   --y-test data/processed/y_test.csv
+    --model data/processed/logistic_regression.pkl \
+    --x-test data/processed/X_test.csv \
+    --y-test data/processed/y_test.csv \
+    --output-eval-report data/processed/classification_report.csv \
+    --output-feat-importance data/processed/feature_importance.csv
 ```
 
 ### Run Unit Tests
