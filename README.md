@@ -35,7 +35,7 @@ To replicate the analysis:
    ```
 2. Install the required dependencies. When running for the first time, please create conda environment by running this command:
    ```bash
-   conda env create -f environment.yml
+   conda env create -f environment.yml -n 522
    ```
 3. Run the following command to activate the installed environment:
    ```bash
@@ -98,8 +98,8 @@ python src/02__eda_images_output.py \
 
 # Explore correlation between numeric variables in training data and generate plots.
 python src/03__correlation_of_numerical_features.py \
-    --train data/processed/train_df.csv
-    --output-heatmap img/correlation_heatmap.png
+    --train data/processed/train_df.csv \
+    --output-heatmap img/correlation_heatmap.png \
     --output-scatterplot img/pdays_vs_previous_scatter.png
 
 # Evaluate machine learning models using cross-validation and save the results and model pipelines.
@@ -110,7 +110,7 @@ python src/04__evaluate_models.py \
     --output-model-pipes data/processed/model_pipes.pkl
 
 # Process cross-validation results and save the mean values.
-python scripts/05_cross_validation_result_graph.py \
+python src/05__extract_cross_validation_means.py \
     --cv-results data/processed/cv_results.csv \
     --output-cv-means data/processed/cv_means.csv
 
