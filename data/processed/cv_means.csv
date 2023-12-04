@@ -1,9 +1,0 @@
-,Baseline,DecisionTree,LogisticRegression
-fit_time,0.003,0.105,0.289
-score_time,0.003,0.015,0.015
-test_accuracy,0.884,0.903,0.903
-train_accuracy,0.884,0.906,0.904
-test_precision,0.0,0.643,0.653
-train_precision,0.0,0.668,0.658
-test_recall,0.0,0.363,0.352
-train_recall,0.0,0.377,0.354
