@@ -28,10 +28,15 @@ data/processed/classification_report.csv data/processed/feature_importance.csv :
 	python src/07__evaluate_model_and_feature_importance.py --model data/processed/logistic_regression.pkl --x-test data/processed/X_test.csv --y-test data/processed/y_test.csv --output-eval-report data/processed/classification_report.csv --output-feat-importance data/processed/feature_importance.csv
 
 report/_build/html/index.html : \
-	report/term_deposit_report.ipynb \
 	report/_toc.yml \
 	report/_config.yml \
 	report/references.bib \
+	report/term_deposit_report.ipynb \
+	data/processed/train_df.csv \
+	data/processed/y_train_distribution.csv \
+	data/processed/cv_results.csv \
+	data/processed/classification_report.csv \
+	data/processed/feature_importance.csv \
 	img/job_types.png img/previous_and_pdays.png \
 	img/correlation_heatmap.png img/pdays_vs_previous_scatter.png \
 	data/processed/model_pipes.pkl data/processed/cv_results.csv \
