@@ -130,6 +130,16 @@ python src/07__evaluate_model_and_feature_importance.py \
     --output-eval-report data/processed/classification_report.csv \
     --output-feat-importance data/processed/feature_importance.csv
 ```
+### Using Makefile
+
+To build the project report, clone this repo with dependencies, open your terminal and navigate to the project root directory, then run the following command:
+```bash
+make all
+```
+To clean up generated files and data, open your terminal and navigate to the project root directory, then run the following command:
+```bash
+make clean
+```
 
 ### Run Unit Tests
 
