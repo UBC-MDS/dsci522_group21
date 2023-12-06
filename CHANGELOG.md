@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 -   [Issue/ Pull Request/ Commit/ Feature Link] - Description of change.
 -   [Issue/ Pull Request/ Commit/ Feature Link] - Description of change.
 - [Commit 8c622528008e5a4ca9e82adf44217e337d743c2f] - Removed notebooks from src.
+- [Commit 81015b96b8e891de7ab8058f5d6179a299fb5c23] - Removed unused datasets.
 
 ### Fixed
 
