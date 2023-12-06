@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - [Commit 81015b96b8e891de7ab8058f5d6179a299fb5c23] - Removed unused datasets.
 - [Commit 00bead6c173d4c75d31cf2e35bc86aeba0ee337d] - Removed full analysis files.
 - [Commit 35b0dbe9dd303c68fa6f0df1ba8e6ad2b83748a5] - Updated report to reflect removal of full analysis files.
+- [Commit dd0ecab15e7ef4cc58d2922d53356da6b8f8f638] - Updated README.md to mention how to contribute to this project.
 
 ### Fixed
 
