@@ -13,8 +13,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
--   [Issue/ Pull Request/ Commit/ Feature Link]  - Description of change.
--   [Issue/ Pull Request/ Commit/ Feature Link]  - Description of change.
+-   [Issue/ Pull Request/ Commit/ Feature Link] - Description of change.
+-   [Issue/ Pull Request/ Commit/ Feature Link] - Description of change.
 
 ### Fixed
 
@@ -25,12 +25,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
--   [Issue/ Pull Request/ Commit/ Feature Link]  - Description of the added feature or change.
+-   [Issue/ Pull Request/ Commit/ Feature Link] - Description of the added feature or change.
 -   [Issue/ Pull Request/ Commit/ Feature Link] - Description of the added feature or change.
 
 ### Changed
 
--   [Issue/ Pull Request/ Commit/ Feature Link]  - Description of change.
+-   [Issue/ Pull Request/ Commit/ Feature Link] - Description of change.
 -   [Issue/ Pull Request/ Commit/ Feature Link] Description of change.
 
 ### Fixed
@@ -42,12 +42,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
--   [Issue/ Pull Request/ Commit/ Feature Link]  - Description of the added feature or change.
+-   [Issue/ Pull Request/ Commit/ Feature Link] - Description of the added feature or change.
 -   [Issue/ Pull Request/ Commit/ Feature Link] - Description of the added feature or change.
 
 ### Changed
 
--   [Issue/ Pull Request/ Commit/ Feature Link]  - Description of change.
+-   [Issue/ Pull Request/ Commit/ Feature Link] - Description of change.
 -   [Issue/ Pull Request/ Commit/ Feature Link] Description of change.
 
 ### Fixed
@@ -59,12 +59,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
--   [Issue/ Pull Request/ Commit/ Feature Link]  - Description of the added feature or change.
+-   [Issue/ Pull Request/ Commit/ Feature Link] - Description of the added feature or change.
 -   [Issue/ Pull Request/ Commit/ Feature Link] - Description of the added feature or change.
 
 ### Changed
 
--   [Issue/ Pull Request/ Commit/ Feature Link]  - Description of change.
+-   [Issue/ Pull Request/ Commit/ Feature Link] - Description of change.
 -   [Issue/ Pull Request/ Commit/ Feature Link] Description of change.
 
 ### Fixed
