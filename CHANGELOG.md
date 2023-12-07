@@ -54,14 +54,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## 0.0.1 --- 2023-11-18
 
-### Added
-
--   [Issue/ Pull Request/ Commit/ Feature Link] - Description of the added feature or change.
-
-### Changed
-
--   [Issue/ Pull Request/ Commit/ Feature Link] - Description of change.
-
-### Fixed
-
--   [Issue/ Pull Request/ Commit/ Feature Link] - Description of fix.
+### No feedback received at the time.
