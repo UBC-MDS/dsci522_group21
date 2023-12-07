@@ -23,11 +23,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 -   [PR #66] - Updated bar chart to sort the bars.
 -   [Commit bd25741f147fe4804c1baaf583ed03186d83aec6] - Updated README.md to make Aabout and Insight sections more readable.
 -   [Commit dac933ab3a3a47dd6385abbf6a884a57022c9626] - Updated README.md to add Creative Commons License to License section.
--   [78f2d4ca4eecd48c19397f247b9c697c148bc9b3] - Fixed formatting of table indices.
+-   [Commit 78f2d4ca4eecd48c19397f247b9c697c148bc9b3] - Updated formatting for table indices.
+-   [Commit 7a8431e7dd30f5c7bb8f6b1ac85a35c1e2285c5e] - Overall report reformatting.
 
 ### Fixed
 
--   [954cba16f3a9c8b4a6e39d11bcc295e3accb5cdc] - Fixed a Makefile Dependency.
+-   [Commit 954cba16f3a9c8b4a6e39d11bcc295e3accb5cdc] - Fixed a Makefile Dependency.
 -   [PR #74] - Fixed the row involving "accuracy" in classification report.
 
 ### Removed
