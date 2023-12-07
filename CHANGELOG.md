@@ -32,6 +32,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 -   [Commit 8c622528008e5a4ca9e82adf44217e337d743c2f] - Removed notebooks from src.
 -   [Commit 81015b96b8e891de7ab8058f5d6179a299fb5c23] - Removed unused datasets.
 -   [Commit 00bead6c173d4c75d31cf2e35bc86aeba0ee337d] - Removed unnecessary full analysis files.
+-   [Commit 3d3fe68bbf3df83ae684ace5c7027981634acabd] - Removed unnecessary matplotlib dependency from the environment.
 
 ------------------------------------------------------------------------
 
@@ -39,11 +40,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
+-   [<https://github.com/UBC-MDS/group21_top-three-predictors-of-term-deposit-subscriptions/tree/M2>] - Renamed the repository to better reflect the project's subject matter.
+
 ------------------------------------------------------------------------
 
 ## 1.0.0 --- 2023-11-24
 
 ### Added
+
+-   [Commit aaf30629b792478a844e222af0f450cbaf12eb7a] - Added missing versions from environment.yml for some R or Python packages.
 
 ------------------------------------------------------------------------
 
