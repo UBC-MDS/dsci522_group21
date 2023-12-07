@@ -24,6 +24,8 @@ def main(model, x_test, y_test, output_eval_report, output_feat_importance):
     df_report = pd.DataFrame(classification_report(y_test, model.predict(X_test), output_dict=True)).T
     df_report[["precision", "recall", "f1-score"]] = df_report[["precision", "recall", "f1-score"]].round(2)
     df_report["support"] = df_report["support"].astype(int)
+    df_report.loc["accuracy", ["precision", "recall"]] = None
+    df_report.loc["accuracy", "support"] = df_report.loc["macro avg", "support"]
     df_report.to_csv(output_eval_report)
 
     # Generate and save the feature importance plot
