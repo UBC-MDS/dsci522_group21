@@ -25,6 +25,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 -   [Commit dac933ab3a3a47dd6385abbf6a884a57022c9626] - Updated README.md to add Creative Commons License to License section.
 -   [Commit 78f2d4ca4eecd48c19397f247b9c697c148bc9b3] - Updated formatting for table indices.
 -   [Commit 7a8431e7dd30f5c7bb8f6b1ac85a35c1e2285c5e] - Overall report reformatting.
+-   [PR #78] - Updated LICENSE file with Creative Commons License
 
 ### Fixed
 
