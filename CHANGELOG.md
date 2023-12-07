@@ -14,7 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 -   [Commit d1571e2271c0d30aa35cd797c2607191d321d178] - Description of data transformations.
 -   [Commit 8cfac068560a708f27393c3553b0ea7705083a4e] - Justification and description of chosen models.
 -   [Commit 1e71d65f571a69c0217efd08eaf24922992e6f20] - Description of model assumptions.
--   [Commit dd3bb298bdddef35e59590635a48ffac25473ba0] - 2 references in report introduction section.
+-   [Commit acb14c1348887e6777c50ee9dfa8ac8ebadbdfab] - 2 references with link in report introduction section.
 
 ### Changed
 
