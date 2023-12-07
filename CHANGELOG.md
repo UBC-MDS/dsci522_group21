@@ -11,7 +11,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Added
 
 -   *[Issue/ Pull Request/ Commit/ Feature Link] - Description of the added feature or change.*
--   
+-   [Commit 0009aa891e19a5bed2d52a28ab3f44a9299b5a7f] - Definition of scoring metrics.
+-   [Commit d1571e2271c0d30aa35cd797c2607191d321d178] - Description of data transformations.
+-   [Commit 8cfac068560a708f27393c3553b0ea7705083a4e] - Justification and description of chosen models.
+-   [Commit 1e71d65f571a69c0217efd08eaf24922992e6f20] - Description of model assumptions.
 
 ### Changed
 
