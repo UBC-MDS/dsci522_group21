@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ------------------------------------------------------------------------
 
-## [3.0.0](https://github.com/UBC-MDS/group21_top-three-predictors-of-term-deposit-subscriptions/compare/M3...HEAD) --- 2023-12-07
+## [3.0.0](https://github.com/UBC-MDS/group21_top-three-predictors-of-term-deposit-subscriptions/compare/M3...HEAD) - 2023-12-07
 
 ### Added
 
@@ -36,7 +36,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ------------------------------------------------------------------------
 
-## [2.0.0](https://github.com/UBC-MDS/group21_top-three-predictors-of-term-deposit-subscriptions/compare/M2...M3) --- 2023-12-1
+## [2.0.0](https://github.com/UBC-MDS/group21_top-three-predictors-of-term-deposit-subscriptions/compare/M2...M3) - 2023-12-1
 
 ### Changed
 
@@ -44,7 +44,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ------------------------------------------------------------------------
 
-## [1.0.0](https://github.com/UBC-MDS/group21_top-three-predictors-of-term-deposit-subscriptions/compare/M1...M2) --- 2023-11-24
+## [1.0.0](https://github.com/UBC-MDS/group21_top-three-predictors-of-term-deposit-subscriptions/compare/M1...M2) - 2023-11-24
 
 ### Added
 
@@ -52,6 +52,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ------------------------------------------------------------------------
 
-## [0.0.1](https://github.com/UBC-MDS/group21_top-three-predictors-of-term-deposit-subscriptions/tree/M1) --- 2023-11-18
+## [0.0.1](https://github.com/UBC-MDS/group21_top-three-predictors-of-term-deposit-subscriptions/tree/M1) - 2023-11-18
 
 ### No feedback received at the time.
