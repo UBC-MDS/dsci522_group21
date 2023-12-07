@@ -28,6 +28,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Fixed
 
 -   [954cba16f3a9c8b4a6e39d11bcc295e3accb5cdc] - Fixed a Makefile Dependency.
+-   [PR #74] - Fixed the row involving "accuracy" in classification report.
 
 ### Removed
 
