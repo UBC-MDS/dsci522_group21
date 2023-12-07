@@ -71,7 +71,7 @@ report/_build/html/index.html : \
 	img/previous_and_pdays.png \
 	img/correlation_heatmap.png \
 	img/pdays_vs_previous_scatter.png \
-	data/processed/cv_results.csv \
+	data/processed/cv_means.csv \
 	data/processed/classification_report.csv \
 	data/processed/feature_importance.csv
 	jupyter-book build report
