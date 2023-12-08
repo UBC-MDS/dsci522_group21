@@ -11,7 +11,7 @@ This repository documents our analysis of factors influencing whether clients su
 
 ## Insights and Future Directions
 
-This analysis identified three important factors influencing client subscriptions to term deposits at a Portuguese bank: prior campaign success, seasonal trends (higher in March, lower in January), and longer call durations. Logistic Regression performed better than the Decision Tree model, but both faced challenges due to class imbalance. To improve, we can use balanced sampling, explore Decision Tree insights, and try advanced models. This understanding helps banks refine marketing strategies. Future research could involve more complex models, additional data, and exploring economic factors.
+This analysis identified three important factors influencing client subscriptions to term deposits at a Portuguese bank: prior campaign success, seasonal trends (higher in March, lower in January), and longer call durations. Logistic Regression performed better than the Decision Tree model, but both faced challenges due to class imbalance. To improve, we can use balanced sampling, explore Decision Tree insights, and try advanced models. This understanding helps banks refine marketing strategies. Future research could involve more complex models, additional data, and exploring seasonal and economic factors.
 
 ## Report
 
