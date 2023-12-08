@@ -173,6 +173,11 @@ pytest
 3. Report: `term_deposit_report.html`
 
 
+## Contributing
+
+Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) if you would like to contribute to this project.
+
+
 ## License
 
 This project materials are licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
