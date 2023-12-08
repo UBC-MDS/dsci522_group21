@@ -76,7 +76,7 @@ def plot_eda(data, numerical_cols=[], categorical_cols=[]):
     if len(categorical_cols) != 0:
         categorical_plot = alt.Chart(data).mark_bar().encode(
             x="count()",
-            y=alt.Y(alt.repeat()).type("nominal")
+            y=alt.Y(alt.repeat()).type("nominal").sort("-x")
         ).repeat(
             categorical_cols, columns=3
         )
