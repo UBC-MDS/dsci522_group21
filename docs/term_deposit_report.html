@@ -344,14 +344,14 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
 <p>In the evolving world of banking and finance, the ability to understand and predict customer behavior is key to developing successful marketing strategies. Term deposits, a core financial product, serve a dual purpose: they provide a safe investment option for customers and a reliable source of funding for banks. For financial institutions looking to grow their customer base and ensure financial stability, it’s crucial to understand what drives customers to invest in these term deposits.</p>
-<p>Our study focuses on uncovering the factors that influence a customer’s decision to subscribe to a term deposit at a Portuguese banking institution. We pose a critical question: What are the top three factors that determine whether a client will invest in a term deposit at this bank? To explore this, we analyze a dataset that contains over 45,000 individual client records, including demographic data and details of interactions from the bank’s term deposit marketing campaigns. With consideration of a logistic regression model and decision tree classifier, renowned for their efficacy in handling both numeric and categorical variables, we aim to detect significant patterns from this dataset. Our objective is to provide insights that could lead to an improvement to the effectiveness of marketing strategies that boost term deposit subscriptions at the institution.</p>
+<p>Our study focuses on uncovering the factors that influence a customer’s decision to subscribe to a term deposit at a Portuguese banking institution. We pose a critical question: What are the top three factors that determine whether a client will invest in a term deposit at this bank? To explore this, we analyze a dataset that contains over 45,000 individual client records, including demographic data and details of interactions from the bank’s term deposit marketing campaigns <span id="id1">[<a class="reference internal" href="#id11" title="S. Moro, P. Rita, and P. Cortez. Bank Marketing. UCI Machine Learning Repository, 2012. DOI: https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>. With consideration of a logistic regression model and decision tree classifier, renowned for their efficacy in handling both numeric and categorical variables <span id="id2">[<a class="reference internal" href="#id15" title="F. Pedregosa and others. Scikit-learn: machine learning in python. Journal of machine learning research, 12:2825–2830, 2011.">Pedregosa and others, 2011</a>]</span>, we aim to detect significant patterns from this dataset. Our objective is to provide insights that could lead to an improvement to the effectiveness of marketing strategies that boost term deposit subscriptions at the institution.</p>
 <p>The importance of this research lies in its potential to transform marketing strategies for the banking institution. By accurately understanding and predicting customer behavior, our findings can guide the Portuguese financial institution in crafting more effective and tailored marketing approaches. This not only aids in customer acquisition and retention but also ensures that customers are presented with options that align with their financial goals and needs. In an era where personalized services are becoming the norm, such insights are invaluable for banks seeking to remain competitive and foster long-term customer relationships.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="methods">
 <h1>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h1>
 <section id="data">
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
-<p>The data set utilized in this project was created by Sérgio Moro, P. Cortez, and P. Rita, and is hosted on the UCI Machine Learning Repository <span id="id1">[<a class="reference internal" href="#id9" title="S. Moro, P. Rita, and P. Cortez. Bank Marketing. UCI Machine Learning Repository, 2012. DOI: https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>. It can be accessed <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/bank+marketing">here</a>. The data was sourced from the marketing campaigns of a Portuguese banking institution, focusing on client subscriptions to term deposits. The primary dataset, <code class="docutils literal notranslate"><span class="pre">bank-full.csv</span></code>, includes 45,211 examples with 17 variables. Each row in the dataset represents information from a client contact during the campaign.</p>
+<p>The data set utilized in this project was created by Sérgio Moro, P. Cortez, and P. Rita, and is hosted on the UCI Machine Learning Repository <span id="id3">[<a class="reference internal" href="#id11" title="S. Moro, P. Rita, and P. Cortez. Bank Marketing. UCI Machine Learning Repository, 2012. DOI: https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>. The data was sourced from the marketing campaigns of a Portuguese banking institution, focusing on client subscriptions to term deposits. The primary dataset, <code class="docutils literal notranslate"><span class="pre">bank-full.csv</span></code>, includes 45,211 examples with 17 variables. Each row in the dataset represents information from a client contact during the campaign.</p>
 <p>This dataset comprehensively covers client demographic information (such as age, job type, marital status, and education level), financial information (including credit default history, average yearly balance, housing and personal loan status), and information about bank marketing (like the type of contact, date of the last contact, call duration, number of contacts in the current campaign, days elapsed since the last contact in a previous campaign, outcome of the previous campaigns, and finally, whether the client will subscribe to a term deposit).</p>
 <section id="variable-description">
 <h3>Variable Description<a class="headerlink" href="#variable-description" title="Permalink to this heading">#</a></h3>
@@ -458,16 +458,15 @@ document.write(`
 <h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h2>
 <p>Logistic regression and decision tree classifier were considered to develop a model for determining the top 3 factors that aid in predicting if a client will subscribe to a term deposit. To be able to explore the significance of each attribute, all variables included in the original data set were used to fit the model. The exploratory section of our data analysis explored the distribution of categorical and numerical variables, and correlation between the numerical variables.</p>
 <p>In the preprocessing phase, categorical or binary variables were transformed using one-hot encoding, ordered categorical variable was ordinal encoded, and numerical variables were standardized. The data was then split, assigning 75% to the training set and 25% to the test set. The evaluation of both logistic regression and decision tree classifier was conducted with a detailed focus on accuracy, precision, and recall metrics, prioritizing precision in particular. This emphasis on precision is crucial for our study, which aims to minimize Type 1 errors.</p>
-<p>Python Language <span id="id2">[<a class="reference internal" href="#id15" title="Guido Van Rossum and Fred L. Drake. Python 3 Reference Manual. CreateSpace, Scotts Valley, CA, 2009. ISBN 1441412697.">Van Rossum and Drake, 2009</a>]</span> and its libraries, including pandas <span id="id3">[<a class="reference internal" href="#id12" title="Wes McKinney. Data Structures for Statistical Computing in Python. In Stéfan van der Walt and Jarrod Millman, editors, Proceedings of the 9th Python in Science Conference, 56 - 61. 2010. doi:10.25080/Majora-92bf1922-00a.">Wes McKinney, 2010</a>]</span>, NumPy <span id="id4">[<a class="reference internal" href="#id10" title="C.R. Harris and others. Array programming with numpy. Nature, 585:357–362, 2020.">Harris and others, 2020</a>]</span>, scikit-learn <span id="id5">[<a class="reference internal" href="#id13" title="F. Pedregosa and others. Scikit-learn: machine learning in python. Journal of machine learning research, 12:2825–2830, 2011.">Pedregosa and others, 2011</a>]</span>, and Altair <span id="id6">[<a class="reference internal" href="#id16" title="Jacob VanderPlas, Brian E. Granger, Jeffrey Heer, Dominik Moritz, Kanit Wongsuphasawat, Arvind Satyanarayan, Eitan Lees, Ilia Timofeev, Ben Welsh, and Scott Sievert. Altair: interactive statistical visualizations for python. Journal of Open Source Software, 3(32):1057, 2018. URL: https://doi.org/10.21105/joss.01057, doi:10.21105/joss.01057.">VanderPlas <em>et al.</em>, 2018</a>]</span>, were essential for the analysis. The environment file used to run the analysis was adapted from the University of British Columbia DSCI 573 Feature and Model Selection course repository <span id="id7">[<a class="reference internal" href="#id11" title="Varada Kolhatkar and Joel Ostblom. Dsci_573_feat-model-select_students repository. 2023. URL: https://github.ubc.ca/MDS-2023-24/DSCI_573_feat-model-select_students/blob/fc08e3246ff07f0425942d1b97429d5d0ebce933/environment.yaml.">Kolhatkar and Ostblom, 2023</a>]</span>.</p>
+<p>Python Language <span id="id4">[<a class="reference internal" href="#id17" title="Guido Van Rossum and Fred L. Drake. Python 3 Reference Manual. CreateSpace, Scotts Valley, CA, 2009. ISBN 1441412697.">Van Rossum and Drake, 2009</a>]</span> and its libraries, including pandas <span id="id5">[<a class="reference internal" href="#id14" title="Wes McKinney. Data Structures for Statistical Computing in Python. In Stéfan van der Walt and Jarrod Millman, editors, Proceedings of the 9th Python in Science Conference, 56 - 61. 2010. doi:10.25080/Majora-92bf1922-00a.">Wes McKinney, 2010</a>]</span>, NumPy <span id="id6">[<a class="reference internal" href="#id12" title="C.R. Harris and others. Array programming with numpy. Nature, 585:357–362, 2020.">Harris and others, 2020</a>]</span>, scikit-learn <span id="id7">[<a class="reference internal" href="#id15" title="F. Pedregosa and others. Scikit-learn: machine learning in python. Journal of machine learning research, 12:2825–2830, 2011.">Pedregosa and others, 2011</a>]</span>, and Altair <span id="id8">[<a class="reference internal" href="#id18" title="Jacob VanderPlas, Brian E. Granger, Jeffrey Heer, Dominik Moritz, Kanit Wongsuphasawat, Arvind Satyanarayan, Eitan Lees, Ilia Timofeev, Ben Welsh, and Scott Sievert. Altair: interactive statistical visualizations for python. Journal of Open Source Software, 3(32):1057, 2018. URL: https://doi.org/10.21105/joss.01057, doi:10.21105/joss.01057.">VanderPlas <em>et al.</em>, 2018</a>]</span>, were essential for the analysis. The environment file used to run the analysis was adapted from the University of British Columbia DSCI 573 Feature and Model Selection course repository <span id="id9">[<a class="reference internal" href="#id13" title="Varada Kolhatkar and Joel Ostblom. Dsci_573_feat-model-select_students repository. 2023. URL: https://github.ubc.ca/MDS-2023-24/DSCI_573_feat-model-select_students/blob/fc08e3246ff07f0425942d1b97429d5d0ebce933/environment.yaml.">Kolhatkar and Ostblom, 2023</a>]</span>.</p>
 <p>The analysis revealed that logistic regression exhibited slightly better precision than the decision tree classifier, with a smaller gap between training and testing scores, suggesting better generalizability. Logistic regression was also highly regarded as the model for assessing feature importance, given its strong interpretability. Upon model fitting and evaluation, the top three features predicting a client’s decision to subscribe to a term deposit were identified by sorting feature importance in terms of absolute coefficient.</p>
-<p>The full coding process and methods are thoroughly recorded in <a class="reference external" href="https://github.com/UBC-MDS/dsci522_group21/blob/main/src/term_deposit_full_analysis.ipynb">term_deposit_full_analysis.ipynb</a>.</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="results-discussion">
 <h1>Results &amp; Discussion<a class="headerlink" href="#results-discussion" title="Permalink to this heading">#</a></h1>
 <p><strong>Data Preprocessing</strong></p>
 <p>The dataset was divided into training and testing sets with a 75-25 split, ensuring a representative sample in both sets.</p>
-<figure class="align-default" id="id17">
+<figure class="align-default" id="id19">
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -486,7 +485,6 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
       <th>age</th>
       <th>job</th>
       <th>marital</th>
@@ -508,8 +506,7 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>3344</td>
+      <th>3344</th>
       <td>41</td>
       <td>blue-collar</td>
       <td>married</td>
@@ -529,8 +526,7 @@ document.write(`
       <td>no</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>17965</td>
+      <th>17965</th>
       <td>49</td>
       <td>technician</td>
       <td>married</td>
@@ -550,8 +546,7 @@ document.write(`
       <td>no</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>18299</td>
+      <th>18299</th>
       <td>42</td>
       <td>admin.</td>
       <td>married</td>
@@ -571,8 +566,7 @@ document.write(`
       <td>no</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>10221</td>
+      <th>10221</th>
       <td>37</td>
       <td>management</td>
       <td>single</td>
@@ -592,8 +586,7 @@ document.write(`
       <td>no</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>32192</td>
+      <th>32192</th>
       <td>56</td>
       <td>blue-collar</td>
       <td>married</td>
@@ -631,11 +624,9 @@ document.write(`
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
-      <th>36163</th>
-      <td>11284</td>
+      <th>11284</th>
       <td>44</td>
       <td>housemaid</td>
       <td>single</td>
@@ -655,8 +646,7 @@ document.write(`
       <td>yes</td>
     </tr>
     <tr>
-      <th>36164</th>
-      <td>44732</td>
+      <th>44732</th>
       <td>23</td>
       <td>student</td>
       <td>single</td>
@@ -676,8 +666,7 @@ document.write(`
       <td>no</td>
     </tr>
     <tr>
-      <th>36165</th>
-      <td>38158</td>
+      <th>38158</th>
       <td>34</td>
       <td>technician</td>
       <td>divorced</td>
@@ -697,8 +686,7 @@ document.write(`
       <td>no</td>
     </tr>
     <tr>
-      <th>36166</th>
-      <td>860</td>
+      <th>860</th>
       <td>33</td>
       <td>retired</td>
       <td>married</td>
@@ -718,8 +706,7 @@ document.write(`
       <td>no</td>
     </tr>
     <tr>
-      <th>36167</th>
-      <td>15795</td>
+      <th>15795</th>
       <td>38</td>
       <td>blue-collar</td>
       <td>married</td>
@@ -740,9 +727,9 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>36168 rows × 18 columns</p>
+<p>36168 rows × 17 columns</p>
 </div></div><figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Training data set</span><a class="headerlink" href="#id17" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Training data set</span><a class="headerlink" href="#id19" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Exploratory Data Analysis</strong></p>
@@ -819,10 +806,15 @@ document.write(`
 </figure>
 <p>Moreover, displayed in <a class="reference internal" href="#heatmap"><span class="std std-numref">Figure 5</span></a>, <code class="docutils literal notranslate"><span class="pre">pdays</span></code> and <code class="docutils literal notranslate"><span class="pre">previous</span></code> variables exhibit a moderate Pearson correlation score of 0.44. The Pearson correlation coefficient suggests potential multicollinearity between the recency of client engagement (<code class="docutils literal notranslate"><span class="pre">pdays</span></code>) and the intensity of past efforts to connect with clients (<code class="docutils literal notranslate"><span class="pre">previous</span></code>). However, a visual inspection of <a class="reference internal" href="#pdaysscatterplot"><span class="std std-numref">Figure 6</span></a> suggests that the correlation between <code class="docutils literal notranslate"><span class="pre">pdays</span></code> and <code class="docutils literal notranslate"><span class="pre">previous</span></code> is not strong enough to warrant concern. Thus, we retained both variables as features in the dataset.</p>
 <p><strong>Data Preprocessing Cont.</strong></p>
-<p>We identified categorical, ordinal, and numerical features and applied appropriate transformations, including one-hot encoding for categorical features, ordinal encoding for education levels, and standardization for numerical features.</p>
+<p>In our analysis, specific data transformations were applied to make the dataset suitable for modeling techniques. These transformations were based on the nature and characteristics of individual variables in the dataset.</p>
+<p>Variables such as <code class="docutils literal notranslate"><span class="pre">job</span></code>, <code class="docutils literal notranslate"><span class="pre">marital</span></code>, <code class="docutils literal notranslate"><span class="pre">default</span></code>, <code class="docutils literal notranslate"><span class="pre">housing</span></code>, <code class="docutils literal notranslate"><span class="pre">loan</span></code>, <code class="docutils literal notranslate"><span class="pre">contact</span></code>, <code class="docutils literal notranslate"><span class="pre">day</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, and <code class="docutils literal notranslate"><span class="pre">poutcome</span></code> were transformed using one-hot encoding. This method is effective for categorical variables without an inherent order. For instance, <code class="docutils literal notranslate"><span class="pre">marital</span></code> status has distinct categories that don’t imply any ordinal relationship. This encoding creates new binary columns for each category of a variable, which is necessary for logistic regression and decision trees since they handle numerical inputs better.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">education</span></code> variable was treated with ordinal encoding. Education levels (<code class="docutils literal notranslate"><span class="pre">unknown</span></code>, <code class="docutils literal notranslate"><span class="pre">primary</span></code>, <code class="docutils literal notranslate"><span class="pre">secondary</span></code>, <code class="docutils literal notranslate"><span class="pre">tertiary</span></code>) have a natural order, and ordinal encoding maintains this hierarchy. This method assigns a unique integer to each category according to its rank, which is necessary for interpretations.</p>
+<p>Numerical variables like <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">balance</span></code>, <code class="docutils literal notranslate"><span class="pre">duration</span></code>, <code class="docutils literal notranslate"><span class="pre">campaign</span></code>, <code class="docutils literal notranslate"><span class="pre">previous</span></code>, and <code class="docutils literal notranslate"><span class="pre">pdays</span></code> were standardized. Standardization involves rescaling these variables to have a mean of zero and a standard deviation of one. This process is very important as it ensures that all variables are on the same scale, preventing large scale variables from disproportionately influencing the model - especially for models like logistic regression.</p>
 <p><strong>Model Training and Evaluation</strong></p>
-<p>Our analysis evaluated three distinct models: a baseline dummy classifier, a decision tree, and logistic regression. We assessed these models using five-fold cross-validation based on key metrics: accuracy, precision, and recall. This approach was particularly vital in examining the impact of our dataset’s unbalanced nature on the likelihood of errors. Our analysis places a higher emphasis on precision. This is because our objective is to identify true positives with minimal false positives, in the context of examining client subscriptions to term deposits at the Portuguese banking institution. By centering our analysis on precision, we aim to ensure that the features under consideration are truly indicative of successful term deposit subscriptions, thus providing more reliable insights into client behavior.</p>
-<figure class="align-default" id="cv-results" style="width: 300px">
+<p>Our analysis evaluates three distinct models: a baseline dummy classifier, a decision tree, and logistic regression. We assessed these models using five-fold cross-validation based on key metrics: accuracy, precision, and recall.</p>
+<p>Accuracy measures the proportion of true results (both true positives and true negatives) among the total number of examples. Precision, on the other hand, reflects the proportion of true positive outcomes among all positive predictions made by the model. Precision is significant to assess when the cost of false positives is high. Recall measures the proportion of actual positive cases that are correctly identified by the model. This metric is important when the cost of false negatives is high.</p>
+<p>Looking at all three metrics was particularly vital in examining the impact of our dataset’s unbalanced nature on the likelihood of errors. Our analysis places a higher emphasis on precision. This is because our objective is to identify true positives with minimal false positives, in the context of examining client subscriptions to term deposits at the Portuguese banking institution. By centering our analysis on precision, we aim to ensure that the features under consideration are truly indicative of successful term deposit subscriptions, thus providing more reliable insights into client behavior.</p>
+<figure class="align-default" id="cv-means" style="width: 300px">
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -841,113 +833,68 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
       <th>Baseline</th>
-      <th>Baseline.1</th>
       <th>DecisionTree</th>
-      <th>DecisionTree.1</th>
       <th>LogisticRegression</th>
-      <th>LogisticRegression.1</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>NaN</td>
-      <td>mean</td>
-      <td>std</td>
-      <td>mean</td>
-      <td>std</td>
-      <td>mean</td>
-      <td>std</td>
+      <th>fit_time</th>
+      <td>0.00</td>
+      <td>0.17</td>
+      <td>0.62</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>fit_time</td>
-      <td>0.003</td>
-      <td>0.0</td>
-      <td>0.105</td>
-      <td>0.002</td>
-      <td>0.289</td>
-      <td>0.014</td>
+      <th>score_time</th>
+      <td>0.01</td>
+      <td>0.03</td>
+      <td>0.05</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>score_time</td>
-      <td>0.003</td>
-      <td>0.0</td>
-      <td>0.015</td>
-      <td>0.0</td>
-      <td>0.015</td>
-      <td>0.0</td>
+      <th>test_accuracy</th>
+      <td>0.88</td>
+      <td>0.90</td>
+      <td>0.90</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>test_accuracy</td>
-      <td>0.884</td>
-      <td>0.0</td>
-      <td>0.903</td>
-      <td>0.002</td>
-      <td>0.903</td>
-      <td>0.002</td>
+      <th>train_accuracy</th>
+      <td>0.88</td>
+      <td>0.91</td>
+      <td>0.90</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>train_accuracy</td>
-      <td>0.884</td>
-      <td>0.0</td>
-      <td>0.906</td>
-      <td>0.001</td>
-      <td>0.904</td>
-      <td>0.001</td>
+      <th>test_precision</th>
+      <td>0.00</td>
+      <td>0.64</td>
+      <td>0.65</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>test_precision</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.643</td>
-      <td>0.018</td>
-      <td>0.653</td>
-      <td>0.021</td>
+      <th>train_precision</th>
+      <td>0.00</td>
+      <td>0.67</td>
+      <td>0.66</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>train_precision</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.668</td>
-      <td>0.016</td>
-      <td>0.658</td>
-      <td>0.006</td>
+      <th>test_recall</th>
+      <td>0.00</td>
+      <td>0.36</td>
+      <td>0.35</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>test_recall</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.363</td>
-      <td>0.029</td>
-      <td>0.352</td>
-      <td>0.015</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>train_recall</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.377</td>
-      <td>0.015</td>
-      <td>0.354</td>
-      <td>0.005</td>
+      <th>train_recall</th>
+      <td>0.00</td>
+      <td>0.38</td>
+      <td>0.35</td>
     </tr>
   </tbody>
 </table>
 </div></div><figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Model Comparison - Cross Validation Scores</span><a class="headerlink" href="#cv-results" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Model Comparison - Cross Validation Scores</span><a class="headerlink" href="#cv-means" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p><a class="reference internal" href="#cv-results"><span class="std std-numref">Figure 7</span></a> reveals that the Logistic Regression slightly outperforms the Decision Tree Classifier in terms of test precision, whilst both models perform the same in regards to test recall. Additionally, the Logistic Regression model demonstrates a narrower disparity between training and testing scores, suggesting a higher potential of effective generalization. Despite these findings, there remains potential for precision improvement. In future efforts to predict subscription outcomes, increasing the threshold could improve precision. Overall, the Logistic Regression model’s performance indicated better generalizability.</p>
+<p>The decision to use logistic regression and decision trees was influenced by several factors. Logistic regression was favored for its simplicity and strong interpretability, which is useful in understanding the impact of each feature on the probability of a client subscribing to a term deposit. It is suitable for binary classification problems and provides a framework based on probabilities. On the other hand, Decision Trees offer a visual representation of the decision making processes, making them easy to interpret. They are also non parametric and can handle non linear relationships. Finally, both models are prominent in the data science field, making them reliable choices for our analysis.</p>
+<p><a class="reference internal" href="#cv-means"><span class="std std-numref">Figure 7</span></a> reveals that the Logistic Regression slightly outperforms the Decision Tree Classifier in terms of test precision, whilst both models perform the same in regards to test recall. Additionally, the Logistic Regression model demonstrates a narrower disparity between training and testing scores, suggesting a higher potential of effective generalization. Despite these findings, there remains potential for precision improvement. In future efforts to predict subscription outcomes, increasing the threshold could improve precision. Overall, the Logistic Regression model’s performance indicated better generalizability.</p>
 <p><strong>Analysis of Model Performance</strong></p>
 <p>Upon further analysis, we observed that the Logistic Regression model, when applied on the test data, achieved a precision of 0.66 for predicting positive outcomes (clients subscribing to a term deposit).</p>
 <figure class="align-default" id="classification-report" style="width: 300px">
@@ -969,7 +916,6 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
       <th>precision</th>
       <th>recall</th>
       <th>f1-score</th>
@@ -978,40 +924,35 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>no</td>
+      <th>no</th>
       <td>0.92</td>
       <td>0.97</td>
       <td>0.95</td>
       <td>7952</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>yes</td>
+      <th>yes</th>
       <td>0.66</td>
       <td>0.36</td>
       <td>0.47</td>
       <td>1091</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>accuracy</td>
+      <th>accuracy</th>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>0.90</td>
-      <td>0.90</td>
-      <td>0.90</td>
-      <td>0</td>
+      <td>9043</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>macro avg</td>
+      <th>macro avg</th>
       <td>0.79</td>
       <td>0.67</td>
       <td>0.71</td>
       <td>9043</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>weighted avg</td>
+      <th>weighted avg</th>
       <td>0.89</td>
       <td>0.90</td>
       <td>0.89</td>
@@ -1046,7 +987,6 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
       <th>feature</th>
       <th>coef</th>
     </tr>
@@ -1054,33 +994,28 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>0</td>
       <td>poutcome_success</td>
-      <td>1.598581</td>
+      <td>1.599</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
       <td>month_mar</td>
-      <td>1.476227</td>
+      <td>1.476</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2</td>
       <td>month_jan</td>
-      <td>-1.220294</td>
+      <td>-1.220</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>3</td>
       <td>duration</td>
-      <td>1.089302</td>
+      <td>1.089</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>4</td>
       <td>contact_unknown</td>
-      <td>-1.018287</td>
+      <td>-1.018</td>
     </tr>
   </tbody>
 </table>
@@ -1094,36 +1029,37 @@ document.write(`
 <li><p><strong>Month of Contact:</strong> The subscription patterns in March and January require further exploration to understand their underlying causes.</p></li>
 <li><p><strong>Call Duration:</strong> There is a positive relationship between longer call durations and higher subscription rates, indicating that extended interactions reflect and possibly enhance client interest.</p></li>
 </ul>
-<p>Our Logistic Regression model displayed some predictive performance for client subscriptions to term deposits, as shown by consistent precision test, validation, and train scores. Nonetheless, it’s important to consider these results while acknowledging our limitations.</p>
-<p><strong>Limitations</strong></p>
-<p>Our first limitation refers to our dataset displaying a significant imbalance in the target distribution (88.2358% ‘no’ subscription rate versus 11.7642% ‘yes’ rate). Despite our efforts to compensate for the imbalance by including the use of precision and recall metrics, the imbalance could still impact the overall generalizability of our findings.</p>
+<p>Our Logistic Regression model displayed some predictive performance for client subscriptions to term deposits, as shown by consistent precision test, validation, and train scores. Nonetheless, it’s important to consider these results while acknowledging our limitations and assumptions.</p>
+<p><strong>Limitations &amp; Assumptions</strong></p>
+<p>Logistic regression works under certain assumptions that are important to acknowledge. One key assumption is linearity, which implies that there is a linear relationship between the log-odds of the outcome and each predictor variable. This assumption means that logistic regression may not capture very complex non linear relationships as efficiently as other models could have. Additionally, logistic regression assumes feature independence. Recognizing these assumptions helps in understanding the model’s limitations.</p>
+<p>Our dataset displaying a significant imbalance in the target distribution (88.2358% ‘no’ subscription rate versus 11.7642% ‘yes’ rate) is also a limitation we should note. Despite our efforts to compensate for the imbalance by including the use of precision and recall metrics, the imbalance could still impact the overall generalizability of our findings.</p>
 <p>Another limitation stems from our interpretation of the potential seasonal trend, sourced from the significance of January and March months in subscription rates. We initially linked these insights to the potential fiscal calendar of the Portuguese banking institutions, thinking financial tax or bonus periods could influence client receptiveness. This idea came from our team’s knowledge that not all countries follow the same financial quarters. However, this theory was no longer considered after we discovered that the financial year for Portugal ends in December. This points to the possibility of other unknown external factors influencing the <code class="docutils literal notranslate"><span class="pre">month</span></code> feature, which are beyond the scope of our dataset. Understanding the reasons behind the potential seasonality trend and incorporating additional data could generate more insightful observations.</p>
 <p>Additionally, our decision to opt for the Logistic Regression model over the Decision Tree Classifier was justified by a very minimal difference in test precision (1%). This decision was guided by the ease in interpretability of feature importance that Logistic Regression models offer, which might have led us to overlook the potential insights Decision Tree models offer. Thus, the top three features the Decision Tree Classifier selected are worth looking into too.</p>
 <p>Time constraints also impacted our analysis. This limitation might have restricted the depth of our analysis, potentially overlooking more sophisticated modeling approaches that could further improve our understanding of client subscriptions to term deposits at the Portuguese banking institution. Future improvements could involve exploring more complex models like Random Forests and adjusting the threshold to enhance precision.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="references">
 <h1>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h1>
-<div class="docutils container" id="id8">
+<div class="docutils container" id="id10">
 <dl class="citation">
-<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id4">H+20</a></span></dt>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id6">H+20</a></span></dt>
 <dd><p>C.R. Harris and others. Array programming with numpy. <em>Nature</em>, 585:357–362, 2020.</p>
 </dd>
-<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id7">KO23</a></span></dt>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id9">KO23</a></span></dt>
 <dd><p>Varada Kolhatkar and Joel Ostblom. Dsci_573_feat-model-select_students repository. 2023. URL: <a class="reference external" href="https://github.ubc.ca/MDS-2023-24/DSCI_573_feat-model-select_students/blob/fc08e3246ff07f0425942d1b97429d5d0ebce933/environment.yaml">https://github.ubc.ca/MDS-2023-24/DSCI_573_feat-model-select_students/blob/fc08e3246ff07f0425942d1b97429d5d0ebce933/environment.yaml</a>.</p>
 </dd>
-<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id1">MRC12</a></span></dt>
+<dt class="label" id="id11"><span class="brackets">MRC12</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>)</span></dt>
 <dd><p>S. Moro, P. Rita, and P. Cortez. Bank Marketing. UCI Machine Learning Repository, 2012. DOI: https://doi.org/10.24432/C5K306.</p>
 </dd>
-<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id5">P+11</a></span></dt>
+<dt class="label" id="id15"><span class="brackets">P+11</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id7">2</a>)</span></dt>
 <dd><p>F. Pedregosa and others. Scikit-learn: machine learning in python. <em>Journal of machine learning research</em>, 12:2825–2830, 2011.</p>
 </dd>
-<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id2">VRD09</a></span></dt>
+<dt class="label" id="id17"><span class="brackets"><a class="fn-backref" href="#id4">VRD09</a></span></dt>
 <dd><p>Guido Van Rossum and Fred L. Drake. <em>Python 3 Reference Manual</em>. CreateSpace, Scotts Valley, CA, 2009. ISBN 1441412697.</p>
 </dd>
-<dt class="label" id="id16"><span class="brackets"><a class="fn-backref" href="#id6">VGH+18</a></span></dt>
+<dt class="label" id="id18"><span class="brackets"><a class="fn-backref" href="#id8">VGH+18</a></span></dt>
 <dd><p>Jacob VanderPlas, Brian E. Granger, Jeffrey Heer, Dominik Moritz, Kanit Wongsuphasawat, Arvind Satyanarayan, Eitan Lees, Ilia Timofeev, Ben Welsh, and Scott Sievert. Altair: interactive statistical visualizations for python. <em>Journal of Open Source Software</em>, 3(32):1057, 2018. URL: <a class="reference external" href="https://doi.org/10.21105/joss.01057">https://doi.org/10.21105/joss.01057</a>, <a class="reference external" href="https://doi.org/10.21105/joss.01057">doi:10.21105/joss.01057</a>.</p>
 </dd>
-<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id3">WesMcKinney10</a></span></dt>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id5">WesMcKinney10</a></span></dt>
 <dd><p>Wes McKinney. Data Structures for Statistical Computing in Python. In Stéfan van der Walt and Jarrod Millman, editors, <em>Proceedings of the 9th Python in Science Conference</em>, 56 – 61. 2010. <a class="reference external" href="https://doi.org/10.25080/Majora-92bf1922-00a">doi:10.25080/Majora-92bf1922-00a</a>.</p>
 </dd>
 </dl>
