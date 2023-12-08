@@ -27,6 +27,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 -   [Commit 78f2d4ca4eecd48c19397f247b9c697c148bc9b3] - Updated formatting for table indices.
 -   [Commit 7a8431e7dd30f5c7bb8f6b1ac85a35c1e2285c5e] - Overall report reformatting.
 -   [PR #78] - Updated LICENSE file with Creative Commons License
+-   [Commit 9f0886454e49dc3eeb632d858b317e44de787130] - Updated reference link in report data paragraph.
 
 ### Fixed
 
